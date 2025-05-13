@@ -1,0 +1,417 @@
+/* ===== TOOL PAGE STYLES ===== */
+
+/* Tool Hero Section */
+.tool-hero {
+    padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-lg);
+    background-color: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.tool-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--bg-dark));
+    z-index: 1;
+}
+
+.tool-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tool-hero-content .tool-icon-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.tool-hero-content .tool-icon-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.tool-hero-content .tool-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.1), rgba(193, 46, 97, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.tool-hero-content .tool-icon .material-icons {
+    font-size: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tool-hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+}
+
+.tool-description {
+    font-size: 1.2rem;
+    color: var(--medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.tool-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.tool-category,
+.tool-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    background-color: rgba(91, 76, 196, 0.1);
+    color: var(--light);
+    font-size: 0.9rem;
+}
+
+.tool-category .material-icons,
+.tool-updated .material-icons {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+/* Tool Content Section */
+.tool-content {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-dark);
+    min-height: 600px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--spacing-lg);
+}
+
+/* Tool Interface */
+.tool-interface {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(91, 76, 196, 0.1);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Coming Soon Container */
+.coming-soon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: var(--spacing-xl);
+}
+
+.coming-soon-animation {
+    width: 250px;
+    height: 250px;
+    margin-bottom: var(--spacing-md);
+}
+
+.coming-soon-container h2 {
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.coming-soon-container p {
+    color: var(--medium);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+    max-width: 400px;
+}
+
+/* Tool iframe container */
+.tool-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.tool-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.iframe-overlay {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.btn-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Tool Sidebar */
+.tool-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.tool-info-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(91, 76, 196, 0.1);
+}
+
+.tool-info-card h3 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.tool-info-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: var(--radius-full);
+}
+
+.tool-info-card p {
+    color: var(--medium);
+    line-height: 1.6;
+}
+
+.feature-animation-container {
+    width: 100%;
+    height: 120px;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.05), rgba(193, 46, 97, 0.05));
+}
+
+.feature-animation {
+    width: 100%;
+    height: 100%;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--medium);
+    line-height: 1.4;
+    transition: transform var(--transition-fast);
+}
+
+.feature-list li:hover {
+    transform: translateX(5px);
+    color: var(--light);
+}
+
+.feature-list li .material-icons {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.how-to-list {
+    padding-left: 1.5rem;
+    color: var(--medium);
+    line-height: 1.6;
+}
+
+.how-to-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.how-to-list li::marker {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.related-tools ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.related-tools a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--medium);
+    transition: all var(--transition-fast);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+}
+
+.related-tools a:hover {
+    background-color: rgba(91, 76, 196, 0.1);
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.related-tools .material-icons {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Home Button */
+.home-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    z-index: 90;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    color: var(--white);
+}
+
+.home-button {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--heading-font);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .tool-hero-content .tool-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .tool-hero-content .tool-icon .material-icons {
+        font-size: 2.5rem;
+    }
+
+    .tool-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .tool-description {
+        font-size: 1rem;
+    }
+
+    .coming-soon-animation {
+        width: 200px;
+        height: 200px;
+    }
+
+    .coming-soon-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .home-button {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .home-button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-button {
+        width: 40px;
+        height: 40px;
+        bottom: 10px;
+        right: 10px;
+    }
+}

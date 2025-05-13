@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all online tools available at latestonlinetools.com, organized by category">
+    <meta name="color-scheme" content="dark">
+    <title>All Tools - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <!-- Ensure favicon is properly loaded -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="./assets/css/all-tools.css">
+    <style>
+        :root {
+            --primary-color: #5B4CC4;
+            --secondary-color: #C12E61;
+            --gradient: linear-gradient(135deg, #5B4CC4, #C12E61);
+            --bg-dark: #1a1a2e;
+            --bg-card: #252542;
+            --bg-elevated: #2a2a45;
+            --white: #ffffff;
+            --light: #f0f0f0;
+            --medium: #a0a0a0;
+            --dark: #333333;
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 15px rgba(91, 76, 196, 0.3);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --body-font: 'Open Sans', sans-serif;
+            --heading-font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-family: var(--heading-font);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            outline: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+            color: var(--white);
+        }
+
+        /* Header styles are now inherited from the main styles.css file */
+
+        .footer {
+            background-color: var(--bg-elevated);
+            padding: var(--spacing-lg) 0;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-logo a {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        .footer-logo a span:first-child {
+            color: var(--primary-color);
+        }
+
+        .footer-logo a span:last-child {
+            color: var(--secondary-color);
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: var(--radius-full);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer categories layout */
+        .footer-categories {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-categories ul {
+            flex: 1;
+        }
+
+        @media (max-width: 576px) {
+            .footer-categories {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+
+        .footer-col ul li a {
+            color: var(--medium);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background-color: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium);
+            transition: all var(--transition-normal);
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--medium);
+        }
+
+        /* Mobile navigation styles are now inherited from the main styles.css file */
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box input {
+                width: 120px;
+            }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        /* Custom cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(91, 76, 196, 0.3);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/responsive-hero.css">
+</head>
+<body>
+    <!-- Preloader removed -->
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="index.html">All Tools</a></li>
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero all-tools-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">All Tools Directory</h1>
+                <p class="hero-subtitle animate-on-scroll">Browse our complete collection of online tools organized by category</p>
+            </div>
+            <div class="hero-animation" id="all-tools-lottie"></div>
+        </div>
+    </section>
+
+    <!-- Tools Categories Section -->
+    <section class="all-tools-categories">
+        <div class="container">
+            <div class="category-filters animate-on-scroll">
+                <button type="button" class="category-filter active" data-category="all">
+                    <span class="material-icons">apps</span>
+                    <span class="filter-text">All</span>
+                </button>
+                <!-- Category filters will be dynamically added here -->
+            </div>
+
+            <div class="tools-search-container animate-on-scroll">
+                <div class="tools-search-box">
+                    <span class="material-icons">search</span>
+                    <input type="text" id="tools-filter" placeholder="Filter tools by name or description...">
+                </div>
+            </div>
+
+            <div class="view-toggle-container animate-on-scroll">
+                <div class="view-toggle">
+                    <button type="button" id="grid-view-btn" class="view-toggle-btn active" aria-label="Grid View">
+                        <span class="material-icons">grid_view</span>
+                    </button>
+                    <button type="button" id="list-view-btn" class="view-toggle-btn" aria-label="List View">
+                        <span class="material-icons">view_list</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="all-tools-grid" id="all-tools-grid">
+                <!-- Tools will be dynamically loaded here from tools.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="../../index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="../onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="../qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="../word-counter/index.html">Word Counter</a></li>
+                        <li><a href="../image-editor/index.html">Image Editor</a></li>
+                        <li><a href="../meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../../about.html">About Us</a></li>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Cursor Effect removed -->
+
+    <!-- Floating Search Button -->
+    <a href="../search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Lottie Animation Library -->
+    <script src="../../assets/js/lottie.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Disable tools.json fetching in main.js for this page
+        window.skipToolsJsonFetch = true;
+    </script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="./assets/js/all-tools.js"></script>
+    <script src="../../assets/js/floating-search-button.js"></script>
+</body>
+</html>

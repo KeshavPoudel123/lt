@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reference and search ASCII character codes and symbols with this comprehensive ASCII table tool.">
+    <meta name="color-scheme" content="dark">
+    <title>ASCII Table - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">ASCII Table</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Reference and search ASCII character codes and symbols. View decimal, hexadecimal, and binary values for all ASCII characters.</p>
+                    </div>
+
+                    <div class="calculator-tabs">
+                        <button type="button" id="tab-table" class="tab-btn active">ASCII Table</button>
+                        <button type="button" id="tab-search" class="tab-btn">Search</button>
+                        <button type="button" id="tab-converter" class="tab-btn">Converter</button>
+                        <button type="button" id="tab-info" class="tab-btn">Information</button>
+                    </div>
+
+                    <!-- ASCII Table -->
+                    <div id="calculator-table" class="calculator-section active">
+                        <div class="calculator-content">
+                            <div class="table-controls">
+                                <div class="table-filter">
+                                    <label for="category-filter">Filter by Category:</label>
+                                    <select id="category-filter" class="form-control">
+                                        <option value="all">All Characters</option>
+                                        <option value="control">Control Characters (0-31)</option>
+                                        <option value="printable">Printable Characters (32-126)</option>
+                                        <option value="extended">Extended ASCII (128-255)</option>
+                                    </select>
+                                </div>
+
+                                <div class="table-display">
+                                    <label for="display-format">Display Format:</label>
+                                    <select id="display-format" class="form-control">
+                                        <option value="grid">Grid View</option>
+                                        <option value="list">List View</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="ascii-table-container">
+                                <div id="ascii-table" class="ascii-table grid-view">
+                                    <!-- ASCII table will be generated here -->
+                                </div>
+                            </div>
+
+                            <div class="character-details-container">
+                                <div id="character-details" class="character-details">
+                                    <h3>Character Details</h3>
+                                    <p>Select a character from the table to view details.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ASCII Search -->
+                    <div id="calculator-search" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="search-section">
+                                <div class="search-input-container">
+                                    <label for="search-input">Search ASCII Characters:</label>
+                                    <div class="search-input-wrapper">
+                                        <input type="text" id="search-input" class="form-control" placeholder="Enter character, decimal, hex, or description...">
+                                        <button type="button" id="search-btn" class="btn btn-primary">
+                                            <i class="fas fa-search"></i> Search
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="search-options">
+                                    <div class="search-option">
+                                        <input type="checkbox" id="search-decimal" checked>
+                                        <label for="search-decimal">Decimal</label>
+                                    </div>
+                                    <div class="search-option">
+                                        <input type="checkbox" id="search-hex" checked>
+                                        <label for="search-hex">Hexadecimal</label>
+                                    </div>
+                                    <div class="search-option">
+                                        <input type="checkbox" id="search-char" checked>
+                                        <label for="search-char">Character</label>
+                                    </div>
+                                    <div class="search-option">
+                                        <input type="checkbox" id="search-desc" checked>
+                                        <label for="search-desc">Description</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="search-results-container">
+                                <h3>Search Results</h3>
+                                <div id="search-results" class="search-results">
+                                    <!-- Search results will be displayed here -->
+                                    <p class="empty-results">Enter a search term to find ASCII characters.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ASCII Converter -->
+                    <div id="calculator-converter" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="converter-section">
+                                <div class="converter-input-container">
+                                    <label for="converter-input">Text to Convert:</label>
+                                    <textarea id="converter-input" class="form-control" placeholder="Enter text to convert to ASCII codes..."></textarea>
+                                </div>
+
+                                <div class="converter-options">
+                                    <div class="converter-option">
+                                        <input type="radio" id="convert-to-decimal" name="convert-type" checked>
+                                        <label for="convert-to-decimal">To Decimal</label>
+                                    </div>
+                                    <div class="converter-option">
+                                        <input type="radio" id="convert-to-hex" name="convert-type">
+                                        <label for="convert-to-hex">To Hexadecimal</label>
+                                    </div>
+                                    <div class="converter-option">
+                                        <input type="radio" id="convert-to-binary" name="convert-type">
+                                        <label for="convert-to-binary">To Binary</label>
+                                    </div>
+                                    <div class="converter-option">
+                                        <input type="radio" id="convert-from-codes" name="convert-type">
+                                        <label for="convert-from-codes">From Codes to Text</label>
+                                    </div>
+                                </div>
+
+                                <div class="converter-actions">
+                                    <button type="button" id="convert-btn" class="btn btn-primary">Convert</button>
+                                    <button type="button" id="clear-converter" class="btn btn-secondary">Clear</button>
+                                </div>
+                            </div>
+
+                            <div class="converter-results-container">
+                                <div class="converter-results-header">
+                                    <h3>Conversion Result</h3>
+                                    <button type="button" id="copy-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div id="converter-results" class="converter-results">
+                                    <!-- Conversion results will be displayed here -->
+                                    <p class="empty-results">Enter text and click Convert to see results.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ASCII Information -->
+                    <div id="calculator-info" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="info-section">
+                                <h3>About ASCII</h3>
+                                <p>ASCII (American Standard Code for Information Interchange) is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices.</p>
+
+                                <h4>ASCII Character Sets</h4>
+                                <ul>
+                                    <li><strong>Standard ASCII</strong> - Uses 7 bits to represent 128 characters (0-127)</li>
+                                    <li><strong>Extended ASCII</strong> - Uses 8 bits to represent 256 characters (0-255)</li>
+                                </ul>
+
+                                <h4>ASCII Categories</h4>
+                                <ul>
+                                    <li><strong>Control Characters (0-31)</strong> - Non-printable characters used for controlling devices</li>
+                                    <li><strong>Printable Characters (32-126)</strong> - Letters, digits, punctuation, and symbols</li>
+                                    <li><strong>Extended Characters (128-255)</strong> - Additional symbols, graphics, and international characters</li>
+                                </ul>
+
+                                <h4>Common ASCII Control Characters</h4>
+                                <div class="common-controls">
+                                    <div class="control-item">
+                                        <span class="control-code">NUL (0)</span>
+                                        <span class="control-desc">Null character</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">BEL (7)</span>
+                                        <span class="control-desc">Bell</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">BS (8)</span>
+                                        <span class="control-desc">Backspace</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">HT (9)</span>
+                                        <span class="control-desc">Horizontal Tab</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">LF (10)</span>
+                                        <span class="control-desc">Line Feed</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">CR (13)</span>
+                                        <span class="control-desc">Carriage Return</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">ESC (27)</span>
+                                        <span class="control-desc">Escape</span>
+                                    </div>
+                                    <div class="control-item">
+                                        <span class="control-code">DEL (127)</span>
+                                        <span class="control-desc">Delete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Display</h3>
+                    <div class="setting-item">
+                        <label for="show-control-chars">Show Control Characters</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="show-control-chars" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label for="show-extended-ascii">Show Extended ASCII</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="show-extended-ascii" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label for="hex-uppercase">Uppercase Hexadecimal</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="hex-uppercase" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

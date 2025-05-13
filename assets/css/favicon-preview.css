@@ -1,0 +1,143 @@
+/* Favicon Preview Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #E0E0E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.favicon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.favicon-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 200px;
+}
+
+.favicon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.favicon-primary {
+    background-color: #5B4CC4;
+}
+
+.favicon-secondary {
+    background-color: #C12E61;
+}
+
+.favicon-gradient {
+    background: linear-gradient(135deg, #5B4CC4, #C12E61);
+}
+
+.favicon-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.favicon-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.favicon-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.size-16 {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.size-32 {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+}
+
+.size-48 {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.size-label {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #8A8AA3;
+}
+
+.instructions {
+    max-width: 800px;
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.instructions h2 {
+    margin-top: 0;
+}
+
+.instructions code {
+    background-color: #252525;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.instructions pre {
+    background-color: #252525;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+
+/* Link styles */
+.instructions a {
+    color: #5B4CC4;
+    text-decoration: none;
+}
+
+.instructions a:hover {
+    text-decoration: underline;
+}

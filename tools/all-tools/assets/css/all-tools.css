@@ -1,0 +1,949 @@
+/* ===== ALL TOOLS PAGE SPECIFIC STYLES ===== */
+
+/* Hero Section */
+.all-tools-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    background: var(--bg-dark);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.all-tools-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.all-tools-hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.all-tools-hero-content {
+    max-width: 600px;
+}
+
+.all-tools-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+.all-tools-hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: var(--radius-full);
+}
+
+.all-tools-hero-content p {
+    font-size: 1.2rem;
+    color: var(--light);
+    opacity: 0.9;
+}
+
+.all-tools-hero-animation {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+/* Category Filters */
+.all-tools-categories {
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+    background-color: var(--bg-dark);
+    position: relative;
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--spacing-md);
+    justify-content: center;
+}
+
+.category-filter {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(91, 76, 196, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--medium);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--body-font);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reduced gap between icon and text */
+}
+
+.category-filter:hover {
+    background-color: rgba(91, 76, 196, 0.1);
+    color: var(--light);
+    transform: translateY(-2px);
+}
+
+.category-filter.active {
+    background: var(--gradient);
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+.category-filter .material-icons {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.category-filter .filter-text {
+    line-height: 1;
+    display: inline-block;
+}
+
+/* Tools Search Box */
+.tools-search-container {
+    margin-bottom: var(--spacing-md);
+}
+
+.tools-search-box {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    padding: 0.75rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(91, 76, 196, 0.2);
+    transition: all var(--transition-normal);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tools-search-box:focus-within {
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(91, 76, 196, 0.5);
+}
+
+.tools-search-box .material-icons {
+    color: var(--primary-color);
+    margin-right: 0.75rem;
+}
+
+.tools-search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--body-font);
+    width: 100%;
+    color: var(--light);
+    font-size: 1rem;
+}
+
+/* View Toggle */
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.view-toggle {
+    display: flex;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(91, 76, 196, 0.1);
+}
+
+.view-toggle-btn {
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px;
+    cursor: pointer;
+    color: var(--medium);
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-toggle-btn:hover {
+    color: var(--light);
+    background-color: rgba(91, 76, 196, 0.1);
+}
+
+.view-toggle-btn.active {
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.view-toggle-btn .material-icons {
+    font-size: 1.2rem;
+}
+
+/* All Tools Grid */
+.all-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+/* All Tools List */
+.all-tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Reduced from var(--spacing-sm) */
+    margin-top: var(--spacing-sm);
+}
+
+.tool-list-item {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 12px 16px; /* Reduced from var(--spacing-md) */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Faster, more specific transitions */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(91, 76, 196, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Increased from 12px to create more space between icon and text */
+}
+
+.tool-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(91, 76, 196, 0.3);
+}
+
+.tool-list-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gradient);
+}
+
+.tool-list-icon {
+    width: 48px; /* Reduced from 60px */
+    height: 48px; /* Reduced from 60px */
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.1), rgba(193, 46, 97, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, background 0.2s ease; /* Faster, more specific transitions */
+    flex-shrink: 0;
+}
+
+.tool-list-item:hover .tool-list-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.2), rgba(193, 46, 97, 0.2));
+}
+
+.tool-list-icon .material-icons {
+    color: var(--primary-color);
+    font-size: 24px; /* Reduced from 28px */
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-normal);
+}
+
+.tool-list-item:hover .tool-list-icon .material-icons {
+    color: var(--white);
+}
+
+.tool-list-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Reduced from var(--spacing-xs) */
+}
+
+.tool-list-header {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced from var(--spacing-sm) */
+}
+
+.tool-list-name {
+    font-size: 1.1rem; /* Reduced from 1.25rem */
+    color: var(--light);
+    transition: color var(--transition-normal);
+    margin: 0;
+}
+
+.tool-list-item:hover .tool-list-name {
+    color: var(--white);
+}
+
+.tool-list-description {
+    color: var(--medium);
+    font-size: 0.9rem; /* Reduced from 0.95rem */
+    line-height: 1.4; /* Reduced from 1.5 */
+    margin: 0; /* Added to remove default margins */
+}
+
+.tool-list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px; /* Reduced from var(--spacing-xs) */
+}
+
+.tool-list-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.7rem; /* Reduced from 0.75rem */
+    color: var(--primary-color);
+    background-color: rgba(91, 76, 196, 0.1);
+    padding: 0.2rem 0.4rem; /* Reduced from 0.25rem 0.5rem */
+    border-radius: var(--radius-sm);
+}
+
+.tool-list-category .material-icons {
+    font-size: 0.8rem; /* Reduced from 0.9rem */
+}
+
+.tool-list-action {
+    margin-left: auto;
+}
+
+.category-section {
+    grid-column: 1 / -1;
+    margin-top: 24px; /* Reduced from var(--spacing-lg) */
+    margin-bottom: 8px; /* Reduced from var(--spacing-sm) */
+}
+
+.category-section:first-child {
+    margin-top: 0;
+}
+
+.category-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced from var(--spacing-sm) */
+    color: var(--white);
+    font-size: 1.6rem; /* Reduced from 1.8rem */
+    position: relative;
+    padding-bottom: 8px; /* Reduced from var(--spacing-sm) */
+    margin-bottom: 12px; /* Reduced from var(--spacing-md) */
+}
+
+.category-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: var(--radius-full);
+}
+
+.category-heading .material-icons {
+    font-size: 1.6rem; /* Reduced from 1.8rem */
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tool-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    transition: all var(--transition-normal); /* Restored original transition */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(91, 76, 196, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(91, 76, 196, 0.3);
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient);
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.1), rgba(193, 46, 97, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-normal); /* Restored original transition */
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(91, 76, 196, 0.2), rgba(193, 46, 97, 0.2));
+}
+
+.tool-icon .material-icons {
+    color: var(--primary-color);
+    font-size: 28px;
+    position: relative;
+    z-index: 1;
+    transition: all var(--transition-normal);
+}
+
+.tool-card:hover .tool-icon .material-icons {
+    color: var(--white);
+}
+
+.tool-name {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--light);
+    transition: color var(--transition-normal);
+}
+
+.tool-card:hover .tool-name {
+    color: var(--white);
+}
+
+.tool-description {
+    color: var(--medium);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.tool-badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: var(--gradient);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    animation: pulse-badge 2s infinite alternate;
+}
+
+/* Specific styles for badge in list view */
+.tool-list-header .tool-badge {
+    position: static; /* Override absolute positioning */
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    margin-left: 4px;
+}
+
+.tool-category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    background-color: rgba(91, 76, 196, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.tool-category-badge .material-icons {
+    font-size: 0.9rem;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--medium);
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px dashed rgba(91, 76, 196, 0.3);
+}
+
+.no-results .material-icons {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+/* Footer styles are now inherited from the main styles.css file */
+
+/* Home Button */
+.home-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: var(--gradient);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    z-index: 90;
+}
+
+.home-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow);
+}
+
+.home-button .material-icons {
+    font-size: 24px;
+}
+
+.home-button span {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .all-tools-hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .all-tools-hero-content {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .all-tools-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .all-tools-hero-content h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .category-heading {
+        font-size: 1.5rem;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .all-tools-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .category-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px; /* Smaller gap between filters */
+    }
+
+    .category-filter {
+        white-space: nowrap;
+        min-width: auto; /* Allow filters to take their natural width */
+        padding: 0.4rem 0.6rem; /* Even smaller padding */
+        font-size: 0.85rem; /* Even smaller font size */
+    }
+
+    .category-filter .material-icons {
+        font-size: 1rem; /* Even smaller icons */
+    }
+
+    .all-tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller minimum width */
+        gap: var(--spacing-sm); /* Reduce gap on smaller screens */
+    }
+
+    /* Ensure category tools containers also use the same grid settings */
+    .category-tools.grid-view {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    }
+
+    .tools-search-box {
+        padding: 0.6rem 1rem;
+    }
+
+    .category-heading {
+        font-size: 1.4rem;
+    }
+
+    .category-heading .material-icons {
+        font-size: 1.4rem;
+    }
+
+    /* Improve tool cards on mobile */
+    .tool-card {
+        padding: var(--spacing-sm);
+    }
+
+    .tool-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tool-name {
+        font-size: 1.1rem;
+    }
+
+    /* List view responsive styles */
+    .tool-list-item {
+        flex-direction: row; /* Keep horizontal layout even on mobile */
+        align-items: center;
+        gap: 16px; /* Increased from 10px for more space between icon and text */
+        padding: 10px 12px; /* Further reduce padding on mobile */
+    }
+
+    .tool-list-item::before {
+        width: 4px; /* Keep the vertical line */
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .tool-list-icon {
+        width: 40px; /* Reduced from 50px */
+        height: 40px; /* Reduced from 50px */
+    }
+
+    .tool-list-content {
+        width: calc(100% - 50px); /* Account for icon width */
+    }
+
+    .tool-list-description {
+        display: -webkit-box;
+        display: box;
+        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        line-clamp: 2; /* Standard property for compatibility */
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 2.8em; /* Fallback for browsers that don't support line-clamp */
+    }
+
+    .tool-list-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .tool-list-action {
+        margin-left: auto;
+        width: auto;
+    }
+
+    .tool-list-action .btn {
+        width: auto;
+        margin-top: 0;
+        padding: 0.3rem 0.8rem; /* Smaller button on mobile */
+        font-size: 0.8rem; /* Smaller font on mobile */
+    }
+
+    /* Smaller badge in list view on small screens */
+    .tool-list-header .tool-badge {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+
+}
+
+/* Smaller launch button only for list view */
+.tool-list-action .btn.btn-primary {
+    padding: 0.5rem 1rem; /* Reduced from 0.75rem 1.5rem */
+    font-size: 0.9rem; /* Reduced from default */
+}
+
+@media (max-width: 576px) {
+    .all-tools-hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .all-tools-hero-content p {
+        font-size: 1rem;
+    }
+
+    .all-tools-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Always show 2 columns */
+        gap: 8px; /* Smaller gap for tighter layout */
+    }
+
+    /* Make grid cards smaller on mobile */
+    .tool-card {
+        padding: 10px; /* Smaller padding */
+    }
+
+    .tool-name {
+        font-size: 0.95rem; /* Smaller font size */
+        margin-bottom: 4px;
+    }
+
+    .tool-description {
+        font-size: 0.8rem; /* Smaller font size */
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .tool-category-badge {
+        font-size: 0.65rem; /* Smaller font size */
+        padding: 0.15rem 0.35rem;
+        margin-bottom: 6px;
+    }
+
+    .tool-category-badge .material-icons {
+        font-size: 0.75rem;
+    }
+
+    .tool-card .btn.btn-primary {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .home-button {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .home-button span {
+        display: none; /* Hide text on very small screens */
+    }
+
+    .category-heading {
+        font-size: 1.3rem;
+    }
+
+    .category-heading .material-icons {
+        font-size: 1.3rem;
+    }
+
+    .category-section {
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-xs);
+    }
+    .category-filter {
+        white-space: nowrap;
+        min-width: auto; /* Allow filters to take their natural width */
+        padding: 0.3rem 0.5rem; /* Much smaller padding */
+        font-size: 0.75rem; /* Much smaller font size */
+        margin: 2px; /* Add small margin for better spacing */
+    }
+
+    .category-filter .material-icons {
+        font-size: 0.9rem; /* Much smaller icons */
+    }
+
+    /* Tighter spacing between filters */
+    .category-filters {
+        gap: 4px;
+    }
+
+    .tools-search-box {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .tools-search-box .material-icons {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .tools-search-box input {
+        font-size: 0.9rem;
+    }
+
+    .all-tools-categories {
+        padding: var(--spacing-md) 0 var(--spacing-lg);
+    }
+
+
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+    .all-tools-hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .category-filter {
+        padding: 0.2rem 0.35rem;
+        font-size: 0.65rem;
+        margin: 1px;
+        border-radius: 4px; /* Smaller border radius */
+        border-width: 1px; /* Ensure thin border */
+        gap: 3px; /* Even smaller gap between icon and text */
+    }
+
+    .category-filter .material-icons {
+        font-size: 0.75rem;
+        line-height: 1;
+        height: auto;
+        width: auto;
+    }
+
+    /* Ensure category filters container has proper spacing */
+    .category-filters {
+        gap: 3px;
+        margin-bottom: 8px;
+    }
+
+    /* Maintain 2-column layout but make everything smaller */
+    .all-tools-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Force 2 columns */
+        gap: 6px; /* Even smaller gap */
+    }
+
+    .tool-card {
+        padding: 8px; /* Very compact padding */
+    }
+
+    .tool-icon {
+        width: 32px; /* Smaller icon */
+        height: 32px;
+        margin-bottom: 4px;
+    }
+
+    .tool-icon .material-icons {
+        font-size: 18px; /* Smaller icon */
+    }
+
+    .tool-name {
+        font-size: 0.85rem; /* Smaller font */
+        margin-bottom: 2px;
+    }
+
+    .tool-description {
+        font-size: 0.75rem; /* Smaller font */
+        line-height: 1.2;
+        margin-bottom: 6px;
+        /* Limit to 3 lines */
+        display: -webkit-box;
+        display: box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3; /* Standard property for compatibility */
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+        overflow: hidden;
+        max-height: 2.7em; /* Fallback for browsers that don't support line-clamp */
+    }
+
+    .tool-category-badge {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.25rem;
+        margin-bottom: 4px;
+    }
+
+    .tool-card .btn.btn-primary {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .home-button {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .home-button .material-icons {
+        font-size: 20px;
+    }
+
+    /* Extra small screen list view adjustments */
+    .tool-list-item {
+        padding: 8px; /* Even smaller padding */
+        gap: 10px; /* Reduced gap between icon and content */
+    }
+
+    .tool-list-icon {
+        width: 32px; /* Even smaller icon */
+        height: 32px;
+    }
+
+    .tool-list-icon .material-icons {
+        font-size: 18px; /* Smaller icon */
+    }
+
+    .tool-list-name {
+        font-size: 0.85rem; /* Smaller font */
+    }
+
+    .tool-list-description {
+        font-size: 0.75rem; /* Smaller font */
+        line-height: 1.2;
+        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        line-clamp: 2;
+        max-height: 1.8em;
+    }
+
+    .tool-list-category {
+        font-size: 0.6rem; /* Smaller font */
+        padding: 0.1rem 0.3rem;
+    }
+
+    .tool-list-category .material-icons {
+        font-size: 0.7rem;
+    }
+
+    .tool-list-action .btn {
+        padding: 0.25rem 0.6rem; /* Even smaller button */
+        font-size: 0.7rem; /* Even smaller font */
+    }
+
+    .tool-list-header .tool-badge {
+        font-size: 0.6rem; /* Even smaller badge */
+        padding: 0.1rem 0.3rem;
+    }
+
+
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Latest Online Tools - our mission, values, and the team behind our free online utilities">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>About Us | Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="assets/css/responsive-hero.css">
+    <style>
+        /* About page specific styles */
+        .about-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-content h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: var(--radius-full);
+        }
+
+        .about-content p {
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .about-content ul {
+            margin-bottom: var(--spacing-md);
+            padding-left: 1.5rem;
+        }
+
+        .about-content ul li {
+            color: var(--medium);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .team-section {
+            margin-top: var(--spacing-lg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .team-member {
+            background-color: rgba(91, 76, 196, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-sm);
+            overflow: hidden;
+            background: var(--gradient);
+            padding: 3px;
+        }
+
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-member-name {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member-role {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .team-member-bio {
+            color: var(--medium);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: var(--spacing-md);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="tools/all-tools/index.html">All Tools</a></li>
+
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">About Latest Online Tools</h1>
+                <p class="hero-subtitle animate-on-scroll">Learn about our mission, values, and the team behind our free online utilities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content animate-on-scroll">
+                <h2>Our Mission</h2>
+                <p>At Latest Online Tools, our mission is to provide free, high-quality, and easy-to-use online utilities that help people solve everyday problems and boost productivity. We believe that powerful tools should be accessible to everyone, regardless of technical expertise or financial resources.</p>
+
+                <h2>Our Story</h2>
+                <p>Latest Online Tools was founded in 2025 by a team of developers, designers, and productivity enthusiasts who were frustrated with the limitations of existing online utilities. We noticed that many online tools were either too complicated, filled with ads, or required payment for basic functionality.</p>
+                <p>We set out to create a platform that offers a comprehensive suite of tools that are not only powerful but also intuitive and accessible. Our goal was to build utilities that we ourselves would love to use every day.</p>
+
+                <h2>Our Values</h2>
+                <ul>
+                    <li><strong>Accessibility:</strong> We believe that powerful tools should be available to everyone, regardless of technical expertise or financial resources.</li>
+                    <li><strong>Simplicity:</strong> We strive to create intuitive interfaces that make complex tasks simple.</li>
+                    <li><strong>Privacy:</strong> We respect your privacy and do not collect unnecessary personal data.</li>
+                    <li><strong>Quality:</strong> We are committed to delivering high-quality tools that work reliably and efficiently.</li>
+                    <li><strong>Innovation:</strong> We continuously improve our existing tools and develop new ones to meet evolving needs.</li>
+                </ul>
+
+                <h2>What Sets Us Apart</h2>
+                <p>Unlike many other online tool providers, we offer all our utilities completely free of charge, with no hidden fees or premium features. We also prioritize user experience, ensuring that our tools are not only functional but also a pleasure to use.</p>
+                <p>Our platform is designed with a consistent, modern interface that works seamlessly across devices. Whether you're on a desktop computer, tablet, or smartphone, you can access our tools anytime, anywhere.</p>
+                <p>Latest Online Tools is made possible by a dedicated team of professionals who are passionate about creating useful utilities and delivering exceptional user experiences.</p>
+
+
+
+
+                <h2>Contact Us</h2>
+                <p>We value your feedback and suggestions. If you have any questions, comments, or ideas for new tools, please don't hesitate to reach out to us at <a href="mailto:contact@latestonlinetools.com">contact@latestonlinetools.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="tools/onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="tools/qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="tools/image-editor/index.html">Image Editor</a></li>
+                        <li><a href="tools/meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Floating Search Button -->
+    <a href="tools/search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/floating-search-button.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate Body Mass Index and provide health category information with this easy-to-use BMI calculator.">
+    <meta name="color-scheme" content="dark">
+    <title>BMI Calculator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">BMI Calculator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Calculate your Body Mass Index (BMI) and get information about your weight category and health implications.</p>
+                    </div>
+
+                    <div class="calculator-tabs">
+                        <button type="button" id="tab-standard" class="tab-btn active">Standard (kg/cm)</button>
+                        <button type="button" id="tab-imperial" class="tab-btn">Imperial (lb/in)</button>
+                        <button type="button" id="tab-info" class="tab-btn">BMI Information</button>
+                    </div>
+
+                    <!-- Standard BMI Calculator -->
+                    <div id="calculator-standard" class="calculator-section active">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="weight-kg">Weight (kg)</label>
+                                        <input type="number" id="weight-kg" class="form-control" placeholder="e.g., 70" min="0" step="0.1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="height-cm">Height (cm)</label>
+                                        <input type="number" id="height-cm" class="form-control" placeholder="e.g., 175" min="0" step="0.1">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="age">Age (optional)</label>
+                                        <input type="number" id="age" class="form-control" placeholder="e.g., 30" min="0" max="120">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender">Gender (optional)</label>
+                                        <select id="gender" class="form-control">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-standard" class="btn btn-primary">Calculate BMI</button>
+                                    <button type="button" id="reset-standard" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="standard-result-section" class="result-section hidden">
+                                <h3>Your BMI Results</h3>
+
+                                <div class="bmi-result">
+                                    <div class="bmi-value">
+                                        <span id="bmi-value">0</span>
+                                        <span class="bmi-unit">kg/m²</span>
+                                    </div>
+                                    <div class="bmi-category" id="bmi-category">Normal weight</div>
+                                </div>
+
+                                <div class="bmi-gauge-container">
+                                    <div class="bmi-gauge">
+                                        <div class="gauge-section underweight">
+                                            <span>Underweight</span>
+                                            <span class="gauge-range">&lt;18.5</span>
+                                        </div>
+                                        <div class="gauge-section normal">
+                                            <span>Normal</span>
+                                            <span class="gauge-range">18.5-24.9</span>
+                                        </div>
+                                        <div class="gauge-section overweight">
+                                            <span>Overweight</span>
+                                            <span class="gauge-range">25-29.9</span>
+                                        </div>
+                                        <div class="gauge-section obese">
+                                            <span>Obese</span>
+                                            <span class="gauge-range">&gt;30</span>
+                                        </div>
+                                        <div class="gauge-indicator" id="gauge-indicator"></div>
+                                    </div>
+                                </div>
+
+                                <div class="bmi-interpretation">
+                                    <h4>What does this mean?</h4>
+                                    <p id="bmi-interpretation">Your BMI is within the normal weight range. Maintaining a healthy weight may reduce the risk of chronic diseases associated with overweight and obesity.</p>
+                                </div>
+
+                                <div class="healthy-range">
+                                    <h4>Healthy Weight Range</h4>
+                                    <p>For your height, a healthy weight range would be <span id="healthy-weight-range">0 - 0</span> kg.</p>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                    <button type="button" id="print-result" class="btn btn-sm">
+                                        <i class="fas fa-print"></i> Print Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Imperial BMI Calculator -->
+                    <div id="calculator-imperial" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="weight-lb">Weight (lb)</label>
+                                        <input type="number" id="weight-lb" class="form-control" placeholder="e.g., 154" min="0" step="0.1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="height-ft">Height (ft)</label>
+                                        <input type="number" id="height-ft" class="form-control" placeholder="e.g., 5" min="0" max="8">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="height-in">Height (in)</label>
+                                        <input type="number" id="height-in" class="form-control" placeholder="e.g., 10" min="0" max="11">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="age-imperial">Age (optional)</label>
+                                        <input type="number" id="age-imperial" class="form-control" placeholder="e.g., 30" min="0" max="120">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gender-imperial">Gender (optional)</label>
+                                        <select id="gender-imperial" class="form-control">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-imperial" class="btn btn-primary">Calculate BMI</button>
+                                    <button type="button" id="reset-imperial" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="imperial-result-section" class="result-section hidden">
+                                <h3>Your BMI Results</h3>
+
+                                <div class="bmi-result">
+                                    <div class="bmi-value">
+                                        <span id="bmi-value-imperial">0</span>
+                                        <span class="bmi-unit">kg/m²</span>
+                                    </div>
+                                    <div class="bmi-category" id="bmi-category-imperial">Normal weight</div>
+                                </div>
+
+                                <div class="bmi-gauge-container">
+                                    <div class="bmi-gauge">
+                                        <div class="gauge-section underweight">
+                                            <span>Underweight</span>
+                                            <span class="gauge-range">&lt;18.5</span>
+                                        </div>
+                                        <div class="gauge-section normal">
+                                            <span>Normal</span>
+                                            <span class="gauge-range">18.5-24.9</span>
+                                        </div>
+                                        <div class="gauge-section overweight">
+                                            <span>Overweight</span>
+                                            <span class="gauge-range">25-29.9</span>
+                                        </div>
+                                        <div class="gauge-section obese">
+                                            <span>Obese</span>
+                                            <span class="gauge-range">&gt;30</span>
+                                        </div>
+                                        <div class="gauge-indicator" id="gauge-indicator-imperial"></div>
+                                    </div>
+                                </div>
+
+                                <div class="bmi-interpretation">
+                                    <h4>What does this mean?</h4>
+                                    <p id="bmi-interpretation-imperial">Your BMI is within the normal weight range. Maintaining a healthy weight may reduce the risk of chronic diseases associated with overweight and obesity.</p>
+                                </div>
+
+                                <div class="healthy-range">
+                                    <h4>Healthy Weight Range</h4>
+                                    <p>For your height, a healthy weight range would be <span id="healthy-weight-range-imperial">0 - 0</span> lb.</p>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-result-imperial" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                    <button type="button" id="print-result-imperial" class="btn btn-sm">
+                                        <i class="fas fa-print"></i> Print Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BMI Information -->
+                    <div id="calculator-info" class="calculator-section">
+                        <div class="info-content">
+                            <div class="info-section">
+                                <h3>What is BMI?</h3>
+                                <p>Body Mass Index (BMI) is a numerical value of your weight in relation to your height. It is a commonly used method to categorize whether a person has a healthy body weight for their height. The formula for BMI is:</p>
+                                <div class="formula">
+                                    <p>BMI = weight(kg) / height²(m²)</p>
+                                </div>
+                                <p>BMI is an inexpensive and easy-to-perform method of screening for weight categories that may lead to health problems.</p>
+                            </div>
+
+                            <div class="info-section">
+                                <h3>BMI Categories</h3>
+                                <div class="bmi-categories-table">
+                                    <div class="category-row underweight">
+                                        <div class="category-name">Underweight</div>
+                                        <div class="category-range">BMI < 18.5</div>
+                                        <div class="category-description">May indicate malnutrition, an eating disorder, or other health problems</div>
+                                    </div>
+                                    <div class="category-row normal">
+                                        <div class="category-name">Normal weight</div>
+                                        <div class="category-range">BMI 18.5 - 24.9</div>
+                                        <div class="category-description">Indicates a healthy weight for most adults</div>
+                                    </div>
+                                    <div class="category-row overweight">
+                                        <div class="category-name">Overweight</div>
+                                        <div class="category-range">BMI 25 - 29.9</div>
+                                        <div class="category-description">May increase risk of heart disease and other conditions</div>
+                                    </div>
+                                    <div class="category-row obese">
+                                        <div class="category-name">Obesity (Class 1)</div>
+                                        <div class="category-range">BMI 30 - 34.9</div>
+                                        <div class="category-description">High risk of developing health problems</div>
+                                    </div>
+                                    <div class="category-row obese">
+                                        <div class="category-name">Obesity (Class 2)</div>
+                                        <div class="category-range">BMI 35 - 39.9</div>
+                                        <div class="category-description">Very high risk of developing health problems</div>
+                                    </div>
+                                    <div class="category-row obese">
+                                        <div class="category-name">Obesity (Class 3)</div>
+                                        <div class="category-range">BMI ≥ 40</div>
+                                        <div class="category-description">Extremely high risk of developing health problems</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h3>Limitations of BMI</h3>
+                                <p>While BMI is a useful tool for most people, it does have some limitations:</p>
+                                <ul class="limitations-list">
+                                    <li>It may overestimate body fat in athletes and others with muscular builds</li>
+                                    <li>It may underestimate body fat in older persons and others who have lost muscle mass</li>
+                                    <li>It doesn't account for differences in body composition between different ethnicities</li>
+                                    <li>It doesn't distinguish between fat, muscle, and bone mass</li>
+                                    <li>It doesn't account for where fat is stored in the body (abdominal fat poses greater health risks)</li>
+                                </ul>
+                                <p>For a more comprehensive assessment of health, BMI should be used alongside other measurements like waist circumference, body fat percentage, and consideration of lifestyle factors.</p>
+                            </div>
+
+                            <div class="info-section">
+                                <h3>Health Risks Associated with BMI Categories</h3>
+                                <div class="health-risks">
+                                    <div class="risk-category">
+                                        <h4>Underweight (BMI < 18.5)</h4>
+                                        <ul>
+                                            <li>Malnutrition</li>
+                                            <li>Weakened immune system</li>
+                                            <li>Osteoporosis</li>
+                                            <li>Anemia</li>
+                                            <li>Fertility issues</li>
+                                        </ul>
+                                    </div>
+                                    <div class="risk-category">
+                                        <h4>Overweight and Obesity (BMI ≥ 25)</h4>
+                                        <ul>
+                                            <li>Type 2 diabetes</li>
+                                            <li>High blood pressure</li>
+                                            <li>Heart disease and stroke</li>
+                                            <li>Certain types of cancer</li>
+                                            <li>Sleep apnea</li>
+                                            <li>Osteoarthritis</li>
+                                            <li>Fatty liver disease</li>
+                                            <li>Kidney disease</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h3>Tips for Maintaining a Healthy Weight</h3>
+                                <ul class="tips-list">
+                                    <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins</li>
+                                    <li>Control portion sizes</li>
+                                    <li>Stay physically active with at least 150 minutes of moderate-intensity exercise per week</li>
+                                    <li>Limit intake of processed foods, sugary drinks, and alcohol</li>
+                                    <li>Get adequate sleep (7-9 hours for adults)</li>
+                                    <li>Manage stress through relaxation techniques, meditation, or other activities</li>
+                                    <li>Stay hydrated by drinking plenty of water</li>
+                                    <li>Consult with healthcare professionals for personalized advice</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Display</h3>
+                    <div class="setting-item">
+                        <label for="decimal-places">Decimal Places</label>
+                        <select id="decimal-places" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="auto-calculate">Auto Calculate</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="auto-calculate" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

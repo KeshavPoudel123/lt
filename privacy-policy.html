@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Latest Online Tools - Learn how we collect, use, and protect your information">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>Privacy Policy | Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="assets/css/responsive-hero.css">
+    <style>
+        /* Privacy Policy page specific styles */
+        .policy-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .policy-content h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .policy-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: var(--radius-full);
+        }
+
+        .policy-content h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            font-size: 1.4rem;
+        }
+
+        .policy-content p {
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: 1.5rem;
+        }
+
+        .policy-content ul li, .policy-content ol li {
+            color: var(--medium);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .policy-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .policy-content a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .policy-content .highlight {
+            background-color: rgba(91, 76, 196, 0.1);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .policy-content .highlight p {
+            margin-bottom: 0;
+        }
+
+        .policy-content .last-updated {
+            font-style: italic;
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .policy-content {
+                padding: var(--spacing-md);
+            }
+
+            .policy-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .policy-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="tools/all-tools/index.html">All Tools</a></li>
+
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero privacy-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Privacy Policy</h1>
+                <p class="hero-subtitle animate-on-scroll">How we collect, use, and protect your information</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-content animate-on-scroll">
+                <p class="last-updated">Last Updated: May 12, 2025</p>
+
+                <div class="highlight">
+                    <p>At Latest Online Tools, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website and services.</p>
+                </div>
+
+                <h2>Information We Collect</h2>
+                <p>We collect information in the following ways:</p>
+
+                <h3>Information You Provide</h3>
+                <p>We may collect information that you voluntarily provide when using our services, such as:</p>
+                <ul>
+                    <li>Contact information (when you contact us via email)</li>
+                    <li>Feedback and comments you provide about our services</li>
+                    <li>Content you upload to use with our tools</li>
+                </ul>
+
+                <h3>Information Collected Automatically</h3>
+                <p>When you visit our website, we may automatically collect certain information, including:</p>
+                <ul>
+                    <li>Device information (browser type, operating system, device type)</li>
+                    <li>IP address and approximate location (country or city)</li>
+                    <li>Pages visited and time spent on our website</li>
+                    <li>Referring websites or sources</li>
+                    <li>Browser cookies and local storage data</li>
+                </ul>
+
+                <h2>How We Use Your Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul>
+                    <li>To provide and maintain our services</li>
+                    <li>To improve and optimize our website and tools</li>
+                    <li>To respond to your inquiries and provide customer support</li>
+                    <li>To monitor and analyze usage patterns and trends</li>
+                    <li>To detect, prevent, and address technical issues</li>
+                    <li>To comply with legal obligations</li>
+                </ul>
+
+                <h2>Data Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+                <h3>Data Processing and Storage</h3>
+                <p>Most of our tools process data directly in your browser, which means your uploaded content (such as images, text, or files) is processed locally on your device and is not transmitted to or stored on our servers. For tools that require server-side processing, we only store your data temporarily for the duration necessary to provide the service and delete it immediately afterward.</p>
+
+                <h2>Cookies and Similar Technologies</h2>
+                <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. Cookies are files with a small amount of data that may include an anonymous unique identifier.</p>
+
+                <p>We use the following types of cookies:</p>
+                <ul>
+                    <li><strong>Essential cookies:</strong> Necessary for the website to function properly</li>
+                    <li><strong>Analytical/performance cookies:</strong> Allow us to recognize and count the number of visitors and see how visitors move around our website</li>
+                    <li><strong>Functionality cookies:</strong> Used to recognize you when you return to our website</li>
+                </ul>
+
+                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
+
+                <h2>Third-Party Services</h2>
+                <p>We may use third-party services that collect, monitor, and analyze data to help us improve our services. These third parties have their own privacy policies addressing how they use such information.</p>
+
+                <h3>Analytics</h3>
+                <p>We use Google Analytics to help us understand how our users use the site. Google Analytics uses cookies to collect information such as how often users visit our site, what pages they visit, and what other sites they used prior to coming to our site. We use the information we get from Google Analytics only to improve our website and services. Google Analytics collects only the IP address assigned to you on the date you visit our site, rather than your name or other identifying information.</p>
+
+                <h2>Children's Privacy</h2>
+                <p>Our services are not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we can take necessary actions.</p>
+
+                <h2>Your Rights</h2>
+                <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+                <ul>
+                    <li>The right to access the personal information we have about you</li>
+                    <li>The right to request correction of inaccurate personal information</li>
+                    <li>The right to request deletion of your personal information</li>
+                    <li>The right to object to processing of your personal information</li>
+                    <li>The right to data portability</li>
+                    <li>The right to withdraw consent at any time</li>
+                </ul>
+
+                <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@latestonlinetools.com">privacy@latestonlinetools.com</a>.</p>
+
+                <h2>Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:privacy@latestonlinetools.com">privacy@latestonlinetools.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="tools/onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="tools/qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="tools/image-editor/index.html">Image Editor</a></li>
+                        <li><a href="tools/meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Floating Search Button -->
+    <a href="tools/search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/floating-search-button.js"></script>
+</body>
+</html>

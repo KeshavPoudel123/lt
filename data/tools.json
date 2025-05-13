@@ -1,0 +1,573 @@
+{
+  "categories": [
+    {
+      "name": "Text Tools",
+      "icon": "text_format",
+      "tools": [
+        {
+          "id": "online-notepad",
+          "name": "Online Notepad",
+          "description": "A simple, distraction-free online text editor for quick notes and writing.",
+          "icon": "edit_note",
+          "isNew": false,
+          "url": "tools/onlinenotepad/index.html",
+          "relatedTools": ["markdown-editor", "text-diff-checker", "word-counter"]
+        },
+        {
+          "id": "word-counter",
+          "name": "Word Counter",
+          "description": "Count words, characters, and paragraphs in your text with detailed statistics.",
+          "icon": "format_list_numbered",
+          "isNew": false,
+          "url": "tools/word-counter/index.html"
+        },
+        {
+          "id": "text-diff-checker",
+          "name": "Text Diff Checker",
+          "description": "Compare two texts and highlight the differences between them.",
+          "icon": "compare_arrows",
+          "isNew": true,
+          "url": "#text-diff-checker"
+        },
+        {
+          "id": "markdown-editor",
+          "name": "Markdown Editor",
+          "description": "Write and preview Markdown with syntax highlighting and live preview.",
+          "icon": "code",
+          "isNew": true,
+          "url": "tools/markdown-editor/index.html"
+        },
+
+        {
+          "id": "text-case-converter",
+          "name": "Case Converter",
+          "description": "Convert text between different cases: uppercase, lowercase, title case, etc.",
+          "icon": "text_fields",
+          "isNew": true,
+          "url": "tools/text-case-converter/index.html"
+        },
+        {
+          "id": "lipsum-generator",
+          "name": "Lorem Ipsum Generator",
+          "description": "Generate Lorem Ipsum placeholder text for your designs, layouts, and mockups.",
+          "icon": "format_align_left",
+          "isNew": true,
+          "url": "tools/lipsum-generator/index.html"
+        },
+        {
+          "id": "convert-case",
+          "name": "Convert Case",
+          "description": "Transform text between various case formats including camelCase, PascalCase, snake_case, and more.",
+          "icon": "text_fields",
+          "isNew": true,
+          "url": "tools/convert-case/index.html"
+        }
+      ]
+    },
+    {
+      "name": "File Tools",
+      "icon": "folder",
+      "tools": [
+        {
+          "id": "pdf-converter",
+          "name": "PDF Converter",
+          "description": "Convert documents to and from PDF format with ease.",
+          "icon": "picture_as_pdf",
+          "isNew": false,
+          "url": "#pdf-converter"
+        },
+        {
+          "id": "pdf-converter",
+          "name": "PDF Converter",
+          "description": "Convert documents to and from PDF format with ease.",
+          "icon": "picture_as_pdf",
+          "isNew": true,
+          "url": "tools/pdf-converter/index.html"
+        },
+        {
+          "id": "file-compressor",
+          "name": "File Compressor",
+          "description": "Compress files to reduce size while maintaining quality.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#file-compressor"
+        },
+        {
+          "id": "file-merger",
+          "name": "File Merger",
+          "description": "Combine multiple files into a single document with custom ordering.",
+          "icon": "merge_type",
+          "isNew": true,
+          "url": "#file-merger"
+        },
+
+        {
+          "id": "file-converter",
+          "name": "File Converter",
+          "description": "Convert files between various formats with batch processing capabilities.",
+          "icon": "swap_horiz",
+          "isNew": true,
+          "url": "#file-converter"
+        }
+      ]
+    },
+    {
+      "name": "Image Tools",
+      "icon": "image",
+      "tools": [
+        {
+          "id": "image-resizer",
+          "name": "Image Resizer",
+          "description": "Resize, crop, and optimize images for web or print.",
+          "icon": "crop",
+          "isNew": false,
+          "url": "#image-resizer"
+        },
+        {
+          "id": "meme-generator",
+          "name": "Meme Generator",
+          "description": "Create custom memes with your own images and text.",
+          "icon": "sentiment_very_satisfied",
+          "isNew": true,
+          "url": "#meme-generator"
+        },
+        {
+          "id": "image-editor",
+          "name": "Image Editor",
+          "description": "Edit images with filters, effects, and adjustments in your browser.",
+          "icon": "photo_filter",
+          "isNew": false,
+          "url": "#image-editor"
+        },
+        {
+          "id": "image-converter",
+          "name": "Image Converter",
+          "description": "Convert images between formats like JPG, PNG, WebP, and more.",
+          "icon": "swap_horiz",
+          "isNew": false,
+          "url": "#image-converter"
+        },
+        {
+          "id": "background-remover",
+          "name": "Background Remover",
+          "description": "Remove backgrounds from images automatically with AI technology.",
+          "icon": "auto_fix_high",
+          "isNew": true,
+          "url": "#background-remover"
+        },
+        {
+          "id": "image-compressor",
+          "name": "Image Compressor",
+          "description": "Compress images to reduce file size while preserving quality.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#image-compressor"
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools",
+      "icon": "code",
+      "tools": [
+        {
+          "id": "json-formatter",
+          "name": "JSON Formatter",
+          "description": "Format, validate, and beautify JSON data.",
+          "icon": "data_object",
+          "isNew": false,
+          "url": "tools/json-formatter/index.html"
+        },
+        {
+          "id": "regex-tester",
+          "name": "Regex Tester",
+          "description": "Test and debug regular expressions with real-time highlighting.",
+          "icon": "find_replace",
+          "isNew": false,
+          "url": "#regex-tester"
+        },
+        {
+          "id": "code-beautifier",
+          "name": "Code Beautifier",
+          "description": "Format and beautify code in various programming languages.",
+          "icon": "format_align_left",
+          "isNew": true,
+          "url": "#code-beautifier"
+        },
+        {
+          "id": "html-minifier",
+          "name": "HTML Minifier",
+          "description": "Minify HTML code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#html-minifier"
+        },
+        {
+          "id": "css-minifier",
+          "name": "CSS Minifier",
+          "description": "Minify CSS code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#css-minifier"
+        },
+        {
+          "id": "js-minifier",
+          "name": "JavaScript Minifier",
+          "description": "Minify JavaScript code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#js-minifier"
+        },
+        {
+          "id": "sql-formatter",
+          "name": "SQL Formatter",
+          "description": "Format and beautify SQL queries for better readability.",
+          "icon": "storage",
+          "isNew": true,
+          "url": "#sql-formatter"
+        },
+
+        {
+          "id": "json-reformatter",
+          "name": "JSON Reformatter",
+          "description": "Advanced JSON tool with validation, tree view, and conversion to other formats.",
+          "icon": "data_object",
+          "isNew": true,
+          "url": "tools/json-reformatter/index.html"
+        },
+        {
+          "id": "fireshot",
+          "name": "Fireshot",
+          "description": "Capture and annotate web pages with various output formats and sharing options.",
+          "icon": "screenshot_monitor",
+          "isNew": true,
+          "url": "tools/fireshot/index.html"
+        },
+        {
+          "id": "css-grid-generator",
+          "name": "CSS Grid Generator",
+          "description": "Create and customize CSS grid layouts with a visual editor.",
+          "icon": "grid_view",
+          "isNew": true,
+          "url": "tools/css-grid-generator/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Productivity Tools",
+      "icon": "schedule",
+      "tools": [
+        {
+          "id": "pomodoro-timer",
+          "name": "Pomodoro Timer",
+          "description": "Boost productivity with timed work sessions and breaks.",
+          "icon": "timer",
+          "isNew": true,
+          "url": "#pomodoro-timer"
+        },
+        {
+          "id": "calendar-planner",
+          "name": "Calendar Planner",
+          "description": "Plan your schedule with an intuitive calendar interface.",
+          "icon": "calendar_today",
+          "isNew": true,
+          "url": "tools/calendar-planner/index.html"
+        },
+        {
+          "id": "todo-list",
+          "name": "Todo List",
+          "description": "Manage your tasks with a simple and effective todo list.",
+          "icon": "checklist",
+          "isNew": true,
+          "url": "tools/todo-list/index.html"
+        },
+        {
+          "id": "note-taking",
+          "name": "Note Taking",
+          "description": "Take and organize notes with rich text formatting and categories.",
+          "icon": "note",
+          "isNew": true,
+          "url": "tools/note-taking/index.html"
+        },
+        {
+          "id": "habit-tracker",
+          "name": "Habit Tracker",
+          "description": "Track and build habits with visual progress indicators.",
+          "icon": "trending_up",
+          "isNew": true,
+          "url": "tools/habit-tracker/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Utility Tools",
+      "icon": "build",
+      "tools": [
+        {
+          "id": "password-generator",
+          "name": "Password Generator",
+          "description": "Generate strong, secure passwords with customizable options.",
+          "icon": "password",
+          "isNew": true,
+          "url": "tools/password-generator/index.html"
+        },
+        {
+          "id": "qr-code-generator",
+          "name": "QR Code Generator",
+          "description": "Create QR codes for URLs, text, contact info, and more.",
+          "icon": "qr_code",
+          "isNew": true,
+          "url": "tools/qr-generator/index.html"
+        },
+        {
+          "id": "url-shortener",
+          "name": "URL Shortener",
+          "description": "Shorten long URLs for easier sharing and tracking.",
+          "icon": "link",
+          "isNew": true,
+          "url": "tools/url-shortener/index.html"
+        },
+        {
+          "id": "color-picker",
+          "name": "Color Picker",
+          "description": "Pick, convert, and generate color palettes with ease.",
+          "icon": "colorize",
+          "isNew": false,
+          "url": "#color-picker"
+        },
+        {
+          "id": "unit-converter",
+          "name": "Unit Converter",
+          "description": "Convert between different units of measurement.",
+          "icon": "swap_vert",
+          "isNew": true,
+          "url": "tools/unit-converter/index.html"
+        },
+        {
+          "id": "barcode-generator",
+          "name": "Barcode Generator",
+          "description": "Create various types of barcodes including UPC, EAN, Code128, and more.",
+          "icon": "qr_code_scanner",
+          "isNew": true,
+          "url": "tools/barcode-generator/index.html"
+        },
+        {
+          "id": "random-number-generator",
+          "name": "Random Number Generator",
+          "description": "Generate random numbers, sequences, dice rolls, and more.",
+          "icon": "casino",
+          "isNew": true,
+          "url": "tools/random-generator/index.html"
+        },
+
+        {
+          "id": "password-checker",
+          "name": "Password Checker",
+          "description": "Check password strength and security with breach detection.",
+          "icon": "security",
+          "isNew": true,
+          "url": "tools/password-checker/index.html"
+        },
+
+        {
+          "id": "color-hexa",
+          "name": "Color Hexa",
+          "description": "Comprehensive color information and conversion tool with palette generation.",
+          "icon": "palette",
+          "isNew": true,
+          "url": "tools/color-hexa/index.html"
+        },
+
+        {
+          "id": "image-resizer",
+          "name": "Image Resizer",
+          "description": "Resize, crop, compress, and convert images with bulk processing.",
+          "icon": "crop",
+          "isNew": true,
+          "url": "tools/image-resizer/index.html"
+        },
+        {
+          "id": "witeboard",
+          "name": "Witeboard",
+          "description": "Collaborative online whiteboard for drawing and brainstorming.",
+          "icon": "draw",
+          "isNew": true,
+          "url": "tools/witeboard/index.html"
+        },
+        {
+          "id": "differences-checker",
+          "name": "Differences Checker",
+          "description": "Compare text, code, and images to highlight differences.",
+          "icon": "compare",
+          "isNew": true,
+          "url": "tools/differences-checker/index.html"
+        },
+        {
+          "id": "rgb-color-codes",
+          "name": "RGB Color Codes",
+          "description": "Convert between color formats and explore color relationships.",
+          "icon": "palette",
+          "isNew": true,
+          "url": "tools/rgb-color-codes/index.html"
+        },
+        {
+          "id": "ascii-table",
+          "name": "ASCII Table",
+          "description": "Reference and search ASCII character codes and symbols.",
+          "icon": "table_chart",
+          "isNew": true,
+          "url": "tools/ascii-table/index.html"
+        },
+
+        {
+          "id": "hex-bin-dec-converter",
+          "name": "Hex-Binary-Decimal Converter",
+          "description": "Convert between different number systems.",
+          "icon": "swap_horiz",
+          "isNew": true,
+          "url": "tools/hex-bin-dec-converter/index.html"
+        },
+        {
+          "id": "date-duration-calculator",
+          "name": "Date Duration Calculator",
+          "description": "Calculate number of days, weeks, months between dates or add/subtract time from dates.",
+          "icon": "event",
+          "isNew": true,
+          "url": "tools/date-duration-calculator/index.html"
+        },
+        {
+          "id": "image-compressor",
+          "name": "Image Compressor",
+          "description": "Compress and resize images directly in the browser.",
+          "icon": "compress",
+          "isNew": true,
+          "url": "tools/image-compressor/index.html"
+        },
+        {
+          "id": "regex-tester",
+          "name": "Regular Expression Tester",
+          "description": "Test and debug regular expressions with real-time feedback.",
+          "icon": "code",
+          "isNew": true,
+          "url": "tools/regex-tester/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Math Tools",
+      "icon": "calculate",
+      "tools": [
+        {
+          "id": "scientific-calculator",
+          "name": "Scientific Calculator",
+          "description": "A comprehensive scientific calculator with advanced mathematical functions.",
+          "icon": "calculate",
+          "isNew": true,
+          "url": "tools/scientific-calculator/index.html"
+        },
+
+        {
+          "id": "equation-solver",
+          "name": "Equation Solver",
+          "description": "Solve mathematical equations and systems of equations.",
+          "icon": "functions",
+          "isNew": true,
+          "url": "tools/equation-solver/index.html"
+        },
+        {
+          "id": "matrix-calculator",
+          "name": "Matrix Calculator",
+          "description": "Perform matrix operations like addition, multiplication, and inversion.",
+          "icon": "grid_on",
+          "isNew": true,
+          "url": "tools/matrix-calculator/index.html"
+        },
+
+        {
+          "id": "fraction-calculator",
+          "name": "Fraction Calculator",
+          "description": "Perform arithmetic operations with fractions and convert between fraction formats.",
+          "icon": "pie_chart",
+          "isNew": true,
+          "url": "tools/fraction-calculator/index.html"
+        },
+
+        {
+          "id": "grade-calculator",
+          "name": "Grade Calculator",
+          "description": "Calculate final grades based on assignments, tests, and other assessable items.",
+          "icon": "school",
+          "isNew": true,
+          "url": "tools/grade-calculator/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Financial Calculators",
+      "icon": "attach_money",
+      "tools": [
+        {
+          "id": "mortgage-calculator",
+          "name": "Mortgage Calculator",
+          "description": "Calculate mortgage payments, amortization schedules, and total costs.",
+          "icon": "home",
+          "isNew": true,
+          "url": "tools/mortgage-calculator/index.html"
+        },
+        {
+          "id": "compound-interest-calculator",
+          "name": "Compound Interest Calculator",
+          "description": "Calculate growth of investments with compound interest over time.",
+          "icon": "trending_up",
+          "isNew": true,
+          "url": "tools/compound-interest-calculator/index.html"
+        },
+        {
+          "id": "loan-calculator",
+          "name": "Loan Calculator",
+          "description": "Calculate loan payments, interest, and amortization schedules.",
+          "icon": "account_balance",
+          "isNew": true,
+          "url": "tools/loan-calculator/index.html"
+        },
+        {
+          "id": "student-loan-calculator",
+          "name": "Student Loan Calculator",
+          "description": "Specialized calculator for student loan repayment planning.",
+          "icon": "school",
+          "isNew": true,
+          "url": "tools/student-loan-calculator/index.html"
+        },
+        {
+          "id": "retirement-calculator",
+          "name": "Retirement Calculator",
+          "description": "Plan for retirement by calculating savings needs and projecting growth.",
+          "icon": "beach_access",
+          "isNew": true,
+          "url": "tools/retirement-calculator/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Health Calculators",
+      "icon": "favorite",
+      "tools": [
+        {
+          "id": "bmi-calculator",
+          "name": "BMI Calculator",
+          "description": "Calculate Body Mass Index and provide health category information.",
+          "icon": "monitor_weight",
+          "isNew": true,
+          "url": "tools/bmi-calculator/index.html"
+        },
+        {
+          "id": "calorie-calculator",
+          "name": "Calorie Calculator",
+          "description": "Calculate daily caloric needs and track nutritional information.",
+          "icon": "restaurant",
+          "isNew": true,
+          "url": "tools/calorie-calculator/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+/* ===== FLOATING HOME BUTTON CSS ===== */
+/* This file contains styles for the floating home button on tool pages */
+
+.floating-home-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Changed from right to left */
+    display: flex;
+    align-items: center;
+    background: var(--gradient, linear-gradient(135deg, #5B4CC4, #C12E61));
+    color: var(--white, #ffffff);
+    border-radius: var(--radius-full, 9999px);
+    padding: 0.42rem 0.7rem; /* Further decreased padding by 30% */
+    box-shadow: var(--shadow-lg, 0 8px 24px rgba(0, 0, 0, 0.4));
+    z-index: 99;
+    transition: all var(--transition-normal, 0.3s ease);
+    border: none;
+    cursor: pointer;
+    font-family: var(--heading-font, 'Poppins', sans-serif);
+    font-weight: 600;
+    font-size: 0.67rem; /* Further decreased font size by 30% */
+    text-decoration: none;
+    opacity: 1; /* Always visible */
+    transform: translateY(0); /* Positioned correctly */
+}
+
+.floating-home-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-glow, 0 0 15px rgba(91, 76, 196, 0.5));
+    color: var(--white, #ffffff);
+}
+
+.floating-home-btn .material-icons {
+    margin-right: 4px; /* Further decreased margin by ~30% */
+    font-size: 0.77rem; /* Further decreased font size by 30% */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .floating-home-btn {
+        bottom: 20px;
+        left: 20px; /* Changed from right to left */
+        padding: 0.35rem 0.63rem; /* Further decreased padding by 30% */
+        font-size: 0.6rem; /* Further decreased font size */
+    }
+}
+
+@media (max-width: 400px) {
+    .floating-home-btn {
+        padding: 0.28rem 0.49rem; /* Further decreased padding by 30% */
+        font-size: 0.6rem; /* Further decreased font size by 30% */
+    }
+
+    .floating-home-btn .material-icons {
+        font-size: 0.63rem; /* Further decreased icon size by 30% */
+        margin-right: 3px; /* Further decreased margin */
+    }
+}

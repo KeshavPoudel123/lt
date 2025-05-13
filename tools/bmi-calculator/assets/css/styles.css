@@ -1,0 +1,864 @@
+/* BMI Calculator Tool Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2a2a2a;
+    --dark-border: #3a3a3a;
+    --light-text: #f5f5f5;
+    --medium-text: #b0b0b0;
+    --dark-text: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+
+    /* BMI specific colors */
+    --underweight-color: #3498db;
+    --normal-color: #2ecc71;
+    --overweight-color: #f39c12;
+    --obese-color: #e74c3c;
+}
+
+/* App Shell */
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    position: relative;
+}
+
+/* Tool Header */
+.tool-header {
+    background-color: rgba(18, 18, 18, 0.8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.tool-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.tool-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+/* Tool Content */
+.tool-content {
+    flex: 1;
+    padding: var(--spacing-lg) 0;
+}
+
+.tool-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.tool-description {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tool-description h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--white);
+}
+
+.tool-description p {
+    color: var(--light);
+    line-height: 1.6;
+}
+
+/* Calculator Tabs */
+.calculator-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn.active {
+    background: var(--gradient-bg);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Calculator Sections */
+.calculator-section {
+    display: none;
+}
+
+.calculator-section.active {
+    display: block;
+}
+
+.calculator-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Input Section */
+.input-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* Result Section */
+.result-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+.result-section h3 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* BMI Result */
+.bmi-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.bmi-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--light-text);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.bmi-unit {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--medium-text);
+}
+
+.bmi-category {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    background-color: var(--normal-color);
+    color: white;
+}
+
+.bmi-category.underweight {
+    background-color: var(--underweight-color);
+}
+
+.bmi-category.normal {
+    background-color: var(--normal-color);
+}
+
+.bmi-category.overweight {
+    background-color: var(--overweight-color);
+}
+
+.bmi-category.obese {
+    background-color: var(--obese-color);
+}
+
+/* BMI Gauge */
+.bmi-gauge-container {
+    margin: 2rem 0;
+}
+
+.bmi-gauge {
+    display: flex;
+    position: relative;
+    height: 3rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.gauge-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem;
+}
+
+.gauge-section.underweight {
+    background-color: var(--underweight-color);
+}
+
+.gauge-section.normal {
+    background-color: var(--normal-color);
+}
+
+.gauge-section.overweight {
+    background-color: var(--overweight-color);
+}
+
+.gauge-section.obese {
+    background-color: var(--obese-color);
+}
+
+.gauge-range {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.gauge-indicator {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% + 20px);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%);
+    transition: left 0.5s ease;
+}
+
+/* BMI Interpretation */
+.bmi-interpretation {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+}
+
+.bmi-interpretation h4 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.bmi-interpretation p {
+    color: var(--medium-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Healthy Range */
+.healthy-range {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+}
+
+.healthy-range h4 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.healthy-range p {
+    color: var(--medium-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.healthy-range span {
+    color: var(--normal-color);
+    font-weight: 600;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .calculator-tabs {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .result-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Home Button */
+.home-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #5B4CC4, #C12E61);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.home-button i {
+    font-size: 18px;
+}
+
+/* Settings Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--dark-surface);
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--gradient-bg);
+}
+
+.modal-header h2 {
+    color: var(--light-text);
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.settings-group {
+    margin-bottom: 1.5rem;
+}
+
+.settings-group h3 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.setting-item label {
+    color: var(--light-text);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background: var(--gradient-bg);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* BMI Information Tab Styles */
+.info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.info-section h3 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.info-section p {
+    color: var(--medium-text);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.formula {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.formula p {
+    color: var(--light-text);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.bmi-categories-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.category-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.category-row.underweight {
+    background-color: rgba(52, 152, 219, 0.2);
+    border-left: 4px solid var(--underweight-color);
+}
+
+.category-row.normal {
+    background-color: rgba(46, 204, 113, 0.2);
+    border-left: 4px solid var(--normal-color);
+}
+
+.category-row.overweight {
+    background-color: rgba(243, 156, 18, 0.2);
+    border-left: 4px solid var(--overweight-color);
+}
+
+.category-row.obese {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid var(--obese-color);
+}
+
+.category-name {
+    font-weight: 600;
+}
+
+.category-range {
+    font-family: monospace;
+}
+
+.category-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.limitations-list, .tips-list {
+    color: var(--medium-text);
+    line-height: 1.6;
+    padding-left: 1.5rem;
+}
+
+.limitations-list li, .tips-list li {
+    margin-bottom: 0.5rem;
+}
+
+.health-risks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.risk-category {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.risk-category h4 {
+    color: var(--light-text);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.risk-category ul {
+    color: var(--medium-text);
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.risk-category li {
+    margin-bottom: 0.5rem;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.notification.info {
+    border-left: 4px solid var(--info-color);
+}
+
+.notification-icon {
+    font-size: 1.25rem;
+}
+
+.notification-icon.fa-check-circle {
+    color: var(--success-color);
+}
+
+.notification-icon.fa-times-circle {
+    color: var(--error-color);
+}
+
+.notification-icon.fa-exclamation-triangle {
+    color: var(--warning-color);
+}
+
+.notification-icon.fa-info-circle {
+    color: var(--info-color);
+}
+
+/* Responsive Styles for Info Tab */
+@media (max-width: 768px) {
+    .category-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .health-risks {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--gradient-bg);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background: var(--gradient-bg);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* Notification */
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: var(--dark-surface);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.notification.info {
+    border-left: 4px solid var(--info-color);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.notification-icon {
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.notification.success .notification-icon {
+    color: var(--success-color);
+}
+
+.notification.error .notification-icon {
+    color: var(--error-color);
+}
+
+.notification.warning .notification-icon {
+    color: var(--warning-color);
+}
+
+.notification.info .notification-icon {
+    color: var(--info-color);
+}
+
+#notification-message {
+    color: var(--light-text);
+}

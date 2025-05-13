@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform text between various case formats including camelCase, PascalCase, snake_case, and more - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Convert Case - Latest Online Tools</title>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Convert Case</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Text Case Converter</h2>
+                        <p>Transform text between various case formats including lowercase, UPPERCASE, Title Case, camelCase, PascalCase, snake_case, kebab-case, and more.</p>
+                    </div>
+
+                    <div class="case-converter-app">
+                        <div class="input-section">
+                            <div class="input-header">
+                                <h3>Enter Your Text</h3>
+                                <div class="input-actions">
+                                    <button type="button" id="clear-btn" class="btn btn-sm btn-secondary">Clear</button>
+                                    <button type="button" id="sample-btn" class="btn btn-sm btn-secondary">Sample</button>
+                                    <button type="button" id="paste-btn" class="btn btn-sm btn-secondary">Paste</button>
+                                </div>
+                            </div>
+                            <textarea id="input-text" class="text-input" placeholder="Type or paste your text here..."></textarea>
+                            <div class="text-stats">
+                                <span id="character-count">0 characters</span>
+                                <span id="word-count">0 words</span>
+                                <span id="line-count">0 lines</span>
+                            </div>
+                        </div>
+
+                        <div class="conversion-options">
+                            <div class="options-grid">
+                                <div class="option-card" data-case="lowercase">
+                                    <div class="option-header">
+                                        <h4>lowercase</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">All characters in lowercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="uppercase">
+                                    <div class="option-header">
+                                        <h4>UPPERCASE</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">All characters in uppercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="titlecase">
+                                    <div class="option-header">
+                                        <h4>Title Case</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">First letter of each word capitalized.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="sentencecase">
+                                    <div class="option-header">
+                                        <h4>Sentence case</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">First letter of each sentence capitalized.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="camelcase">
+                                    <div class="option-header">
+                                        <h4>camelCase</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">No spaces, first word lowercase, subsequent words capitalized.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="pascalcase">
+                                    <div class="option-header">
+                                        <h4>PascalCase</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">No spaces, all words capitalized.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="snakecase">
+                                    <div class="option-header">
+                                        <h4>snake_case</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Words separated by underscores, all lowercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="kebabcase">
+                                    <div class="option-header">
+                                        <h4>kebab-case</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Words separated by hyphens, all lowercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="constantcase">
+                                    <div class="option-header">
+                                        <h4>CONSTANT_CASE</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Words separated by underscores, all uppercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="dotcase">
+                                    <div class="option-header">
+                                        <h4>dot.case</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Words separated by dots, all lowercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="alternatingcase">
+                                    <div class="option-header">
+                                        <h4>aLtErNaTiNg CaSe</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Characters alternate between lowercase and uppercase.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="togglecase">
+                                    <div class="option-header">
+                                        <h4>tOGGLE cASE</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Inverts the case of each character.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="reversedtext">
+                                    <div class="option-header">
+                                        <h4>txet desreveR</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Reverses the order of characters.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="nospacestext">
+                                    <div class="option-header">
+                                        <h4>NoSpaces</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Removes all spaces from text.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+
+                                <div class="option-card" data-case="randomcase">
+                                    <div class="option-header">
+                                        <h4>RanDOm cAsE</h4>
+                                        <button type="button" class="copy-btn" title="Copy to Clipboard">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <p class="option-description">Random capitalization of characters.</p>
+                                    <div class="option-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Conversion Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="auto-convert" checked>
+                        <label for="auto-convert">Auto-Convert as You Type</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="auto-copy" checked>
+                        <label for="auto-copy">Auto-Copy on Click</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

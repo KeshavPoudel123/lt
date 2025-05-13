@@ -1,0 +1,72 @@
+/* ===== TOOL OVERRIDES CSS ===== */
+/* This file contains overrides for all tool pages */
+
+/* Remove tool actions (theme toggle and settings) */
+.tool-actions {
+    display: none !important;
+}
+
+/* Home Button */
+.home-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 25px;
+    background: var(--gradient);
+    color: var(--white);
+    border-radius: 25px;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    z-index: 90;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    gap: 8px;
+}
+
+.home-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    color: var(--white);
+}
+
+.home-button i {
+    font-size: 1.1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .home-button {
+        padding: 7px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 18px;
+        font-size: 0.9rem;
+    }
+
+    .home-button i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 0.8rem;
+    }
+
+    .home-button i {
+        font-size: 0.9rem;
+    }
+}

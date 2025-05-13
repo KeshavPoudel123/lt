@@ -1,0 +1,684 @@
+/* Grade Calculator Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --primary-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --dark-surface-2: #2d2d2d;
+    --dark-text: #ffffff;
+    --dark-text-secondary: rgba(255, 255, 255, 0.7);
+    --dark-border: rgba(255, 255, 255, 0.12);
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.14);
+    --grade-a: #4CAF50;
+    --grade-b: #8BC34A;
+    --grade-c: #FFC107;
+    --grade-d: #FF9800;
+    --grade-f: #F44336;
+}
+
+/* Calculator Tabs */
+.calculator-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--dark-border);
+    padding-bottom: var(--spacing-sm);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--dark-text-secondary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--dark-text);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: var(--dark-text);
+    background: var(--primary-gradient);
+}
+
+/* Calculator Sections */
+.calculator-section {
+    display: none;
+}
+
+.calculator-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.calculator-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Input Section */
+.input-section {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--dark-text-secondary);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--dark-surface-2);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--dark-text);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* Grade Inputs */
+.grade-inputs,
+.gpa-inputs {
+    border: 1px solid var(--dark-border);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.grade-input-header,
+.gpa-input-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 40px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background-color: var(--dark-surface-2);
+    font-weight: 500;
+    color: var(--dark-text-secondary);
+}
+
+.grade-input-row,
+.gpa-input-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 40px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-top: 1px solid var(--dark-border);
+    align-items: center;
+}
+
+.grade-input-name,
+.grade-input-grade,
+.grade-input-weight,
+.gpa-input-name,
+.gpa-input-grade,
+.gpa-input-credits {
+    padding: var(--spacing-xs);
+}
+
+.grade-input-action,
+.gpa-input-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-grade-btn,
+.remove-course-btn {
+    background: none;
+    border: none;
+    color: var(--dark-text-secondary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.remove-grade-btn:hover,
+.remove-course-btn:hover {
+    color: var(--grade-f);
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Result Section */
+.result-section {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+.result-section h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--dark-text);
+    font-weight: 600;
+}
+
+/* Grade Result */
+.grade-result {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.grade-result-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+}
+
+.grade-percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.grade-letter {
+    font-size: 4rem;
+    font-weight: 700;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+}
+
+.grade-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.grade-detail-item {
+    background-color: var(--dark-surface-2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detail-label {
+    color: var(--dark-text-secondary);
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    color: var(--dark-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.grade-summary {
+    color: var(--dark-text-secondary);
+    line-height: 1.5;
+}
+
+/* Grade Visualization */
+.grade-visualization {
+    margin-top: var(--spacing-lg);
+}
+
+.grade-meter-container {
+    margin-top: var(--spacing-md);
+}
+
+.grade-meter {
+    height: 20px;
+    background-color: var(--dark-surface-2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.grade-meter-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+.grade-meter-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+    color: var(--dark-text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Final Grade Result */
+.final-result {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.final-result-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+}
+
+.final-percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.final-letter {
+    font-size: 4rem;
+    font-weight: 700;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+}
+
+.final-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.final-detail-item {
+    background-color: var(--dark-surface-2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.final-summary {
+    color: var(--dark-text-secondary);
+    line-height: 1.5;
+}
+
+/* GPA Result */
+.gpa-result {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.gpa-result-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+}
+
+.gpa-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.gpa-scale {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark-text-secondary);
+    background-color: var(--dark-surface-2);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+}
+
+.gpa-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.gpa-detail-item {
+    background-color: var(--dark-surface-2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.gpa-summary {
+    color: var(--dark-text-secondary);
+    line-height: 1.5;
+}
+
+.gpa-visualization {
+    margin-top: var(--spacing-lg);
+}
+
+.gpa-meter-container {
+    margin-top: var(--spacing-md);
+}
+
+.gpa-meter {
+    height: 20px;
+    background-color: var(--dark-surface-2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gpa-meter-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+.gpa-meter-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+    color: var(--dark-text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Result Actions */
+.result-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+/* Button Styles */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(91, 76, 196, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark-text);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+/* Grade Scales */
+.scales-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.scales-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.scale-card {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.scale-card h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--dark-text);
+    font-weight: 600;
+    text-align: center;
+}
+
+.scale-table {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.scale-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--dark-surface-2);
+    align-items: center;
+}
+
+.scale-row.scale-header {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+}
+
+.scale-letter {
+    font-weight: 600;
+}
+
+.scale-percentage {
+    text-align: center;
+}
+
+.scale-gpa {
+    text-align: right;
+}
+
+.scales-info {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.scales-info h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--dark-text);
+    font-weight: 600;
+}
+
+.scales-info p {
+    margin-bottom: var(--spacing-md);
+    color: var(--dark-text-secondary);
+    line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .calculator-tabs {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-input-header,
+    .grade-input-row,
+    .gpa-input-header,
+    .gpa-input-row {
+        grid-template-columns: 1fr 1fr 1fr 40px;
+    }
+
+    .grade-result-main,
+    .final-result-main,
+    .gpa-result-main {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .grade-details,
+    .final-details,
+    .gpa-details {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions,
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .scales-container {
+        grid-template-columns: 1fr;
+    }
+
+    .scale-row {
+        grid-template-columns: 1fr 1.5fr 1fr;
+        font-size: 0.9rem;
+    }
+}
+
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Apple-style Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background-color: rgba(50, 50, 50, 0.9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: 400px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.notification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.notification-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.notification-success .notification-icon {
+    color: #4CD964;
+}
+
+.notification-error .notification-icon {
+    color: #FF3B30;
+}
+
+.notification-info .notification-icon {
+    color: #5AC8FA;
+}
+
+.notification-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+@media (max-width: 576px) {
+    .notification {
+        min-width: 240px;
+        max-width: 90%;
+        padding: 10px 15px;
+    }
+}

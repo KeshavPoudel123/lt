@@ -1,0 +1,32 @@
+<!-- Header Template -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="{{root_path}}index.html" aria-label="Latest Online Tools Home">
+                <span>Latest</span>Online<span>Tools</span>
+            </a>
+        </div>
+
+        <nav class="nav">
+            <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="material-icons">menu</span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="{{root_path}}index.html">Home</a></li>
+                <li><a href="{{root_path}}tools/popular-tools/index.html">Popular Tools</a></li>
+                <li><a href="{{root_path}}tools/all-tools/index.html">All Tools</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                    <span class="material-icons">search</span>
+                </button>
+            </div>
+            <div class="search-results" aria-live="polite"></div>
+        </div>
+    </div>
+</header>

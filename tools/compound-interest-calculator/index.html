@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate compound interest and investment growth with this easy-to-use calculator.">
+    <meta name="color-scheme" content="dark">
+    <title>Compound Interest Calculator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Compound Interest Calculator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Calculate how your investments will grow over time with compound interest. Plan for retirement, education, or other financial goals.</p>
+                    </div>
+
+                    <div class="calculator-tabs">
+                        <button type="button" id="tab-basic" class="tab-btn active">Basic Calculator</button>
+                        <button type="button" id="tab-advanced" class="tab-btn">Advanced Calculator</button>
+                        <button type="button" id="tab-comparison" class="tab-btn">Investment Comparison</button>
+                        <button type="button" id="tab-info" class="tab-btn">Information</button>
+                    </div>
+
+                    <!-- Basic Calculator -->
+                    <div id="calculator-basic" class="calculator-section active">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="principal">Initial Investment</label>
+                                        <div class="input-with-icon">
+                                            <span class="input-icon">$</span>
+                                            <input type="number" id="principal" class="form-control" value="10000" min="0" step="100">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="interest-rate">Annual Interest Rate (%)</label>
+                                        <input type="number" id="interest-rate" class="form-control" value="7" min="0" max="100" step="0.01">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="time-period">Time Period (Years)</label>
+                                        <input type="number" id="time-period" class="form-control" value="10" min="1" max="100" step="1">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="compound-frequency">Compound Frequency</label>
+                                        <select id="compound-frequency" class="form-control">
+                                            <option value="1">Annually</option>
+                                            <option value="2">Semi-Annually</option>
+                                            <option value="4">Quarterly</option>
+                                            <option value="12" selected>Monthly</option>
+                                            <option value="365">Daily</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="additional-contribution">Additional Contribution</label>
+                                        <div class="input-with-icon">
+                                            <span class="input-icon">$</span>
+                                            <input type="number" id="additional-contribution" class="form-control" value="100" min="0" step="10">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="contribution-frequency">Contribution Frequency</label>
+                                        <select id="contribution-frequency" class="form-control">
+                                            <option value="1">Annually</option>
+                                            <option value="2">Semi-Annually</option>
+                                            <option value="4">Quarterly</option>
+                                            <option value="12" selected>Monthly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-basic" class="btn btn-primary">Calculate</button>
+                                    <button type="button" id="reset-basic" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+                            
+                            <div id="basic-result-section" class="result-section hidden">
+                                <h3>Investment Growth</h3>
+                                <div class="investment-result">
+                                    <div class="investment-result-main">
+                                        <div class="future-value">
+                                            <span id="future-value">$0</span>
+                                            <div class="value-label">Future Value</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="investment-breakdown">
+                                        <div class="chart-container">
+                                            <canvas id="growth-chart"></canvas>
+                                        </div>
+                                        
+                                        <div class="investment-details">
+                                            <div class="detail-item">
+                                                <div class="detail-label">Initial Investment:</div>
+                                                <div class="detail-value" id="initial-investment">$0</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Total Contributions:</div>
+                                                <div class="detail-value" id="total-contributions">$0</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Total Interest Earned:</div>
+                                                <div class="detail-value" id="total-interest">$0</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Final Balance:</div>
+                                                <div class="detail-value" id="final-balance">$0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="result-actions">
+                                    <button type="button" id="copy-basic-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                    <button type="button" id="view-detailed-table" class="btn btn-sm">
+                                        <i class="fas fa-table"></i> View Detailed Table
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Calculator -->
+                    <div id="calculator-advanced" class="calculator-section">
+                        <!-- Content for advanced calculator tab will be added here -->
+                    </div>
+
+                    <!-- Investment Comparison -->
+                    <div id="calculator-comparison" class="calculator-section">
+                        <!-- Content for investment comparison tab will be added here -->
+                    </div>
+
+                    <!-- Information -->
+                    <div id="calculator-info" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="info-section">
+                                <h3>About Compound Interest</h3>
+                                <p>Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods. It's often described as "interest on interest."</p>
+                                
+                                <h4>The Power of Compound Interest</h4>
+                                <p>Compound interest can significantly increase your savings over time. The earlier you start saving, the more time your money has to grow. Even small amounts can grow substantially over long periods due to compounding.</p>
+                                
+                                <h4>Compound Interest Formula</h4>
+                                <div class="formula-container">
+                                    <p>For a single initial investment:</p>
+                                    <div class="formula">A = P(1 + r/n)<sup>nt</sup></div>
+                                    <p>Where:</p>
+                                    <ul>
+                                        <li><strong>A</strong> = Final amount</li>
+                                        <li><strong>P</strong> = Principal (initial investment)</li>
+                                        <li><strong>r</strong> = Annual interest rate (decimal)</li>
+                                        <li><strong>n</strong> = Number of times interest is compounded per year</li>
+                                        <li><strong>t</strong> = Time in years</li>
+                                    </ul>
+                                </div>
+                                
+                                <h4>The Rule of 72</h4>
+                                <p>The Rule of 72 is a simple way to determine how long an investment will take to double given a fixed annual rate of interest. Divide 72 by the annual rate of return to get the approximate number of years it will take for the investment to double.</p>
+                                <div class="formula">Years to double = 72 / Interest Rate (%)</div>
+                                
+                                <h4>Tips for Maximizing Compound Interest</h4>
+                                <ul>
+                                    <li><strong>Start early:</strong> The earlier you start investing, the more time your money has to grow.</li>
+                                    <li><strong>Be consistent:</strong> Regular contributions can significantly increase your returns.</li>
+                                    <li><strong>Reinvest dividends:</strong> Reinvesting dividends allows your investment to compound faster.</li>
+                                    <li><strong>Increase contributions over time:</strong> As your income grows, consider increasing your contributions.</li>
+                                    <li><strong>Be patient:</strong> Compound interest works best over long periods of time.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Display</h3>
+                    <div class="setting-item">
+                        <label for="currency">Currency</label>
+                        <select id="currency" class="form-control">
+                            <option value="USD" selected>USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="CAD">CAD ($)</option>
+                            <option value="AUD">AUD ($)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="decimal-places">Decimal Places</label>
+                        <select id="decimal-places" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="auto-calculate">Auto Calculate</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="auto-calculate" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

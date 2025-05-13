@@ -1,0 +1,231 @@
+/* Responsive Hero Section Styles
+   This CSS ensures that hero animations stay on the right side on small screens
+   rather than moving below the content */
+
+/* Override hero container styles for all pages */
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    flex-wrap: nowrap !important; /* Prevent wrapping on small screens */
+}
+
+/* Hero content styles */
+.hero .hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 1rem;
+}
+
+/* Hero animation styles */
+.hero .hero-animation {
+    flex-shrink: 0; /* Prevent the animation from shrinking */
+    width: 400px;
+    height: 400px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .hero .hero-animation {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero .container {
+        flex-direction: row !important; /* Keep row direction */
+        text-align: left !important; /* Keep text aligned left */
+    }
+    
+    .hero .hero-content {
+        margin-bottom: 0 !important; /* Remove bottom margin */
+    }
+    
+    .hero .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero .hero-content h1::after {
+        left: 0 !important; /* Keep the underline aligned left */
+        transform: none !important;
+    }
+    
+    .hero .hero-animation {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* Adjust hero subtitle */
+    .hero .hero-subtitle {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: row !important; /* Keep row direction */
+    }
+    
+    .hero .hero-content {
+        flex: 1;
+    }
+    
+    .hero .hero-animation {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Adjust buttons in hero section */
+    .hero .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust hero content spacing */
+    .hero .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero .container {
+        flex-direction: row !important; /* Keep row direction */
+    }
+    
+    .hero .hero-content {
+        flex: 1;
+    }
+    
+    .hero .hero-animation {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust buttons in hero section */
+    .hero .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero .container {
+        flex-direction: row !important; /* Keep row direction */
+    }
+    
+    .hero .hero-content {
+        flex: 1;
+    }
+    
+    .hero .hero-animation {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .hero .hero-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .hero .hero-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    /* Adjust buttons in hero section */
+    .hero .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Specific adjustments for different hero sections */
+
+/* Home page hero */
+.home-hero .hero-animation {
+    opacity: 1 !important; /* Ensure animation is visible */
+}
+
+/* Popular tools hero */
+.popular-tools-hero .hero-animation {
+    opacity: 1 !important;
+}
+
+/* All tools hero */
+.all-tools-hero .hero-animation {
+    opacity: 1 !important;
+}
+
+/* File tools section - similar layout to hero */
+.file-tools-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+}
+
+.file-tools-text {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.file-tools-animation {
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    .file-tools-content {
+        flex-direction: row !important;
+        text-align: left !important;
+    }
+    
+    .file-tools-animation {
+        width: 250px;
+        height: 250px;
+        order: 1 !important; /* Keep animation on the right */
+        margin-bottom: 0 !important;
+    }
+    
+    .file-tools-text .section-title {
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .file-tools-animation {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .file-tools-animation {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .file-tools-animation {
+        width: 120px;
+        height: 120px;
+    }
+}

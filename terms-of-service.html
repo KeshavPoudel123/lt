@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Latest Online Tools - Rules and guidelines for using our website and services">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>Terms of Service | Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="assets/css/responsive-hero.css">
+    <style>
+        /* Terms of Service page specific styles */
+        .terms-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .terms-content h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: var(--radius-full);
+        }
+
+        .terms-content h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            font-size: 1.4rem;
+        }
+
+        .terms-content p {
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .terms-content ul, .terms-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: 1.5rem;
+        }
+
+        .terms-content ul li, .terms-content ol li {
+            color: var(--medium);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .terms-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .terms-content a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .terms-content .highlight {
+            background-color: rgba(91, 76, 196, 0.1);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .terms-content .highlight p {
+            margin-bottom: 0;
+        }
+
+        .terms-content .last-updated {
+            font-style: italic;
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: var(--spacing-md);
+            }
+
+            .terms-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .terms-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="tools/all-tools/index.html">All Tools</a></li>
+
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero terms-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Terms of Service</h1>
+                <p class="hero-subtitle animate-on-scroll">Rules and guidelines for using our website and services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section class="terms-section">
+        <div class="container">
+            <div class="terms-content animate-on-scroll">
+                <p class="last-updated">Last Updated: May 12, 2025</p>
+
+                <div class="highlight">
+                    <p>Please read these Terms of Service carefully before using Latest Online Tools. By accessing or using our website, you agree to be bound by these Terms and our Privacy Policy.</p>
+                </div>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using Latest Online Tools (referred to as "the Service," "we," "us," or "our"), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
+
+                <h2>2. Use of the Service</h2>
+
+                <h3>2.1 Eligibility</h3>
+                <p>You must be at least 13 years old to use our Service. By using our Service, you represent and warrant that you meet this requirement.</p>
+
+                <h3>2.2 User Accounts</h3>
+                <p>Some features of our Service may require you to create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+
+                <h3>2.3 Acceptable Use</h3>
+                <p>You agree not to use the Service for any purpose that is unlawful or prohibited by these Terms. You may not:</p>
+                <ul>
+                    <li>Use the Service in any manner that could damage, disable, overburden, or impair the Service</li>
+                    <li>Attempt to gain unauthorized access to any part of the Service, other accounts, or computer systems or networks connected to the Service</li>
+                    <li>Use any robot, spider, or other automated device to access the Service</li>
+                    <li>Transmit any viruses, worms, defects, Trojan horses, or other items of a destructive nature</li>
+                    <li>Use the Service to violate the legal rights of others or to engage in any activity that is harmful, fraudulent, deceptive, or offensive</li>
+                </ul>
+
+                <h2>3. Intellectual Property</h2>
+
+                <h3>3.1 Our Content</h3>
+                <p>The Service and its original content, features, and functionality are owned by Latest Online Tools and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+
+                <h3>3.2 User Content</h3>
+                <p>By uploading, submitting, or otherwise making available any content to the Service, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute such content in connection with providing the Service.</p>
+
+                <p>You represent and warrant that you own or have the necessary rights to the content you submit and that the content does not infringe upon the rights of any third party.</p>
+
+                <h2>4. Third-Party Links and Services</h2>
+                <p>Our Service may contain links to third-party websites or services that are not owned or controlled by Latest Online Tools. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable for any damage or loss caused by or in connection with the use of any such content, goods, or services available on or through any such websites or services.</p>
+
+                <h2>5. Disclaimer of Warranties</h2>
+                <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Latest Online Tools expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+                <p>We do not warrant that:</p>
+                <ul>
+                    <li>The Service will function uninterrupted, secure, or available at any particular time or location</li>
+                    <li>Any errors or defects will be corrected</li>
+                    <li>The Service is free of viruses or other harmful components</li>
+                    <li>The results of using the Service will meet your requirements</li>
+                </ul>
+
+                <h2>6. Limitation of Liability</h2>
+                <p>In no event shall Latest Online Tools, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                <ul>
+                    <li>Your access to or use of or inability to access or use the Service</li>
+                    <li>Any conduct or content of any third party on the Service</li>
+                    <li>Any content obtained from the Service</li>
+                    <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                </ul>
+
+                <h2>7. Indemnification</h2>
+                <p>You agree to defend, indemnify, and hold harmless Latest Online Tools and its licensees and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from your use of and access to the Service, including any breach of these Terms.</p>
+
+                <h2>8. Changes to Terms</h2>
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+
+                <p>By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.</p>
+
+                <h2>9. Governing Law</h2>
+                <p>These Terms shall be governed and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
+
+                <h2>10. Termination</h2>
+                <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+
+                <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+
+                <h2>11. Contact Us</h2>
+                <p>If you have any questions about these Terms, please contact us at <a href="mailto:terms@latestonlinetools.com">terms@latestonlinetools.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="tools/onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="tools/qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="tools/image-editor/index.html">Image Editor</a></li>
+                        <li><a href="tools/meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Floating Search Button -->
+    <a href="tools/search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/floating-search-button.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access a diverse range of online tools designed to streamline your digital tasks at latestonlinetools.com">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>Latest Online Tools - Empowering Your Productivity</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="assets/css/responsive-hero.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero home-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Your Hub for the Latest Online Tools</h1>
+                <p class="animate-on-scroll">Free - No Signup - Always Up-to-Date</p>
+                <p class="hero-subtitle animate-on-scroll">Access a growing library of powerful web-based utilities - no installation required.</p>
+                <a href="tools/onlinenotepad/index.html" class="btn btn-primary animate-on-scroll">Try Online Notepad</a>
+            </div>
+            <div class="hero-animation" id="hero-lottie"></div>
+        </div>
+    </section>
+
+    <!-- Powerful Tools Section -->
+    <section class="powerful-tools" id="featured-tools">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Powerful Tools at Your Fingertips</h2>
+            <p class="section-subtitle animate-on-scroll">Discover our collection of free online utilities designed to make your digital life easier.</p>
+
+            <div class="featured-tools-grid">
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">edit_note</span>
+                        </div>
+                    </div>
+                    <h3>Online Notepad</h3>
+                    <p>Take notes quickly with auto-save and export options. No account needed.</p>
+                    <a href="tools/onlinenotepad/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">qr_code_2</span>
+                        </div>
+                    </div>
+                    <h3>QR Code Generator</h3>
+                    <p>Generate QR codes for URLs, text, and vCards. Customize colors and download in multiple formats.</p>
+                    <a href="tools/qr-generator/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">text_fields</span>
+                        </div>
+                    </div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, and analyze text. Get insights on reading time and keyword density.</p>
+                    <a href="tools/word-counter/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">data_object</span>
+                        </div>
+                    </div>
+                    <h3>JSON Formatter</h3>
+                    <p>Format, validate, and beautify your JSON data. Easily identify syntax errors and convert between formats.</p>
+                    <a href="tools/json-formatter/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">photo_filter</span>
+                        </div>
+                    </div>
+                    <h3>Image Editor</h3>
+                    <p>Edit images with filters, effects, and adjustments in your browser with ease.</p>
+                    <a href="tools/image-editor/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+
+                <div class="featured-tool-card animate-on-scroll">
+                    <div class="featured-tool-animation-container">
+                        <div class="featured-tool-animation"></div>
+                        <div class="featured-tool-icon">
+                            <span class="material-icons">straighten</span>
+                        </div>
+                    </div>
+                    <h3>Unit Converter</h3>
+                    <p>Convert between different units of measurement including length, weight, temperature, and more.</p>
+                    <a href="tools/unit-converter/index.html" class="btn btn-primary">Launch Tool</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- All Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">All Tools Directory</h2>
+            <p class="section-subtitle animate-on-scroll">Browse our complete collection of online tools organized by category</p>
+
+            <div class="all-tools-cta animate-on-scroll">
+                <div class="all-tools-cta-content">
+                    <div class="all-tools-cta-icon">
+                        <span class="material-icons">category</span>
+                    </div>
+                    <div class="all-tools-cta-text">
+                        <p>Discover our full range of tools organized by category</p>
+                    </div>
+                </div>
+                <a href="tools/all-tools/index.html" class="btn btn-primary">Explore All Tools</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Additions Section -->
+    <section class="latest-additions">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Latest Additions</h2>
+            <p class="section-subtitle animate-on-scroll">Check out our newest tools and utilities added to the collection</p>
+
+            <div class="latest-tools-grid">
+                <div class="latest-tool-card animate-on-scroll">
+                    <div class="latest-tool-icon meme">
+                        <span class="material-icons">sentiment_very_satisfied</span>
+                    </div>
+                    <div class="latest-tool-content">
+                        <div class="latest-tool-header">
+                            <h3>Meme Generator</h3>
+                            <span class="latest-tool-date">Added on May 12, 2025</span>
+                        </div>
+                        <p>Create custom memes with your own images and text. Add captions, customize fonts, and download your creations.</p>
+                        <a href="tools/meme-generator/index.html" class="btn btn-primary">Launch Tool</a>
+                    </div>
+                </div>
+
+                <div class="latest-tool-card animate-on-scroll">
+                    <div class="latest-tool-icon lipsum">
+                        <span class="material-icons">format_align_left</span>
+                    </div>
+                    <div class="latest-tool-content">
+                        <div class="latest-tool-header">
+                            <h3>Lorem Ipsum Generator</h3>
+                            <span class="latest-tool-date">Added on May 12, 2025</span>
+                        </div>
+                        <p>Generate Lorem Ipsum placeholder text for your designs, layouts, and mockups. Choose from different formats.</p>
+                        <a href="tools/lipsum-generator/index.html" class="btn btn-primary">Launch Tool</a>
+                    </div>
+                </div>
+
+                <div class="latest-tool-card animate-on-scroll">
+                    <div class="latest-tool-icon image-converter">
+                        <span class="material-icons">swap_horiz</span>
+                    </div>
+                    <div class="latest-tool-content">
+                        <div class="latest-tool-header">
+                            <h3>Image Converter</h3>
+                            <span class="latest-tool-date">Added on May 11, 2025</span>
+                        </div>
+                        <p>Convert images between formats like JPG, PNG, WebP, and more with our easy-to-use image converter tool.</p>
+                        <a href="tools/image-converter/index.html" class="btn btn-primary">Launch Tool</a>
+                    </div>
+                </div>
+
+                <div class="latest-tool-card animate-on-scroll">
+                    <div class="latest-tool-icon qrcode">
+                        <span class="material-icons">qr_code_2</span>
+                    </div>
+                    <div class="latest-tool-content">
+                        <div class="latest-tool-header">
+                            <h3>QR Code Generator</h3>
+                            <span class="latest-tool-date">Added on May 11, 2025</span>
+                        </div>
+                        <p>Generate QR codes for URLs, text, and vCards. Customize colors, add logos, and download in multiple formats.</p>
+                        <a href="tools/qr-generator/index.html" class="btn btn-primary">Launch Tool</a>
+                    </div>
+                </div>
+
+                <div class="latest-tool-card animate-on-scroll">
+                    <div class="latest-tool-icon wordcount">
+                        <span class="material-icons">text_fields</span>
+                    </div>
+                    <div class="latest-tool-content">
+                        <div class="latest-tool-header">
+                            <h3>Word Counter</h3>
+                            <span class="latest-tool-date">Added on May 10, 2025</span>
+                        </div>
+                        <p>Count words, characters, and analyze your text. Get insights on reading time, speaking time, and keyword density.</p>
+                        <a href="tools/word-counter/index.html" class="btn btn-primary">Launch Tool</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="tools/onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="tools/qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="tools/image-editor/index.html">Image Editor</a></li>
+                        <li><a href="tools/meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Lottie Animation Library (Local) -->
+    <script src="assets/js/lottie.min.js"></script>
+
+    <!-- Search Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+
+            // Handle header search
+            if (searchButton && searchInput) {
+                searchButton.addEventListener('click', () => {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = `tools/search.html?q=${encodeURIComponent(query)}#search-results`;
+                    }
+                });
+
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const query = searchInput.value.trim();
+                        if (query) {
+                            window.location.href = `tools/search.html?q=${encodeURIComponent(query)}#search-results`;
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Floating Search Button -->
+    <a href="tools/search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/floating-search-button.js"></script>
+</body>
+</html>
+

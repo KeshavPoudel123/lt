@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Format and beautify code in various programming languages with customizable options.">
+    <meta name="color-scheme" content="dark">
+    <title>Code Beautifier - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Code Beautifier</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Format and beautify code in various programming languages with customizable options. Supports JavaScript, HTML, CSS, JSON, XML, SQL, and more.</p>
+                    </div>
+
+                    <div class="code-beautifier">
+                        <div class="language-selector">
+                            <label for="language-select">Language:</label>
+                            <select id="language-select" class="form-control">
+                                <option value="javascript">JavaScript</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="json">JSON</option>
+                                <option value="xml">XML</option>
+                                <option value="sql">SQL</option>
+                                <option value="php">PHP</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="csharp">C#</option>
+                                <option value="cpp">C++</option>
+                                <option value="typescript">TypeScript</option>
+                            </select>
+                        </div>
+
+                        <div class="beautifier-container">
+                            <div class="input-section">
+                                <div class="input-header">
+                                    <h3>Input Code</h3>
+                                    <div class="input-actions">
+                                        <button type="button" id="paste-btn" class="btn btn-sm">
+                                            <i class="fas fa-paste"></i> Paste
+                                        </button>
+                                        <button type="button" id="clear-btn" class="btn btn-sm">
+                                            <i class="fas fa-trash"></i> Clear
+                                        </button>
+                                        <button type="button" id="sample-btn" class="btn btn-sm">
+                                            <i class="fas fa-file-alt"></i> Sample
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <textarea id="input-code" class="code-input" placeholder="Paste your code here..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="options-section">
+                                <div class="options-header">
+                                    <h3>Formatting Options</h3>
+                                </div>
+                                <div class="options-container">
+                                    <div class="option-group">
+                                        <div class="option-item">
+                                            <label for="indent-size">Indent Size:</label>
+                                            <select id="indent-size" class="form-control">
+                                                <option value="2">2 spaces</option>
+                                                <option value="4" selected>4 spaces</option>
+                                                <option value="tab">Tab</option>
+                                            </select>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="preserve-newlines" checked>
+                                            <label for="preserve-newlines">Preserve Newlines</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="brace-style" checked>
+                                            <label for="brace-style">Braces on New Line</label>
+                                        </div>
+                                    </div>
+                                    <div class="option-group">
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="end-with-newline" checked>
+                                            <label for="end-with-newline">End with Newline</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="wrap-line-length">
+                                            <label for="wrap-line-length">Wrap Long Lines</label>
+                                        </div>
+                                        <div class="option-item">
+                                            <label for="max-line-length">Max Line Length:</label>
+                                            <input type="number" id="max-line-length" class="form-control" value="80" min="40" max="200">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="beautify-action">
+                                    <button type="button" id="beautify-btn" class="btn btn-primary">
+                                        <i class="fas fa-magic"></i> Beautify Code
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-section">
+                                <div class="output-header">
+                                    <h3>Beautified Code</h3>
+                                    <div class="output-actions">
+                                        <button type="button" id="copy-btn" class="btn btn-sm">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button type="button" id="download-btn" class="btn btn-sm">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="output-container">
+                                    <pre id="output-code" class="code-output"><code>// Beautified code will appear here</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Code Beautifier Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql-formatter/4.0.2/sql-formatter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.4/standalone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.4/parser-babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.4/parser-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.4/parser-postcss.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettier/2.8.4/parser-typescript.js"></script>
+
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/typescript.min.js"></script>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

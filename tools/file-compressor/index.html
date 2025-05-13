@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress files with ease while maintaining quality - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>File Compressor - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">File Compressor</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>File Compressor</h2>
+                        <p>Compress files with ease while maintaining quality. All processing happens in your browser - no files are uploaded to any server.</p>
+                    </div>
+
+                    <div class="app-container">
+                        <div class="upload-container" id="dropZone">
+                            <div class="upload-icon">
+                                <i class="material-icons">cloud_upload</i>
+                            </div>
+                            <div class="upload-text">
+                                <h3>Drag & Drop Files Here</h3>
+                                <p>Or click to browse from your device</p>
+                                <button type="button" class="btn" id="browseBtn">Browse Files</button>
+                            </div>
+                            <input type="file" id="fileInput" class="file-input" multiple aria-label="Select files to compress" title="Select files to compress">
+                        </div>
+
+                        <div class="note">
+                            <strong>Note:</strong> This tool compresses files directly in your browser. No files are uploaded to any server, ensuring your privacy.
+                        </div>
+
+                        <div class="formats-container">
+                            <p><strong>Supported formats:</strong></p>
+                            <div>
+                                <span class="format-badge">Images (JPG, PNG, WebP, GIF)</span>
+                                <span class="format-badge">Documents (PDF, DOCX, XLSX, PPTX)</span>
+                                <span class="format-badge">Archives (ZIP, RAR)</span>
+                                <span class="format-badge">Audio (MP3, WAV)</span>
+                                <span class="format-badge">Video (MP4, WebM)</span>
+                                <span class="format-badge">And more...</span>
+                            </div>
+                        </div>
+
+                        <div class="compression-options" id="compressionOptions">
+                            <h3>Compression Options</h3>
+                            <div class="options-grid">
+                                <div class="option-group">
+                                    <label for="compressionLevel">Compression Level</label>
+                                    <input type="range" id="compressionLevel" min="1" max="9" value="6">
+                                    <div class="range-value" id="compressionLevelValue">Medium (6)</div>
+                                </div>
+                                <div class="option-group">
+                                    <label for="compressionFormat">Output Format</label>
+                                    <select id="compressionFormat">
+                                        <option value="same">Same as original</option>
+                                        <option value="zip">ZIP archive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-green" id="compressBtn" disabled>Compress Files</button>
+                        </div>
+
+                        <div class="file-list" id="fileList">
+                            <h3>Selected Files</h3>
+                            <div id="fileItems"></div>
+                        </div>
+
+                        <div class="compression-progress" id="compressionProgress">
+                            <h3>Compressing...</h3>
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="progressStatus">Processing files...</span>
+                                <span id="progressPercentage">0%</span>
+                            </div>
+                        </div>
+
+                        <div class="result-container" id="resultContainer">
+                            <h3>Compression Results</h3>
+                            <div id="resultItems"></div>
+                            <div class="action-buttons">
+                                <button type="button" class="btn" id="downloadAllBtn">Download All</button>
+                                <button type="button" class="btn" id="compressMoreBtn">Compress More Files</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

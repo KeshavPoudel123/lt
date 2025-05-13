@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate the exact duration between two dates with this comprehensive date duration calculator.">
+    <meta name="color-scheme" content="dark">
+    <title>Date Duration Calculator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Date Duration Calculator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Calculate the exact duration between two dates. Find out the precise number of years, months, weeks, days, hours, and minutes between any two dates and times.</p>
+                    </div>
+
+                    <div class="calculator-tabs">
+                        <button type="button" id="tab-duration" class="tab-btn active">Date Duration</button>
+                        <button type="button" id="tab-add" class="tab-btn">Add to Date</button>
+                        <button type="button" id="tab-subtract" class="tab-btn">Subtract from Date</button>
+                        <button type="button" id="tab-workdays" class="tab-btn">Working Days</button>
+                    </div>
+
+                    <!-- Date Duration Calculator -->
+                    <div id="calculator-duration" class="calculator-section active">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="start-date">Start Date</label>
+                                        <input type="date" id="start-date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="start-time">Start Time (Optional)</label>
+                                        <input type="time" id="start-time" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="end-date">End Date</label>
+                                        <input type="date" id="end-date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="end-time">End Time (Optional)</label>
+                                        <input type="time" id="end-time" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="include-end-date">Include End Date</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="include-end-date">
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exclude-weekends">Exclude Weekends</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="exclude-weekends">
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-duration" class="btn btn-primary">Calculate Duration</button>
+                                    <button type="button" id="reset-duration" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="duration-result-section" class="result-section hidden">
+                                <h3>Duration Result</h3>
+
+                                <div class="duration-result">
+                                    <div class="duration-main">
+                                        <div class="duration-item years">
+                                            <span id="duration-years">0</span>
+                                            <label>Years</label>
+                                        </div>
+                                        <div class="duration-item months">
+                                            <span id="duration-months">0</span>
+                                            <label>Months</label>
+                                        </div>
+                                        <div class="duration-item days">
+                                            <span id="duration-days">0</span>
+                                            <label>Days</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="duration-details">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Years:</span>
+                                            <span id="total-years" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Months:</span>
+                                            <span id="total-months" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Weeks:</span>
+                                            <span id="total-weeks" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Days:</span>
+                                            <span id="total-days" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Hours:</span>
+                                            <span id="total-hours" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Minutes:</span>
+                                            <span id="total-minutes" class="detail-value">0</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="duration-summary">
+                                        <p id="duration-text">The duration between the dates is 0 years, 0 months, and 0 days.</p>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-duration" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add to Date Calculator -->
+                    <div id="calculator-add" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="base-date">Base Date</label>
+                                        <input type="date" id="base-date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="base-time">Base Time (Optional)</label>
+                                        <input type="time" id="base-time" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Add Duration</label>
+                                        <div class="duration-inputs">
+                                            <div class="duration-input">
+                                                <input type="number" id="add-years" class="form-control" min="0" value="0">
+                                                <label for="add-years">Years</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="add-months" class="form-control" min="0" value="0">
+                                                <label for="add-months">Months</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="add-days" class="form-control" min="0" value="0">
+                                                <label for="add-days">Days</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Add Time (Optional)</label>
+                                        <div class="duration-inputs">
+                                            <div class="duration-input">
+                                                <input type="number" id="add-hours" class="form-control" min="0" value="0">
+                                                <label for="add-hours">Hours</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="add-minutes" class="form-control" min="0" value="0">
+                                                <label for="add-minutes">Minutes</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-add" class="btn btn-primary">Calculate New Date</button>
+                                    <button type="button" id="reset-add" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="add-result-section" class="result-section hidden">
+                                <h3>Result</h3>
+
+                                <div class="new-date-result">
+                                    <div class="new-date">
+                                        <span id="new-date-value">-</span>
+                                    </div>
+
+                                    <div class="new-date-details">
+                                        <p id="add-summary">After adding the specified duration, the new date is -.</p>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-add-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Result
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subtract from Date Calculator -->
+                    <div id="calculator-subtract" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="subtract-base-date">Base Date</label>
+                                        <input type="date" id="subtract-base-date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="subtract-base-time">Base Time (Optional)</label>
+                                        <input type="time" id="subtract-base-time" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Subtract Duration</label>
+                                        <div class="duration-inputs">
+                                            <div class="duration-input">
+                                                <input type="number" id="subtract-years" class="form-control" min="0" value="0">
+                                                <label for="subtract-years">Years</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="subtract-months" class="form-control" min="0" value="0">
+                                                <label for="subtract-months">Months</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="subtract-days" class="form-control" min="0" value="0">
+                                                <label for="subtract-days">Days</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Subtract Time (Optional)</label>
+                                        <div class="duration-inputs">
+                                            <div class="duration-input">
+                                                <input type="number" id="subtract-hours" class="form-control" min="0" value="0">
+                                                <label for="subtract-hours">Hours</label>
+                                            </div>
+                                            <div class="duration-input">
+                                                <input type="number" id="subtract-minutes" class="form-control" min="0" value="0">
+                                                <label for="subtract-minutes">Minutes</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-subtract" class="btn btn-primary">Calculate New Date</button>
+                                    <button type="button" id="reset-subtract" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="subtract-result-section" class="result-section hidden">
+                                <h3>Result</h3>
+
+                                <div class="new-date-result">
+                                    <div class="new-date">
+                                        <span id="subtract-date-value">-</span>
+                                    </div>
+
+                                    <div class="new-date-details">
+                                        <p id="subtract-summary">After subtracting the specified duration, the new date is -.</p>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-subtract-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Result
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Working Days Calculator -->
+                    <div id="calculator-workdays" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="workdays-start-date">Start Date</label>
+                                        <input type="date" id="workdays-start-date" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="workdays-end-date">End Date</label>
+                                        <input type="date" id="workdays-end-date" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="include-workdays-end-date">Include End Date</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="include-workdays-end-date">
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exclude-holidays">Exclude Holidays</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="exclude-holidays">
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="holidays">Holidays (Optional)</label>
+                                    <div class="holidays-container">
+                                        <div class="holidays-list" id="holidays-list">
+                                            <!-- Holiday items will be added here -->
+                                        </div>
+                                        <div class="add-holiday">
+                                            <input type="date" id="holiday-date" class="form-control" placeholder="Holiday Date" aria-label="Holiday Date">
+                                            <input type="text" id="holiday-name" class="form-control" placeholder="Holiday Name">
+                                            <button type="button" id="add-holiday" class="btn btn-sm">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-workdays" class="btn btn-primary">Calculate Working Days</button>
+                                    <button type="button" id="reset-workdays" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="workdays-result-section" class="result-section hidden">
+                                <h3>Working Days Result</h3>
+
+                                <div class="workdays-result">
+                                    <div class="workdays-main">
+                                        <div class="workdays-count">
+                                            <span id="workdays-count">0</span>
+                                            <label>Working Days</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="workdays-details">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Total Calendar Days:</span>
+                                            <span id="total-calendar-days" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Weekend Days:</span>
+                                            <span id="weekend-days-count" class="detail-value">0</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Holidays:</span>
+                                            <span id="holidays-count" class="detail-value">0</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="workdays-summary">
+                                        <p id="workdays-text">There are 0 working days between the selected dates.</p>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-workdays-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Display</h3>
+                    <div class="setting-item">
+                        <label for="date-format">Date Format</label>
+                        <select id="date-format" class="form-control">
+                            <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                            <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                            <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="time-format">Time Format</label>
+                        <select id="time-format" class="form-control">
+                            <option value="12">12-hour (AM/PM)</option>
+                            <option value="24">24-hour</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="auto-calculate">Auto Calculate</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="auto-calculate" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Working Days</h3>
+                    <div class="setting-item">
+                        <label for="weekend-days">Weekend Days</label>
+                        <div class="weekend-options">
+                            <div class="weekend-option">
+                                <input type="checkbox" id="weekend-sunday" checked>
+                                <label for="weekend-sunday">Sunday</label>
+                            </div>
+                            <div class="weekend-option">
+                                <input type="checkbox" id="weekend-saturday" checked>
+                                <label for="weekend-saturday">Saturday</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,338 @@
+{
+  "categories": [
+    {
+      "name": "Text Tools",
+      "icon": "text_format",
+      "tools": [
+        {
+          "id": "online-notepad",
+          "name": "Online Notepad",
+          "description": "A simple, distraction-free online text editor for quick notes and writing.",
+          "icon": "edit_note",
+          "isNew": false,
+          "url": "../onlinenotepad/index.html"
+        },
+        {
+          "id": "word-counter",
+          "name": "Word Counter",
+          "description": "Count words, characters, and paragraphs in your text with detailed statistics.",
+          "icon": "format_list_numbered",
+          "isNew": false,
+          "url": "../word-counter/index.html"
+        },
+        {
+          "id": "text-diff-checker",
+          "name": "Text Diff Checker",
+          "description": "Compare two texts and highlight the differences between them.",
+          "icon": "compare_arrows",
+          "isNew": true,
+          "url": "#text-diff-checker"
+        },
+        {
+          "id": "markdown-editor",
+          "name": "Markdown Editor",
+          "description": "Write and preview Markdown with syntax highlighting and live preview.",
+          "icon": "code",
+          "isNew": true,
+          "url": "../markdown-editor/index.html"
+        },
+
+        {
+          "id": "text-case-converter",
+          "name": "Case Converter",
+          "description": "Convert text between different cases: uppercase, lowercase, title case, etc.",
+          "icon": "text_fields",
+          "isNew": true,
+          "url": "../text-case-converter/index.html"
+        },
+        {
+          "id": "lipsum-generator",
+          "name": "Lorem Ipsum Generator",
+          "description": "Generate Lorem Ipsum placeholder text for your designs, layouts, and mockups.",
+          "icon": "format_align_left",
+          "isNew": true,
+          "url": "../lipsum-generator/index.html"
+        },
+        {
+          "id": "convert-case",
+          "name": "Convert Case",
+          "description": "Transform text between various case formats including camelCase, PascalCase, snake_case, and more.",
+          "icon": "text_fields",
+          "isNew": true,
+          "url": "../convert-case/index.html"
+        }
+      ]
+    },
+    {
+      "name": "File Tools",
+      "icon": "folder",
+      "tools": [
+        {
+          "id": "pdf-converter",
+          "name": "PDF Converter",
+          "description": "Convert documents to and from PDF format with ease.",
+          "icon": "picture_as_pdf",
+          "isNew": false,
+          "url": "#pdf-converter"
+        },
+        {
+          "id": "pdf-converter",
+          "name": "PDF Converter",
+          "description": "Convert documents to and from PDF format with ease.",
+          "icon": "picture_as_pdf",
+          "isNew": true,
+          "url": "../pdf-converter/index.html"
+        },
+        {
+          "id": "file-compressor",
+          "name": "File Compressor",
+          "description": "Compress files to reduce size while maintaining quality.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#file-compressor"
+        },
+        {
+          "id": "file-merger",
+          "name": "File Merger",
+          "description": "Combine multiple files into a single document with custom ordering.",
+          "icon": "merge_type",
+          "isNew": true,
+          "url": "#file-merger"
+        },
+
+        {
+          "id": "file-converter",
+          "name": "File Converter",
+          "description": "Convert files between various formats with batch processing capabilities.",
+          "icon": "swap_horiz",
+          "isNew": true,
+          "url": "#file-converter"
+        }
+      ]
+    },
+    {
+      "name": "Image Tools",
+      "icon": "image",
+      "tools": [
+        {
+          "id": "image-resizer",
+          "name": "Image Resizer",
+          "description": "Resize, crop, and optimize images for web or print.",
+          "icon": "crop",
+          "isNew": true,
+          "url": "../image-resizer/index.html"
+        },
+        {
+          "id": "meme-generator",
+          "name": "Meme Generator",
+          "description": "Create custom memes with your own images and text.",
+          "icon": "sentiment_very_satisfied",
+          "isNew": true,
+          "url": "#meme-generator"
+        },
+        {
+          "id": "image-editor",
+          "name": "Image Editor",
+          "description": "Edit images with filters, effects, and adjustments in your browser.",
+          "icon": "photo_filter",
+          "isNew": false,
+          "url": "#image-editor"
+        },
+        {
+          "id": "image-converter",
+          "name": "Image Converter",
+          "description": "Convert images between formats like JPG, PNG, WebP, and more.",
+          "icon": "swap_horiz",
+          "isNew": false,
+          "url": "#image-converter"
+        },
+        {
+          "id": "background-remover",
+          "name": "Background Remover",
+          "description": "Remove backgrounds from images automatically with AI technology.",
+          "icon": "auto_fix_high",
+          "isNew": true,
+          "url": "#background-remover"
+        },
+        {
+          "id": "image-compressor",
+          "name": "Image Compressor",
+          "description": "Compress images to reduce file size while preserving quality.",
+          "icon": "compress",
+          "isNew": true,
+          "url": "../image-compressor/index.html"
+        },
+        {
+          "id": "witeboard",
+          "name": "Witeboard",
+          "description": "Collaborative online whiteboard for drawing and brainstorming.",
+          "icon": "draw",
+          "isNew": true,
+          "url": "../witeboard/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools",
+      "icon": "code",
+      "tools": [
+        {
+          "id": "json-formatter",
+          "name": "JSON Formatter",
+          "description": "Format, validate, and beautify JSON data.",
+          "icon": "data_object",
+          "isNew": false,
+          "url": "../json-formatter/index.html"
+        },
+        {
+          "id": "regex-tester",
+          "name": "Regex Tester",
+          "description": "Test and debug regular expressions with real-time highlighting.",
+          "icon": "find_replace",
+          "isNew": false,
+          "url": "../regex-tester/index.html"
+        },
+        {
+          "id": "code-beautifier",
+          "name": "Code Beautifier",
+          "description": "Format and beautify code in various programming languages.",
+          "icon": "format_align_left",
+          "isNew": true,
+          "url": "#code-beautifier"
+        },
+        {
+          "id": "html-minifier",
+          "name": "HTML Minifier",
+          "description": "Minify HTML code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#html-minifier"
+        },
+        {
+          "id": "css-minifier",
+          "name": "CSS Minifier",
+          "description": "Minify CSS code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#css-minifier"
+        },
+        {
+          "id": "js-minifier",
+          "name": "JavaScript Minifier",
+          "description": "Minify JavaScript code to reduce file size and improve load times.",
+          "icon": "compress",
+          "isNew": false,
+          "url": "#js-minifier"
+        },
+        {
+          "id": "sql-formatter",
+          "name": "SQL Formatter",
+          "description": "Format and beautify SQL queries for better readability.",
+          "icon": "storage",
+          "isNew": true,
+          "url": "#sql-formatter"
+        }
+      ]
+    },
+    {
+      "name": "Utility Tools",
+      "icon": "build",
+      "tools": [
+        {
+          "id": "password-generator",
+          "name": "Password Generator",
+          "description": "Generate strong, secure passwords with customizable options.",
+          "icon": "password",
+          "isNew": true,
+          "url": "../password-generator/index.html"
+        },
+        {
+          "id": "qr-code-generator",
+          "name": "QR Code Generator",
+          "description": "Create QR codes for URLs, text, contact info, and more.",
+          "icon": "qr_code",
+          "isNew": true,
+          "url": "../qr-generator/index.html"
+        },
+        {
+          "id": "url-shortener",
+          "name": "URL Shortener",
+          "description": "Shorten long URLs for easier sharing and tracking.",
+          "icon": "link",
+          "isNew": true,
+          "url": "../url-shortener/index.html"
+        },
+        {
+          "id": "color-picker",
+          "name": "Color Picker",
+          "description": "Pick, convert, and generate color palettes with ease.",
+          "icon": "colorize",
+          "isNew": false,
+          "url": "#color-picker"
+        },
+        {
+          "id": "unit-converter",
+          "name": "Unit Converter",
+          "description": "Convert between different units of measurement.",
+          "icon": "swap_vert",
+          "isNew": true,
+          "url": "../unit-converter/index.html"
+        },
+        {
+          "id": "random-number-generator",
+          "name": "Random Number Generator",
+          "description": "Generate random numbers, sequences, dice rolls, and more.",
+          "icon": "casino",
+          "isNew": true,
+          "url": "../random-generator/index.html"
+        }
+      ]
+    },
+    {
+      "name": "Productivity Tools",
+      "icon": "schedule",
+      "tools": [
+        {
+          "id": "pomodoro-timer",
+          "name": "Pomodoro Timer",
+          "description": "Boost productivity with timed work sessions and breaks.",
+          "icon": "timer",
+          "isNew": true,
+          "url": "../pomodoro-timer/index.html"
+        },
+        {
+          "id": "todo-list",
+          "name": "Todo List",
+          "description": "Manage your tasks with a simple and effective todo list.",
+          "icon": "checklist",
+          "isNew": true,
+          "url": "../todo-list/index.html"
+        },
+        {
+          "id": "calendar-planner",
+          "name": "Calendar Planner",
+          "description": "Plan your schedule with an intuitive calendar interface.",
+          "icon": "calendar_today",
+          "isNew": true,
+          "url": "../calendar-planner/index.html"
+        },
+        {
+          "id": "note-taking",
+          "name": "Note Taking",
+          "description": "Take and organize notes with rich text formatting and categories.",
+          "icon": "note",
+          "isNew": true,
+          "url": "../note-taking/index.html"
+        },
+        {
+          "id": "habit-tracker",
+          "name": "Habit Tracker",
+          "description": "Track and build habits with visual progress indicators.",
+          "icon": "trending_up",
+          "isNew": true,
+          "url": "../habit-tracker/index.html"
+        }
+      ]
+    }
+  ]
+}

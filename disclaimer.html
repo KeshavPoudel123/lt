@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Disclaimer for Latest Online Tools - Important information about the limitations and use of our services">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>Disclaimer | Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="assets/css/responsive-hero.css">
+    <style>
+        /* Disclaimer page specific styles */
+        .disclaimer-section {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .disclaimer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .disclaimer-content h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .disclaimer-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .disclaimer-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: var(--radius-full);
+        }
+
+        .disclaimer-content h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            font-size: 1.4rem;
+        }
+
+        .disclaimer-content p {
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+
+        .disclaimer-content ul, .disclaimer-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: 1.5rem;
+        }
+
+        .disclaimer-content ul li, .disclaimer-content ol li {
+            color: var(--medium);
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .disclaimer-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .disclaimer-content a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .disclaimer-content .highlight {
+            background-color: rgba(91, 76, 196, 0.1);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .disclaimer-content .highlight p {
+            margin-bottom: 0;
+        }
+
+        .disclaimer-content .last-updated {
+            font-style: italic;
+            color: var(--medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .disclaimer-content .important {
+            color: #ff6b6b;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .disclaimer-content {
+                padding: var(--spacing-md);
+            }
+
+            .disclaimer-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .disclaimer-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="tools/all-tools/index.html">All Tools</a></li>
+
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="search-input">
+                    <button type="button" class="search-btn" aria-label="Search" id="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero disclaimer-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Disclaimer</h1>
+                <p class="hero-subtitle animate-on-scroll">Important information about the limitations and use of our services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <div class="disclaimer-content animate-on-scroll">
+                <p class="last-updated">Last Updated: May 12, 2025</p>
+
+                <div class="highlight">
+                    <p>Please read this disclaimer carefully before using Latest Online Tools. By accessing or using our website, you acknowledge that you have read, understood, and agree to be bound by this disclaimer.</p>
+                </div>
+
+                <h2>General Information</h2>
+                <p>The information provided on Latest Online Tools is for general informational purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
+
+                <p>Any reliance you place on such information is therefore strictly at your own risk. In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>
+
+                <h2>No Professional Advice</h2>
+                <p>The content on Latest Online Tools is not intended to be a substitute for professional advice. Always seek the advice of qualified professionals with any questions you may have regarding a technical, legal, financial, or medical matter.</p>
+
+                <p>Our tools are designed to assist with various tasks but should not be relied upon for critical decisions without verification. For example:</p>
+                <ul>
+                    <li>Our calculators provide estimates and should not be used for financial decisions without consulting a financial advisor</li>
+                    <li>Our text and code tools are not substitutes for professional editing or review</li>
+                    <li>Our conversion tools may have limitations and should be verified for accuracy in critical applications</li>
+                </ul>
+
+                <h2>Accuracy of Tools</h2>
+                <p>While we make every effort to ensure that our tools function correctly, we cannot guarantee that they will be error-free or produce accurate results in all circumstances. The tools are provided "as is" without warranty of any kind.</p>
+
+                <p>Factors that may affect the accuracy of our tools include:</p>
+                <ul>
+                    <li>Browser compatibility issues</li>
+                    <li>Input data quality and format</li>
+                    <li>Technical limitations of web-based applications</li>
+                    <li>Rounding differences in calculations</li>
+                    <li>Updates to standards or algorithms that may not be immediately reflected</li>
+                </ul>
+
+                <p class="important">Always verify important results with alternative methods or professional services.</p>
+
+                <h2>External Links</h2>
+                <p>Through our website, you may be able to link to other websites that are not under the control of Latest Online Tools. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorsement of the views expressed within them.</p>
+
+                <p>Every effort is made to keep the website up and running smoothly. However, Latest Online Tools takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.</p>
+
+                <h2>User-Generated Content</h2>
+                <p>Any content you upload or submit to our tools remains your property. However, by using our services, you grant us a non-exclusive license to process that content solely for the purpose of providing the requested service.</p>
+
+                <p>We do not claim ownership of your content, nor do we monitor or review content processed by our tools. You are solely responsible for the content you submit and for ensuring that you have the right to use and process such content.</p>
+
+                <h2>Privacy and Data Security</h2>
+                <p>Most of our tools process data directly in your browser, which means your uploaded content (such as images, text, or files) is processed locally on your device and is not transmitted to or stored on our servers. For tools that require server-side processing, we only store your data temporarily for the duration necessary to provide the service and delete it immediately afterward.</p>
+
+                <p>However, we cannot guarantee the security of data transmitted over the internet. Any transmission is at your own risk. Please refer to our <a href="privacy-policy.html">Privacy Policy</a> for more information on how we handle your data.</p>
+
+                <h2>Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, Latest Online Tools and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with:</p>
+                <ul>
+                    <li>Your use of or inability to use our website or tools</li>
+                    <li>Any errors or omissions in the content</li>
+                    <li>Any loss of data or damage to your device</li>
+                    <li>Any decisions made or actions taken in reliance on our tools or content</li>
+                    <li>Any interruption, suspension, or termination of our services</li>
+                </ul>
+
+                <h2>Changes to This Disclaimer</h2>
+                <p>We may update our Disclaimer from time to time. We will notify you of any changes by posting the new Disclaimer on this page and updating the "Last Updated" date. You are advised to review this Disclaimer periodically for any changes.</p>
+
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Disclaimer, please contact us at <a href="mailto:disclaimer@latestonlinetools.com">disclaimer@latestonlinetools.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tools/popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="tools/all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="tools/onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="tools/qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="tools/image-editor/index.html">Image Editor</a></li>
+                        <li><a href="tools/meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Floating Search Button -->
+    <a href="tools/search.html" class="floating-search-btn">
+        <span class="material-icons">search</span>
+        <span>Search</span>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/floating-search-button.js"></script>
+</body>
+</html>

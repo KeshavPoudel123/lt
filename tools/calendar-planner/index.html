@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Planner - Latest Online Tools</title>
+    <meta name="description" content="Plan your schedule with an intuitive calendar interface. Add, edit, and organize events to stay on top of your commitments.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Calendar Planner</h1>
+
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Plan Your Schedule</h2>
+                        <p>Organize your time efficiently with this intuitive calendar planner. Add events, set reminders, and keep track of your schedule with ease.</p>
+                    </div>
+
+                    <div class="calendar-app">
+                        <div class="calendar-header">
+                            <div class="calendar-nav">
+                                <button type="button" id="prev-month-btn" class="calendar-nav-btn" title="Previous Month">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h2 id="current-month">September 2023</h2>
+                                <button type="button" id="next-month-btn" class="calendar-nav-btn" title="Next Month">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-views">
+                                <button type="button" id="month-view-btn" class="view-btn active">Month</button>
+                                <button type="button" id="week-view-btn" class="view-btn">Week</button>
+                                <button type="button" id="day-view-btn" class="view-btn">Day</button>
+                            </div>
+                            <button type="button" id="today-btn" class="btn btn-primary">
+                                <i class="fas fa-calendar-day"></i> Today
+                            </button>
+                            <button type="button" id="add-event-btn" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Event
+                            </button>
+                        </div>
+
+                        <div class="calendar-container">
+                            <div id="month-view" class="calendar-view active">
+                                <div class="weekdays">
+                                    <div>Sun</div>
+                                    <div>Mon</div>
+                                    <div>Tue</div>
+                                    <div>Wed</div>
+                                    <div>Thu</div>
+                                    <div>Fri</div>
+                                    <div>Sat</div>
+                                </div>
+                                <div id="calendar-days" class="days"></div>
+                            </div>
+
+                            <div id="week-view" class="calendar-view">
+                                <div class="week-header">
+                                    <div class="time-column">Time</div>
+                                    <div id="week-days" class="week-days"></div>
+                                </div>
+                                <div class="week-body">
+                                    <div class="time-slots">
+                                        <!-- Time slots will be generated by JavaScript -->
+                                    </div>
+                                    <div id="week-events" class="week-events">
+                                        <!-- Week events will be generated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="day-view" class="calendar-view">
+                                <div class="day-header">
+                                    <h3 id="current-day">September 15, 2023</h3>
+                                </div>
+                                <div class="day-body">
+                                    <div class="time-slots">
+                                        <!-- Time slots will be generated by JavaScript -->
+                                    </div>
+                                    <div id="day-events" class="day-events">
+                                        <!-- Day events will be generated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Upcoming Events</h3>
+                            </div>
+                            <div id="upcoming-events" class="upcoming-events">
+                                <!-- Upcoming events will be generated by JavaScript -->
+                            </div>
+                            <div class="sidebar-section">
+                                <h3>Categories</h3>
+                                <div class="categories">
+                                    <div class="category">
+                                        <span class="category-color category-color-work"></span>
+                                        <span class="category-name">Work</span>
+                                    </div>
+                                    <div class="category">
+                                        <span class="category-color category-color-personal"></span>
+                                        <span class="category-name">Personal</span>
+                                    </div>
+                                    <div class="category">
+                                        <span class="category-color category-color-family"></span>
+                                        <span class="category-name">Family</span>
+                                    </div>
+                                    <div class="category">
+                                        <span class="category-color category-color-health"></span>
+                                        <span class="category-name">Health</span>
+                                    </div>
+                                    <button type="button" id="add-category-btn" class="btn btn-sm">
+                                        <i class="fas fa-plus"></i> Add Category
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="sidebar-section">
+                                <h3>Settings</h3>
+                                <div class="setting-item setting-toggle">
+                                    <label for="dark-mode">Dark Mode</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="dark-mode" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item setting-toggle">
+                                    <label for="show-weekends">Show Weekends</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="show-weekends" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item setting-toggle">
+                                    <label for="week-starts-monday">Week Starts on Monday</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="week-starts-monday">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <button type="button" id="export-btn" class="btn btn-secondary">
+                                        <i class="fas fa-download"></i> Export Calendar
+                                    </button>
+                                    <button type="button" id="import-btn" class="btn btn-secondary">
+                                        <i class="fas fa-upload"></i> Import Calendar
+                                    </button>
+                                    <input type="file" id="import-file" class="hidden" accept=".json,.ics" title="Import Calendar File">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="event-modal-title">Add Event</h3>
+                <button type="button" id="close-modal-btn" class="close-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="event-title">Event Title</label>
+                    <input type="text" id="event-title" class="form-control" placeholder="Enter event title">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-start-date">Start Date</label>
+                        <input type="date" id="event-start-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-start-time">Start Time</label>
+                        <input type="time" id="event-start-time" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-end-date">End Date</label>
+                        <input type="date" id="event-end-date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-end-time">End Time</label>
+                        <input type="time" id="event-end-time" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="event-category">Category</label>
+                    <select id="event-category" class="form-control">
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="family">Family</option>
+                        <option value="health">Health</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location (Optional)</label>
+                    <input type="text" id="event-location" class="form-control" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description (Optional)</label>
+                    <textarea id="event-description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="event-reminder">Reminder</label>
+                    <select id="event-reminder" class="form-control">
+                        <option value="none">None</option>
+                        <option value="5">5 minutes before</option>
+                        <option value="15">15 minutes before</option>
+                        <option value="30">30 minutes before</option>
+                        <option value="60">1 hour before</option>
+                        <option value="1440">1 day before</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save-event-btn" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Event
+                </button>
+                <button type="button" id="delete-event-btn" class="btn btn-danger hidden">
+                    <i class="fas fa-trash-alt"></i> Delete Event
+                </button>
+                <button type="button" id="cancel-event-btn" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Category</h3>
+                <button type="button" id="close-category-modal-btn" class="close-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" class="form-control" placeholder="Enter category name">
+                </div>
+                <div class="form-group">
+                    <label for="category-color">Category Color</label>
+                    <input type="color" id="category-color" class="form-control color-picker" value="#4CAF50">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save-category-btn" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Category
+                </button>
+                <button type="button" id="cancel-category-btn" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="../../index.html" class="floating-home-btn">
+        <span class="material-icons">home</span>
+        <span>Home</span>
+    </a>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

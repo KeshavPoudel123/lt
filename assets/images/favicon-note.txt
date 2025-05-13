@@ -1,0 +1,16 @@
+Note: The favicon.ico file is a binary file and cannot be directly edited with a text editor. 
+
+The favicon.svg file has been updated with the requested colors (#5B4CC4 and #C12E61) and will be used as the primary favicon for the website. 
+
+For browsers that don't support SVG favicons, you would need to use a tool like:
+1. https://realfavicongenerator.net/
+2. https://favicon.io/
+3. Or a graphics editor like Photoshop, GIMP, or Illustrator
+
+to convert the SVG to ICO format with the appropriate sizes (16x16, 32x32, 48x48).
+
+The SVG favicon has been updated with a gradient from #5B4CC4 to #C12E61, and alternative versions have been created:
+- favicon.svg: Main version with gradient
+- favicon-solid.svg: Version with solid primary color (#5B4CC4)
+- favicon-secondary.svg: Version with solid secondary color (#C12E61)
+- favicon-advanced.svg: Version with gradient and subtle pattern overlay

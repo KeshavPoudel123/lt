@@ -1,0 +1,8 @@
+/* Tool-specific styles */
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}

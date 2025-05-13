@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate final grades based on assignments, tests, and other assessable items with this easy-to-use grade calculator.">
+    <meta name="color-scheme" content="dark">
+    <title>Grade Calculator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Grade Calculator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Calculate final grades based on assignments, tests, and other assessable items. Predict final grades and determine what you need on remaining assessments.</p>
+                    </div>
+
+                    <div class="calculator-tabs">
+                        <button type="button" id="tab-weighted" class="tab-btn active">Weighted Grade</button>
+                        <button type="button" id="tab-final" class="tab-btn">Final Grade</button>
+                        <button type="button" id="tab-gpa" class="tab-btn">GPA Calculator</button>
+                        <button type="button" id="tab-scales" class="tab-btn">Grade Scales</button>
+                    </div>
+
+                    <!-- Weighted Grade Calculator -->
+                    <div id="calculator-weighted" class="calculator-section active">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="grade-inputs" id="grade-inputs">
+                                    <div class="grade-input-header">
+                                        <div class="grade-input-name">Assessment Name</div>
+                                        <div class="grade-input-grade">Grade</div>
+                                        <div class="grade-input-weight">Weight (%)</div>
+                                        <div class="grade-input-action"></div>
+                                    </div>
+                                    <!-- Grade inputs will be added here -->
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="add-grade" class="btn btn-sm">
+                                        <i class="fas fa-plus"></i> Add Assessment
+                                    </button>
+                                    <button type="button" id="calculate-weighted" class="btn btn-primary">Calculate Grade</button>
+                                    <button type="button" id="reset-weighted" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="weighted-result-section" class="result-section hidden">
+                                <h3>Grade Results</h3>
+                                <div class="grade-result">
+                                    <div class="grade-result-main">
+                                        <div class="grade-percentage">
+                                            <span id="grade-percentage">0%</span>
+                                        </div>
+                                        <div class="grade-letter" id="grade-letter">F</div>
+                                    </div>
+
+                                    <div class="grade-details">
+                                        <div class="grade-detail-item">
+                                            <div class="detail-label">Total Points:</div>
+                                            <div class="detail-value" id="total-points">0</div>
+                                        </div>
+                                        <div class="grade-detail-item">
+                                            <div class="detail-label">Total Weight:</div>
+                                            <div class="detail-value" id="total-weight">0%</div>
+                                        </div>
+                                        <div class="grade-detail-item">
+                                            <div class="detail-label">Weighted Average:</div>
+                                            <div class="detail-value" id="weighted-average">0%</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="grade-summary" id="grade-summary"></div>
+                                </div>
+
+                                <div class="grade-visualization">
+                                    <div class="grade-meter-container">
+                                        <div class="grade-meter">
+                                            <div class="grade-meter-fill" id="grade-meter-fill"></div>
+                                        </div>
+                                        <div class="grade-meter-labels">
+                                            <span>0%</span>
+                                            <span>25%</span>
+                                            <span>50%</span>
+                                            <span>75%</span>
+                                            <span>100%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-weighted-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                    <button type="button" id="save-weighted-result" class="btn btn-sm">
+                                        <i class="fas fa-save"></i> Save Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Grade Calculator -->
+                    <div id="calculator-final" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="current-grade">Current Grade (%)</label>
+                                        <input type="number" id="current-grade" class="form-control" placeholder="e.g., 85" min="0" max="100">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="current-weight">Current Weight (%)</label>
+                                        <input type="number" id="current-weight" class="form-control" placeholder="e.g., 70" min="0" max="100">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="final-weight">Final Exam Weight (%)</label>
+                                        <input type="number" id="final-weight" class="form-control" placeholder="e.g., 30" min="0" max="100">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="desired-grade">Desired Final Grade (%)</label>
+                                        <input type="number" id="desired-grade" class="form-control" placeholder="e.g., 90" min="0" max="100">
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="calculate-final" class="btn btn-primary">Calculate Needed Grade</button>
+                                    <button type="button" id="reset-final" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="final-result-section" class="result-section hidden">
+                                <h3>Required Final Exam Grade</h3>
+                                <div class="final-result">
+                                    <div class="final-result-main">
+                                        <div class="final-percentage">
+                                            <span id="final-percentage">0%</span>
+                                        </div>
+                                        <div class="final-letter" id="final-letter">F</div>
+                                    </div>
+
+                                    <div class="final-details">
+                                        <div class="final-detail-item">
+                                            <div class="detail-label">Feasibility:</div>
+                                            <div class="detail-value" id="final-feasibility">Not Possible</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="final-summary" id="final-summary"></div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-final-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GPA Calculator -->
+                    <div id="calculator-gpa" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="input-section">
+                                <div class="gpa-inputs" id="gpa-inputs">
+                                    <div class="gpa-input-header">
+                                        <div class="gpa-input-name">Course Name</div>
+                                        <div class="gpa-input-grade">Grade</div>
+                                        <div class="gpa-input-credits">Credits</div>
+                                        <div class="gpa-input-action"></div>
+                                    </div>
+                                    <!-- GPA inputs will be added here -->
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="add-course" class="btn btn-sm">
+                                        <i class="fas fa-plus"></i> Add Course
+                                    </button>
+                                    <button type="button" id="calculate-gpa" class="btn btn-primary">Calculate GPA</button>
+                                    <button type="button" id="reset-gpa" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div id="gpa-result-section" class="result-section hidden">
+                                <h3>GPA Results</h3>
+                                <div class="gpa-result">
+                                    <div class="gpa-result-main">
+                                        <div class="gpa-value">
+                                            <span id="gpa-value">0.00</span>
+                                        </div>
+                                        <div class="gpa-scale" id="gpa-scale">4.0 Scale</div>
+                                    </div>
+
+                                    <div class="gpa-details">
+                                        <div class="gpa-detail-item">
+                                            <div class="detail-label">Total Credits:</div>
+                                            <div class="detail-value" id="total-credits">0</div>
+                                        </div>
+                                        <div class="gpa-detail-item">
+                                            <div class="detail-label">Total Grade Points:</div>
+                                            <div class="detail-value" id="total-grade-points">0</div>
+                                        </div>
+                                        <div class="gpa-detail-item">
+                                            <div class="detail-label">Courses Included:</div>
+                                            <div class="detail-value" id="courses-included">0</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gpa-summary" id="gpa-summary"></div>
+                                </div>
+
+                                <div class="gpa-visualization">
+                                    <div class="gpa-meter-container">
+                                        <div class="gpa-meter">
+                                            <div class="gpa-meter-fill" id="gpa-meter-fill"></div>
+                                        </div>
+                                        <div class="gpa-meter-labels">
+                                            <span>0.0</span>
+                                            <span>1.0</span>
+                                            <span>2.0</span>
+                                            <span>3.0</span>
+                                            <span>4.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="result-actions">
+                                    <button type="button" id="copy-gpa-result" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy Results
+                                    </button>
+                                    <button type="button" id="save-gpa-result" class="btn btn-sm">
+                                        <i class="fas fa-save"></i> Save Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grade Scales -->
+                    <div id="calculator-scales" class="calculator-section">
+                        <div class="calculator-content">
+                            <div class="scales-section">
+                                <div class="scales-container">
+                                    <div class="scale-card">
+                                        <h3>Standard Grading Scale</h3>
+                                        <div class="scale-table">
+                                            <div class="scale-row scale-header">
+                                                <div class="scale-letter">Letter</div>
+                                                <div class="scale-percentage">Percentage</div>
+                                                <div class="scale-gpa">GPA</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">A</div>
+                                                <div class="scale-percentage">90-100%</div>
+                                                <div class="scale-gpa">4.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">B</div>
+                                                <div class="scale-percentage">80-89%</div>
+                                                <div class="scale-gpa">3.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">C</div>
+                                                <div class="scale-percentage">70-79%</div>
+                                                <div class="scale-gpa">2.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">D</div>
+                                                <div class="scale-percentage">60-69%</div>
+                                                <div class="scale-gpa">1.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">F</div>
+                                                <div class="scale-percentage">0-59%</div>
+                                                <div class="scale-gpa">0.0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="scale-card">
+                                        <h3>Plus/Minus Grading Scale</h3>
+                                        <div class="scale-table">
+                                            <div class="scale-row scale-header">
+                                                <div class="scale-letter">Letter</div>
+                                                <div class="scale-percentage">Percentage</div>
+                                                <div class="scale-gpa">GPA</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">A+</div>
+                                                <div class="scale-percentage">97-100%</div>
+                                                <div class="scale-gpa">4.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">A</div>
+                                                <div class="scale-percentage">93-96%</div>
+                                                <div class="scale-gpa">4.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">A-</div>
+                                                <div class="scale-percentage">90-92%</div>
+                                                <div class="scale-gpa">3.7</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">B+</div>
+                                                <div class="scale-percentage">87-89%</div>
+                                                <div class="scale-gpa">3.3</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">B</div>
+                                                <div class="scale-percentage">83-86%</div>
+                                                <div class="scale-gpa">3.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">B-</div>
+                                                <div class="scale-percentage">80-82%</div>
+                                                <div class="scale-gpa">2.7</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">C+</div>
+                                                <div class="scale-percentage">77-79%</div>
+                                                <div class="scale-gpa">2.3</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">C</div>
+                                                <div class="scale-percentage">73-76%</div>
+                                                <div class="scale-gpa">2.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">C-</div>
+                                                <div class="scale-percentage">70-72%</div>
+                                                <div class="scale-gpa">1.7</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">D+</div>
+                                                <div class="scale-percentage">67-69%</div>
+                                                <div class="scale-gpa">1.3</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">D</div>
+                                                <div class="scale-percentage">63-66%</div>
+                                                <div class="scale-gpa">1.0</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">D-</div>
+                                                <div class="scale-percentage">60-62%</div>
+                                                <div class="scale-gpa">0.7</div>
+                                            </div>
+                                            <div class="scale-row">
+                                                <div class="scale-letter">F</div>
+                                                <div class="scale-percentage">0-59%</div>
+                                                <div class="scale-gpa">0.0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="scales-info">
+                                    <h3>About Grading Scales</h3>
+                                    <p>Grading scales can vary between institutions. The scales shown here are common examples, but your school or university may use a different scale.</p>
+                                    <p>Some institutions may also use different GPA values for the same letter grades, or may have additional grades like "Pass/Fail" or "Incomplete" that are not shown here.</p>
+                                    <p>Always check your institution's specific grading policy for the most accurate information.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Grading Scale</h3>
+                    <div class="setting-item">
+                        <label for="grading-scale">Grading Scale</label>
+                        <select id="grading-scale" class="form-control">
+                            <option value="standard">Standard (A: 90-100, B: 80-89, etc.)</option>
+                            <option value="plus-minus">Plus/Minus (A+: 97-100, A: 93-96, etc.)</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>Display</h3>
+                    <div class="setting-item">
+                        <label for="decimal-places">Decimal Places</label>
+                        <select id="decimal-places" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="auto-calculate">Auto Calculate</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="auto-calculate" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon"></i>
+        <div class="notification-content">
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

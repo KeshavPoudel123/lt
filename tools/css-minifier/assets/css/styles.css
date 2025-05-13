@@ -1,0 +1,250 @@
+/* ===== CSS MINIFIER SPECIFIC STYLES ===== */
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.css-minifier {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.input-section,
+.options-section,
+.output-section,
+.stats-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.input-header,
+.options-header,
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.input-header h3,
+.options-header h3,
+.output-header h3 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 0;
+}
+
+.input-actions,
+.output-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.input-container,
+.output-container {
+    width: 100%;
+}
+
+.css-input,
+.css-output {
+    width: 100%;
+    height: 300px;
+    padding: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.css-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.css-output {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.option-group {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.option-item label {
+    font-size: 0.9rem;
+    color: var(--light);
+}
+
+.option-item.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.option-item.checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.minify-action {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+}
+
+#minify-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--light);
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    color: var(--white);
+    font-weight: 500;
+}
+
+#size-reduction {
+    color: #4CAF50;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+/* Success notification */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.success .notification-icon::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Error notification */
+.notification.error {
+    background-color: #F44336;
+}
+
+.notification.error .notification-icon::before {
+    content: "✕";
+    font-weight: bold;
+}
+
+/* Info notification */
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.info .notification-icon::before {
+    content: "i";
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .input-header,
+    .options-header,
+    .output-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .input-actions,
+    .output-actions {
+        margin-top: var(--spacing-xs);
+    }
+    
+    .options-container {
+        flex-direction: column;
+    }
+    
+    .option-group {
+        width: 100%;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

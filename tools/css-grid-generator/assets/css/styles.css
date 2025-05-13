@@ -1,0 +1,361 @@
+/* CSS Grid Generator Styles */
+
+/* Main Layout */
+.grid-generator {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Controls Section */
+.grid-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.control-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.control-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.input-with-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-buttons input {
+    width: 60px;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.input-with-buttons .btn {
+    min-width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-unit input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.unit-select {
+    width: 70px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.template-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.template-buttons .btn {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Grid Preview Section */
+.grid-preview-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.grid-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.grid-preview-header h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.grid-preview-container {
+    background-color: var(--bg-color-light);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.grid-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 500px;
+    height: 300px;
+    background-color: rgba(var(--primary-rgb), 0.05);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.grid-cell {
+    background: linear-gradient(135deg, var(--primary-color-light), var(--secondary-color-light));
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-color-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.grid-cell:hover {
+    box-shadow: 0 0 0 2px var(--primary-color);
+    z-index: 1;
+}
+
+.grid-cell.selected {
+    box-shadow: 0 0 0 2px var(--secondary-color);
+    z-index: 2;
+}
+
+.grid-lines-visible .grid-preview {
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
+}
+
+/* Code Section */
+.grid-code-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.code-header h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.code-container {
+    background-color: var(--code-bg);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.code-output {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--code-color);
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 992px) {
+    .grid-generator {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "controls preview"
+            "code code";
+        gap: 1.5rem;
+    }
+
+    .grid-controls {
+        grid-area: controls;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .grid-preview-section {
+        grid-area: preview;
+    }
+
+    .grid-code-section {
+        grid-area: code;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.grid-cell {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .grid-cell {
+    color: var(--text-color-light);
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+/* Success notification */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.success .notification-icon::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Error notification */
+.notification.error {
+    background-color: #F44336;
+}
+
+.notification.error .notification-icon::before {
+    content: "✕";
+    font-weight: bold;
+}
+
+/* Info notification */
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.info .notification-icon::before {
+    content: "i";
+    font-weight: bold;
+}
+
+/* Hover Effects */
+.btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-sm:hover {
+    background-color: var(--primary-color-light);
+}
+
+/* Focus States for Accessibility */
+input:focus, select:focus, button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create and customize CSS grid layouts with a visual editor. Generate CSS code for your grid layouts.">
+    <meta name="color-scheme" content="dark">
+    <title>CSS Grid Generator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">CSS Grid Generator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Create and customize CSS grid layouts with this visual editor. Adjust rows, columns, gaps, and more to generate CSS code for your grid layouts.</p>
+                    </div>
+
+                    <div class="grid-generator">
+                        <div class="grid-controls">
+                            <div class="control-section">
+                                <h3>Grid Dimensions</h3>
+                                <div class="control-group">
+                                    <label for="grid-rows">Rows</label>
+                                    <div class="input-with-buttons">
+                                        <button type="button" class="btn btn-sm" id="decrease-rows" aria-label="Decrease rows">-</button>
+                                        <input type="number" id="grid-rows" class="form-control" min="1" max="12" value="3">
+                                        <button type="button" class="btn btn-sm" id="increase-rows" aria-label="Increase rows">+</button>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="grid-columns">Columns</label>
+                                    <div class="input-with-buttons">
+                                        <button type="button" class="btn btn-sm" id="decrease-columns" aria-label="Decrease columns">-</button>
+                                        <input type="number" id="grid-columns" class="form-control" min="1" max="12" value="3">
+                                        <button type="button" class="btn btn-sm" id="increase-columns" aria-label="Increase columns">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-section">
+                                <h3>Grid Gaps</h3>
+                                <div class="control-group">
+                                    <label for="row-gap">Row Gap</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="row-gap" class="form-control" min="0" max="50" value="10">
+                                        <select id="row-gap-unit" class="form-control unit-select" aria-label="Row gap unit">
+                                            <option value="px">px</option>
+                                            <option value="%">%</option>
+                                            <option value="rem">rem</option>
+                                            <option value="em">em</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="column-gap">Column Gap</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="column-gap" class="form-control" min="0" max="50" value="10">
+                                        <select id="column-gap-unit" class="form-control unit-select" aria-label="Column gap unit">
+                                            <option value="px">px</option>
+                                            <option value="%">%</option>
+                                            <option value="rem">rem</option>
+                                            <option value="em">em</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-section">
+                                <h3>Grid Container</h3>
+                                <div class="control-group">
+                                    <label for="container-width">Width</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="container-width" class="form-control" min="100" max="2000" value="500">
+                                        <select id="container-width-unit" class="form-control unit-select" aria-label="Container width unit">
+                                            <option value="px">px</option>
+                                            <option value="%">%</option>
+                                            <option value="vw">vw</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="container-height">Height</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="container-height" class="form-control" min="100" max="2000" value="300">
+                                        <select id="container-height-unit" class="form-control unit-select" aria-label="Container height unit">
+                                            <option value="px">px</option>
+                                            <option value="%">%</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-section">
+                                <h3>Templates</h3>
+                                <div class="template-buttons">
+                                    <button type="button" class="btn btn-sm" data-template="basic">Basic Grid</button>
+                                    <button type="button" class="btn btn-sm" data-template="holy-grail">Holy Grail</button>
+                                    <button type="button" class="btn btn-sm" data-template="dashboard">Dashboard</button>
+                                    <button type="button" class="btn btn-sm" data-template="gallery">Gallery</button>
+                                    <button type="button" class="btn btn-sm" data-template="responsive">Responsive</button>
+                                    <button type="button" class="btn btn-sm" data-template="masonry">Masonry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-preview-section">
+                            <div class="grid-preview-header">
+                                <h3>Grid Preview</h3>
+                                <div class="preview-actions">
+                                    <button type="button" id="toggle-numbers" class="btn btn-sm">
+                                        <i class="fas fa-hashtag"></i> Toggle Numbers
+                                    </button>
+                                    <button type="button" id="toggle-lines" class="btn btn-sm">
+                                        <i class="fas fa-border-all"></i> Toggle Grid Lines
+                                    </button>
+                                    <button type="button" id="export-grid" class="btn btn-sm">
+                                        <i class="fas fa-download"></i> Export as Image
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="grid-preview-container">
+                                <div id="grid-preview" class="grid-preview">
+                                    <!-- Grid cells will be generated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-code-section">
+                            <div class="code-header">
+                                <h3>Generated CSS</h3>
+                                <button type="button" id="copy-css" class="btn btn-sm" aria-label="Copy CSS">
+                                    <i class="fas fa-copy"></i> Copy CSS
+                                </button>
+                            </div>
+                            <div class="code-container">
+                                <pre id="css-output" class="code-output"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="show-grid-lines" checked>
+                        <label for="show-grid-lines">Show Grid Lines</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Code Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="include-prefixes" checked>
+                        <label for="include-prefixes">Include Vendor Prefixes</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="minify-css">
+                        <label for="minify-css">Minify CSS</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- html2canvas for exporting grid as image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
