@@ -1,0 +1,378 @@
+/* Text Difference Highlighter Tool Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2a2a2a;
+    --dark-border: #3a3a3a;
+    --light-text: #f5f5f5;
+    --medium-text: #b0b0b0;
+    --dark-text: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+    --added-color: rgba(76, 175, 80, 0.2);
+    --removed-color: rgba(244, 67, 54, 0.2);
+    --changed-color: rgba(255, 193, 7, 0.2);
+}
+
+/* Tool Container */
+.diff-app {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--dark-surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Diff Options */
+.diff-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.view-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.view-options label {
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 0.25rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radio-option input[type="radio"] {
+    accent-color: var(--primary-color);
+}
+
+/* Text Inputs */
+.text-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.text-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+.input-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.diff-textarea {
+    width: 100%;
+    height: 250px;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--dark-border);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+}
+
+.diff-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Diff Actions */
+.diff-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Statistics */
+.diff-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.diff-stats.hidden {
+    display: none;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--medium-text);
+}
+
+.stat-added .stat-value {
+    color: var(--success-color);
+}
+
+.stat-removed .stat-value {
+    color: var(--error-color);
+}
+
+.stat-unchanged .stat-value {
+    color: var(--info-color);
+}
+
+/* Diff Results */
+.diff-results {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.results-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+.results-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--dark-surface);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--light-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.diff-output {
+    background-color: var(--dark-bg);
+    border-radius: 4px;
+    padding: 1rem;
+    min-height: 200px;
+    max-height: 500px;
+    overflow: auto;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    color: var(--light-text);
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 150px;
+    color: var(--medium-text);
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Diff Highlighting */
+.diff-line {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.diff-line-number {
+    min-width: 40px;
+    text-align: right;
+    padding-right: 10px;
+    color: var(--medium-text);
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.diff-line-content {
+    flex: 1;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.diff-added {
+    background-color: var(--added-color);
+}
+
+.diff-removed {
+    background-color: var(--removed-color);
+}
+
+.diff-changed {
+    background-color: var(--changed-color);
+}
+
+/* Side by Side View */
+.diff-side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.diff-side-by-side .diff-column {
+    overflow: auto;
+}
+
+/* Copy Notification */
+.copy-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-notification i {
+    font-size: 1.2rem;
+}
+
+.text-input-container {
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .text-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .diff-options {
+        flex-direction: column;
+    }
+
+    .diff-side-by-side {
+        grid-template-columns: 1fr;
+    }
+
+    .diff-actions {
+        flex-direction: column;
+    }
+
+    .diff-actions button {
+        width: 100%;
+    }
+
+    .diff-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Tool Title */
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert between different units of measurement - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Unit Converter - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Unit Converter</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Convert between different units of measurement including length, weight, temperature, speed, area, volume, and more.</p>
+                    </div>
+
+                    <div class="unit-converter">
+                        <div class="converter-form">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" class="form-control">
+                                    <option value="length">Length</option>
+                                    <option value="weight">Weight</option>
+                                    <option value="temperature">Temperature</option>
+                                    <option value="area">Area</option>
+                                    <option value="volume">Volume</option>
+                                    <option value="speed">Speed</option>
+                                    <option value="time">Time</option>
+                                    <option value="pressure">Pressure</option>
+                                    <option value="energy">Energy</option>
+                                    <option value="data">Data</option>
+                                </select>
+                            </div>
+
+                            <div class="conversion-container">
+                                <div class="form-group">
+                                    <label for="from-value">Value</label>
+                                    <input type="number" id="from-value" class="form-control" value="1">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="from-unit">From</label>
+                                    <select id="from-unit" class="form-control"></select>
+                                </div>
+
+                                <div class="swap-btn-container">
+                                    <button type="button" id="swap-btn" class="btn icon-btn" title="Swap Units">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="to-unit">To</label>
+                                    <select id="to-unit" class="form-control"></select>
+                                </div>
+
+                                <div class="form-group result-container">
+                                    <div class="result-header">
+                                        <label>Result</label>
+                                        <button type="button" id="copy-result-btn" class="btn btn-sm" title="Copy Result">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <div id="result" class="result">1</div>
+                                </div>
+                            </div>
+
+                            <div class="formula-container">
+                                <div id="formula" class="formula"></div>
+                            </div>
+                        </div>
+
+                        <div class="history-section">
+                            <div class="history-header">
+                                <h3>Recent Conversions</h3>
+                                <button type="button" id="clear-history-btn" class="btn btn-sm btn-secondary">
+                                    <i class="fas fa-trash-alt"></i> Clear
+                                </button>
+                            </div>
+
+                            <div id="history-container" class="history-container">
+                                <div class="empty-state">
+                                    <p>No recent conversions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+
+                    <div class="setting-item">
+                        <label for="decimal-places">Decimal Places</label>
+                        <select id="decimal-places" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/units.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

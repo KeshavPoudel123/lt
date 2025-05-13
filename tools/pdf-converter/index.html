@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert documents to and from PDF with this powerful online tool - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>PDF Converter - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Required for PDF.js to work correctly when loaded via CDN
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.0/mammoth.browser.min.js"></script>
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">PDF Converter</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Document Converter</h2>
+                        <p>Convert documents to and from PDF format. All processing happens in your browser - no files are uploaded to any server.</p>
+                    </div>
+
+                    <div class="converter-container">
+                        <div class="info">
+                            <h3>How to Use:</h3>
+                            <ol>
+                                <li>Click "Choose a file" to select your document.</li>
+                                <li>The "Convert from" format will often be auto-detected. If not, please select it.</li>
+                                <li>Select the desired "Convert to" format from the dropdown.</li>
+                                <li>Click the "Convert" button.</li>
+                                <li>Once processing is complete, a download link will appear.</li>
+                            </ol>
+                            <p><strong>Important Note:</strong> All conversions happen directly in your browser, ensuring your files remain private. Complex conversions (like DOCX to PDF) are approximations and might not perfectly preserve all original formatting. PDF to DOCX/DOC is not supported due to client-side limitations.</p>
+                        </div>
+
+                        <div class="converter-form">
+                            <div class="form-group">
+                                <label for="fileInput">1. Choose a file:</label>
+                                <input type="file" id="fileInput" accept=".txt,.docx,.jpg,.jpeg,.png,.pdf,.html,.htm" aria-label="Choose a file" title="Choose a file">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fromFormat">2. Convert from:</label>
+                                <select id="fromFormat" aria-label="Convert from format" title="Convert from format">
+                                    <option value="">--Select input format--</option>
+                                    <option value="txt">Text (.txt)</option>
+                                    <option value="docx">Word Document (.docx)</option>
+                                    <option value="image">Image (.jpg, .jpeg, .png)</option>
+                                    <option value="pdf">PDF (.pdf)</option>
+                                    <option value="html_file">HTML File (.html, .htm)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="toFormat">3. Convert to:</label>
+                                <select id="toFormat" aria-label="Convert to format" title="Convert to format">
+                                    <option value="">--Select output format--</option>
+                                    <!-- Options will be populated by JavaScript based on 'fromFormat' -->
+                                </select>
+                            </div>
+
+                            <button type="button" id="convertButton" disabled>Convert</button>
+                        </div>
+
+                        <div id="status">Please select a file and conversion formats to begin.</div>
+                        <div id="downloadLinkContainer">
+                            <!-- Download link will appear here -->
+                        </div>
+
+                        <div class="info">
+                            <h3>Supported Conversions:</h3>
+                            <ul>
+                                <li>Text (.txt) ➔ PDF</li>
+                                <li>Word (.docx) ➔ PDF (Basic conversion, formatting may vary)</li>
+                                <li>Word (.docx) ➔ Text (.txt)</li>
+                                <li>Image (.jpg, .png) ➔ PDF</li>
+                                <li>PDF ➔ Text (.txt)</li>
+                                <li>HTML File (.html) ➔ PDF</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

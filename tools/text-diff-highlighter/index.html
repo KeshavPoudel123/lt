@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare texts and highlight word-level differences - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Text Differences Checker - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Text Differences Checker</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Compare Text, Code, and Images</h2>
+                        <p>Easily identify differences between two texts, code snippets, or images. Perfect for finding changes in documents, code reviews, or visual comparisons.</p>
+                    </div>
+
+                    <div class="diff-app">
+                        <div class="diff-options">
+                            <div class="view-options">
+                                <label>View Mode:</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="side-by-side" name="view-mode" value="side-by-side" checked>
+                                        <label for="side-by-side">Side by Side</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="inline" name="view-mode" value="inline">
+                                        <label for="inline">Inline</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-inputs">
+                            <div class="text-input-container">
+                                <div class="input-header">
+                                    <h3>Original Text</h3>
+                                    <div class="input-actions">
+                                        <button type="button" id="clear-original" class="btn btn-sm btn-secondary">Clear</button>
+                                        <button type="button" id="copy-original" class="btn btn-sm btn-secondary">Copy</button>
+                                        <button type="button" id="sample-original" class="btn btn-sm btn-secondary">Sample</button>
+                                    </div>
+                                </div>
+                                <textarea id="original-text" class="diff-textarea" placeholder="Paste your original text here..."></textarea>
+                            </div>
+
+                            <div class="text-input-container">
+                                <div class="input-header">
+                                    <h3>Modified Text</h3>
+                                    <div class="input-actions">
+                                        <button type="button" id="clear-modified" class="btn btn-sm btn-secondary">Clear</button>
+                                        <button type="button" id="copy-modified" class="btn btn-sm btn-secondary">Copy</button>
+                                        <button type="button" id="sample-modified" class="btn btn-sm btn-secondary">Sample</button>
+                                    </div>
+                                </div>
+                                <textarea id="modified-text" class="diff-textarea" placeholder="Paste your modified text here..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="diff-actions">
+                            <button type="button" id="compare-btn" class="btn btn-primary">Compare</button>
+                            <button type="button" id="swap-btn" class="btn btn-secondary">Swap Texts</button>
+                            <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+                        </div>
+
+                        <div id="diff-stats" class="diff-stats hidden">
+                            <div class="stat-item stat-total">
+                                <div id="total-words" class="stat-value">0</div>
+                                <div class="stat-label">Total Words</div>
+                            </div>
+                            <div class="stat-item stat-added">
+                                <div id="added-words" class="stat-value">0</div>
+                                <div class="stat-label">Words Added</div>
+                            </div>
+                            <div class="stat-item stat-removed">
+                                <div id="removed-words" class="stat-value">0</div>
+                                <div class="stat-label">Words Removed</div>
+                            </div>
+                            <div class="stat-item stat-unchanged">
+                                <div id="unchanged-words" class="stat-value">0</div>
+                                <div class="stat-label">Unchanged Words</div>
+                            </div>
+                        </div>
+
+                        <div id="diff-results" class="diff-results">
+                            <div class="results-header">
+                                <h3>Differences</h3>
+                                <div class="results-actions">
+                                    <div class="dropdown">
+                                        <button type="button" id="download-diff" class="btn btn-sm btn-secondary">Download</button>
+                                        <div class="dropdown-content">
+                                            <a href="#" id="download-text">Text (.txt)</a>
+                                            <a href="#" id="download-pdf">PDF (.pdf)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="diff-output" class="diff-output">
+                                <div class="empty-state">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <p>Click "Compare" to see the differences</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+
+        <!-- Copy Notification -->
+        <div id="copy-notification" class="copy-notification">
+            <i class="fas fa-check-circle"></i>
+            <span>Copied to clipboard</span>
+        </div>
+    </div>
+
+    <!-- Diff Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff/5.1.0/diff.min.js"></script>
+
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

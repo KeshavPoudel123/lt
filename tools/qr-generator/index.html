@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate QR codes for URLs, text, and vCards - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>QR Code Generator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">QR Code Generator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Generate QR codes for URLs, text, or vCards. Customize colors, add logos, and download in multiple formats.</p>
+                    </div>
+
+                    <div class="tool-tabs">
+                        <button type="button" id="tab-generate" class="tab-btn active">Generate</button>
+                        <button type="button" id="tab-scan" class="tab-btn">Scan</button>
+                        <button type="button" id="tab-history" class="tab-btn">History</button>
+                    </div>
+
+                    <!-- Generate QR Code Tab -->
+                    <div id="tab-generate-content" class="tab-content active">
+                        <div class="qr-generator">
+                            <div class="qr-form">
+                                <div class="form-group">
+                                    <label for="content-type">Content Type</label>
+                                    <select id="content-type" class="form-control">
+                                        <option value="url">URL</option>
+                                        <option value="text">Text</option>
+                                        <option value="vcard">vCard</option>
+                                        <option value="email">Email</option>
+                                        <option value="sms">SMS</option>
+                                        <option value="wifi">WiFi</option>
+                                    </select>
+                                </div>
+
+                                <!-- URL Input (default) -->
+                                <div id="url-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="url">URL</label>
+                                        <input type="url" id="url" class="form-control" placeholder="https://example.com" value="https://latestonlinetools.com">
+                                    </div>
+                                </div>
+
+                                <!-- Text Input (hidden by default) -->
+                                <div id="text-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="text">Text</label>
+                                        <textarea id="text" class="form-control" placeholder="Enter your text here"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- vCard Input (hidden by default) -->
+                                <div id="vcard-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="vcard-name">Name</label>
+                                        <input type="text" id="vcard-name" class="form-control" placeholder="John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vcard-email">Email</label>
+                                        <input type="email" id="vcard-email" class="form-control" placeholder="john@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vcard-phone">Phone</label>
+                                        <input type="tel" id="vcard-phone" class="form-control" placeholder="+1 123 456 7890">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vcard-company">Company</label>
+                                        <input type="text" id="vcard-company" class="form-control" placeholder="Company Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vcard-website">Website</label>
+                                        <input type="url" id="vcard-website" class="form-control" placeholder="https://example.com">
+                                    </div>
+                                </div>
+
+                                <!-- Email Input (hidden by default) -->
+                                <div id="email-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="email-address">Email Address</label>
+                                        <input type="email" id="email-address" class="form-control" placeholder="example@email.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email-subject">Subject (Optional)</label>
+                                        <input type="text" id="email-subject" class="form-control" placeholder="Email Subject">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email-body">Body (Optional)</label>
+                                        <textarea id="email-body" class="form-control" placeholder="Email body text"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- SMS Input (hidden by default) -->
+                                <div id="sms-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="sms-number">Phone Number</label>
+                                        <input type="tel" id="sms-number" class="form-control" placeholder="+1 123 456 7890">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sms-message">Message</label>
+                                        <textarea id="sms-message" class="form-control" placeholder="SMS message text"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- WiFi Input (hidden by default) -->
+                                <div id="wifi-input" class="content-input">
+                                    <div class="form-group">
+                                        <label for="wifi-ssid">Network Name (SSID)</label>
+                                        <input type="text" id="wifi-ssid" class="form-control" placeholder="WiFi Network Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wifi-password">Password</label>
+                                        <input type="password" id="wifi-password" class="form-control" placeholder="WiFi Password">
+                                        <div class="password-toggle">
+                                            <input type="checkbox" id="show-password">
+                                            <label for="show-password">Show password</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wifi-encryption">Encryption Type</label>
+                                        <select id="wifi-encryption" class="form-control">
+                                            <option value="WPA">WPA/WPA2</option>
+                                            <option value="WEP">WEP</option>
+                                            <option value="nopass">No Password</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="wifi-hidden">
+                                            <label for="wifi-hidden">Hidden Network</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="qr-size">QR Code Size</label>
+                                    <div class="range-slider">
+                                        <input type="range" id="qr-size" min="128" max="512" step="32" value="256">
+                                        <span id="qr-size-value">256 x 256</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="qr-style">QR Code Style</label>
+                                    <select id="qr-style" class="form-control">
+                                        <option value="square">Square Dots</option>
+                                        <option value="rounded">Rounded Dots</option>
+                                        <option value="dots">Circular Dots</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="foreground-color">Foreground Color</label>
+                                    <input type="color" id="foreground-color" class="form-control color-picker" value="#000000">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="background-color">Background Color</label>
+                                    <input type="color" id="background-color" class="form-control color-picker" value="#FFFFFF">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="error-correction">Error Correction Level</label>
+                                    <select id="error-correction" class="form-control">
+                                        <option value="L">Low (7%)</option>
+                                        <option value="M" selected>Medium (15%)</option>
+                                        <option value="Q">Quartile (25%)</option>
+                                        <option value="H">High (30%)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="logo-upload">Logo (Optional)</label>
+                                    <input type="file" id="logo-upload" class="form-control" accept="image/*">
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="generate-btn" class="btn btn-primary">Generate QR Code</button>
+                                    <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+
+                            <div class="qr-preview">
+                                <div class="qr-code-container">
+                                    <div id="qr-code"></div>
+                                </div>
+                                <div class="qr-actions">
+                                    <button type="button" id="save-btn" class="btn btn-secondary">
+                                        <i class="fas fa-save"></i> Save to History
+                                    </button>
+                                    <div class="dropdown">
+                                        <button type="button" id="download-btn" class="btn btn-secondary">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="#" id="download-png">PNG Image</a>
+                                            <a href="#" id="download-svg">SVG Vector</a>
+                                            <a href="#" id="download-pdf">PDF Document</a>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="share-btn" class="btn btn-secondary">
+                                        <i class="fas fa-share-alt"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scan QR Code Tab -->
+                    <div id="tab-scan-content" class="tab-content">
+                        <div class="qr-scanner">
+                            <div class="scanner-container">
+                                <div id="scanner-placeholder">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Click "Start Scanner" to scan a QR code</p>
+                                </div>
+                                <!-- Using both playsinline and webkit-playsinline for cross-browser compatibility -->
+                                <video id="scanner-video" autoplay muted webkit-playsinline="true" playsinline="true"></video>
+                                <canvas id="scanner-canvas"></canvas>
+                                <div class="scanner-overlay">
+                                    <div class="scanner-region"></div>
+                                </div>
+                            </div>
+                            <div class="scanner-controls">
+                                <button type="button" id="start-scanner" class="btn btn-primary">
+                                    <i class="fas fa-camera"></i> Start Scanner
+                                </button>
+                                <button type="button" id="stop-scanner" class="btn btn-secondary" disabled>
+                                    <i class="fas fa-stop"></i> Stop Scanner
+                                </button>
+                                <button type="button" id="upload-qr" class="btn btn-secondary">
+                                    <i class="fas fa-upload"></i> Upload QR Image
+                                </button>
+                                <input type="file" id="qr-image-upload" accept="image/*" class="hidden" aria-label="Upload QR code image" title="Upload QR code image">
+                            </div>
+                            <div class="scanner-result">
+                                <h3>Scan Result</h3>
+                                <div id="scan-result" class="result-container">
+                                    <p class="empty-result">Scan a QR code to see the result</p>
+                                </div>
+                                <div class="result-actions hidden">
+                                    <button type="button" id="copy-result" class="btn btn-secondary">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                    <button type="button" id="open-result" class="btn btn-secondary">
+                                        <i class="fas fa-external-link-alt"></i> Open
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Tab -->
+                    <div id="tab-history-content" class="tab-content">
+                        <div class="qr-history">
+                            <div class="history-header">
+                                <h3>Saved QR Codes</h3>
+                                <button type="button" id="clear-history" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i> Clear History
+                                </button>
+                            </div>
+                            <div id="history-list" class="history-list">
+                                <p class="empty-history">No saved QR codes yet. Generate and save a QR code to see it here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

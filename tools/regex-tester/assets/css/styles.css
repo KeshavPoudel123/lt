@@ -1,0 +1,319 @@
+/* ===== REGEX TESTER SPECIFIC STYLES ===== */
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.regex-tester {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.regex-input-section,
+.test-string-section,
+.results-section,
+.matches-section,
+.explanation-section {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.input-header,
+.results-header,
+.matches-header,
+.explanation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.input-header h3,
+.results-header h3,
+.matches-header h3,
+.explanation-header h3 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 0;
+}
+
+.input-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.regex-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.option-item label {
+    font-size: 0.9rem;
+    color: var(--light);
+}
+
+.regex-input-container {
+    margin-top: var(--spacing-sm);
+}
+
+.regex-pattern-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--spacing-sm);
+    height: 40px;
+}
+
+.regex-delimiter {
+    font-size: 1.2rem;
+    color: var(--light);
+    font-weight: bold;
+}
+
+.regex-pattern {
+    flex: 1;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 1rem;
+    padding: 0 var(--spacing-sm);
+}
+
+.regex-pattern:focus {
+    outline: none;
+}
+
+.regex-flags {
+    color: #FFC107;
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 1rem;
+    margin-left: 4px;
+}
+
+.test-string-container,
+.results-container,
+.matches-container,
+.explanation-container {
+    margin-top: var(--spacing-sm);
+}
+
+.test-string {
+    width: 100%;
+    min-height: 150px;
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.test-string:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.highlighted-results {
+    width: 100%;
+    min-height: 150px;
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.match {
+    background-color: rgba(76, 175, 80, 0.3);
+    border-radius: 2px;
+    padding: 0 2px;
+    margin: 0 -2px;
+}
+
+.group {
+    border-bottom: 2px solid rgba(33, 150, 243, 0.7);
+}
+
+.matches-list {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.match-item {
+    margin-bottom: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.match-index {
+    color: #FFC107;
+    font-weight: bold;
+}
+
+.match-value {
+    color: #4CAF50;
+}
+
+.match-groups {
+    margin-top: 4px;
+    padding-left: var(--spacing-md);
+}
+
+.group-item {
+    color: #2196F3;
+}
+
+.regex-explanation {
+    width: 100%;
+    min-height: 100px;
+    padding: var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.explanation-token {
+    margin-bottom: var(--spacing-xs);
+}
+
+.token-name {
+    font-weight: bold;
+    color: #FFC107;
+}
+
+.token-description {
+    color: var(--light);
+}
+
+.match-stats {
+    font-size: 0.9rem;
+    color: var(--light);
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+/* Success notification */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.success .notification-icon::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Error notification */
+.notification.error {
+    background-color: #F44336;
+}
+
+.notification.error .notification-icon::before {
+    content: "✕";
+    font-weight: bold;
+}
+
+/* Info notification */
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.info .notification-icon::before {
+    content: "i";
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .input-header,
+    .results-header,
+    .matches-header,
+    .explanation-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .regex-options {
+        margin-top: var(--spacing-xs);
+    }
+
+    .input-actions {
+        margin-top: var(--spacing-xs);
+    }
+}

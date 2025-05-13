@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator | Latest Online Tools</title>
+    <meta name="description" content="Generate secure, random passwords with customizable options for length, character types, and more.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Password Generator</h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-main">
+            <div class="container">
+                <div class="tool-wrapper">
+                    <!-- Tool Description -->
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Generate secure, random passwords with customizable options for length, character types, and more.</p>
+                    </div>
+
+                    <div class="password-generator-app">
+                        <div class="password-display">
+                            <div class="password-field">
+                                <input type="text" id="password-output" class="password-output" readonly aria-label="Generated Password">
+                                <div class="password-actions">
+                                    <button type="button" id="copy-btn" class="btn btn-icon" title="Copy to Clipboard">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                    <button type="button" id="refresh-btn" class="btn btn-icon" title="Generate New Password">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-meter">
+                                    <div class="strength-segment" data-strength="1"></div>
+                                    <div class="strength-segment" data-strength="2"></div>
+                                    <div class="strength-segment" data-strength="3"></div>
+                                    <div class="strength-segment" data-strength="4"></div>
+                                </div>
+                                <span id="strength-text">Password Strength</span>
+                            </div>
+                        </div>
+
+                        <div class="password-options">
+                            <div class="option-group">
+                                <label for="password-length">Password Length: <span id="length-value">16</span></label>
+                                <div class="slider-container">
+                                    <input type="range" id="password-length" min="8" max="64" value="16" class="slider">
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3>Character Types</h3>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="include-uppercase" checked>
+                                        <label for="include-uppercase">Include Uppercase (A-Z)</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="include-lowercase" checked>
+                                        <label for="include-lowercase">Include Lowercase (a-z)</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="include-numbers" checked>
+                                        <label for="include-numbers">Include Numbers (0-9)</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="include-symbols" checked>
+                                        <label for="include-symbols">Include Symbols (!@#$%^&*)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3>Advanced Options</h3>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="exclude-similar">
+                                        <label for="exclude-similar">Exclude Similar Characters (i, l, 1, L, o, 0, O)</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="exclude-ambiguous">
+                                        <label for="exclude-ambiguous">Exclude Ambiguous Symbols ({ } [ ] ( ) / \ ' " ` ~ , ; : . < >)</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="require-all-types">
+                                        <label for="require-all-types">Require At Least One Character From Each Selected Type</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button type="button" id="generate-btn" class="btn btn-primary">Generate Password</button>
+                                <button type="button" id="save-btn" class="btn btn-secondary">Save Password</button>
+                            </div>
+                        </div>
+
+                        <div class="saved-passwords hidden" id="saved-passwords-container">
+                            <h3>Saved Passwords</h3>
+                            <div class="saved-passwords-list" id="saved-passwords-list">
+                                <!-- Saved passwords will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Hidden Settings Elements (for JavaScript compatibility) -->
+    <div class="hidden-settings">
+        <input type="checkbox" id="auto-copy" aria-label="Auto copy password" title="Auto copy password">
+        <select id="clear-clipboard" aria-label="Clear clipboard timer" title="Clear clipboard timer">
+            <option value="0">Never</option>
+        </select>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

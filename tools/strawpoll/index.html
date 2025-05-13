@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrawPoll | Latest Online Tools</title>
+    <meta name="description" content="Create and share polls quickly and easily. Get instant results with our simple and intuitive polling tool.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="../../index.html">
+                            <img src="../../assets/images/logo.png" alt="Latest Online Tools Logo">
+                            <span>Latest Online Tools</span>
+                        </a>
+                    </div>
+
+                    <div class="header-actions">
+                        <button type="button" id="settings-btn" class="btn btn-icon" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-main">
+            <div class="container">
+                <div class="tool-wrapper">
+                    <!-- Tool Header -->
+                    <div class="tool-header-content">
+                        <h1>StrawPoll</h1>
+                        <p>Create and share polls quickly and easily. Get instant results with our simple and intuitive polling tool.</p>
+                    </div>
+
+                    <div class="strawpoll-app">
+                        <!-- Poll Creation Form -->
+                        <div id="poll-creation" class="poll-section">
+                            <div class="section-header">
+                                <h2>Create a Poll</h2>
+                            </div>
+
+                            <div class="poll-form">
+                                <div class="form-group">
+                                    <label for="poll-question">Question</label>
+                                    <input type="text" id="poll-question" class="form-control" placeholder="Enter your question here...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Options</label>
+                                    <div id="poll-options" class="poll-options">
+                                        <div class="option-input">
+                                            <input type="text" class="form-control option-field" placeholder="Option 1">
+                                            <button type="button" class="btn btn-icon remove-option" title="Remove Option" disabled>
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div class="option-input">
+                                            <input type="text" class="form-control option-field" placeholder="Option 2">
+                                            <button type="button" class="btn btn-icon remove-option" title="Remove Option" disabled>
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-option-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-plus"></i> Add Option
+                                    </button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Poll Settings</label>
+                                    <div class="poll-settings">
+                                        <div class="setting-item checkbox">
+                                            <input type="checkbox" id="multiple-choice">
+                                            <label for="multiple-choice">Allow multiple choices</label>
+                                        </div>
+                                        <div class="setting-item checkbox">
+                                            <input type="checkbox" id="require-names">
+                                            <label for="require-names">Require names</label>
+                                        </div>
+                                        <div class="setting-item checkbox">
+                                            <input type="checkbox" id="hide-results">
+                                            <label for="hide-results">Hide results until voting ends</label>
+                                        </div>
+                                        <div class="setting-item">
+                                            <label for="end-date">End Date (Optional)</label>
+                                            <input type="datetime-local" id="end-date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="create-poll-btn" class="btn btn-primary">Create Poll</button>
+                                    <button type="button" id="reset-form-btn" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Poll Voting Section -->
+                        <div id="poll-voting" class="poll-section hidden">
+                            <div class="section-header">
+                                <h2 id="voting-question"></h2>
+                                <div class="poll-meta">
+                                    <span id="poll-id-display"></span>
+                                    <span id="poll-end-time"></span>
+                                </div>
+                            </div>
+
+                            <div class="poll-form">
+                                <div id="name-input-container" class="form-group hidden">
+                                    <label for="voter-name">Your Name</label>
+                                    <input type="text" id="voter-name" class="form-control" placeholder="Enter your name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Options</label>
+                                    <div id="voting-options" class="voting-options">
+                                        <!-- Voting options will be added here by JavaScript -->
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" id="submit-vote-btn" class="btn btn-primary">Submit Vote</button>
+                                    <button type="button" id="view-results-btn" class="btn btn-secondary">View Results</button>
+                                    <button type="button" id="back-to-create-btn" class="btn btn-secondary">Create New Poll</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Poll Results Section -->
+                        <div id="poll-results" class="poll-section hidden">
+                            <div class="section-header">
+                                <h2 id="results-question"></h2>
+                                <div class="poll-meta">
+                                    <span id="results-poll-id"></span>
+                                    <span id="results-end-time"></span>
+                                </div>
+                            </div>
+
+                            <div class="results-container">
+                                <div class="results-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Total Votes:</span>
+                                        <span id="total-votes" class="summary-value">0</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Status:</span>
+                                        <span id="poll-status" class="summary-value">Active</span>
+                                    </div>
+                                </div>
+
+                                <div id="results-chart" class="results-chart">
+                                    <!-- Results chart will be added here by JavaScript -->
+                                </div>
+
+                                <div id="voters-list-container" class="voters-list-container hidden">
+                                    <h3>Voters</h3>
+                                    <div id="voters-list" class="voters-list">
+                                        <!-- Voters list will be added here by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="share-section">
+                                <h3>Share this Poll</h3>
+                                <div class="share-link-container">
+                                    <label for="share-link" class="sr-only">Share Link</label>
+                                    <input type="text" id="share-link" class="form-control" readonly title="Share Link" placeholder="Poll share link">
+                                    <button type="button" id="copy-link-btn" class="btn btn-secondary">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div class="social-share-buttons">
+                                    <button type="button" id="share-twitter" class="btn btn-social btn-twitter">
+                                        <i class="fab fa-twitter"></i> Twitter
+                                    </button>
+                                    <button type="button" id="share-facebook" class="btn btn-social btn-facebook">
+                                        <i class="fab fa-facebook-f"></i> Facebook
+                                    </button>
+                                    <button type="button" id="share-email" class="btn btn-social btn-email">
+                                        <i class="fas fa-envelope"></i> Email
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" id="back-to-vote-btn" class="btn btn-secondary">Back to Voting</button>
+                                <button type="button" id="create-new-poll-btn" class="btn btn-primary">Create New Poll</button>
+                            </div>
+                        </div>
+
+                        <!-- My Polls Section -->
+                        <div id="my-polls-section" class="poll-section">
+                            <div class="section-header">
+                                <h2>My Polls</h2>
+                            </div>
+
+                            <div id="my-polls-list" class="my-polls-list">
+                                <!-- My polls will be added here by JavaScript -->
+                                <div class="empty-state" id="empty-polls-message">
+                                    <i class="fas fa-poll"></i>
+                                    <p>You haven't created any polls yet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Poll Preferences</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="save-polls-locally" checked>
+                        <label for="save-polls-locally">Save polls locally</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="show-voters-names">
+                        <label for="show-voters-names">Show voters' names by default</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Chart.js for poll results visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,275 @@
+/* PDF Converter Tool Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2a2a2a;
+    --dark-border: #3a3a3a;
+    --light-text: #f5f5f5;
+    --medium-text: #b0b0b0;
+    --dark-text: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+    --converter-blue: #007bff;
+    --converter-blue-hover: #0069d9;
+    --converter-green: #28a745;
+    --converter-green-hover: #218838;
+}
+
+/* Converter Container */
+.converter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--dark-surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Info Sections */
+.info {
+    font-size: 0.9rem;
+    color: var(--medium-text);
+    margin-bottom: 1rem;
+    text-align: left;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border: 1px solid var(--dark-border);
+}
+
+.info h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--light-text);
+    font-size: 1.1rem;
+}
+
+.info ol, .info ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.info li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--medium-text);
+}
+
+.info strong {
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+/* Converter Form */
+.converter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--dark-border);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.converter-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+.converter-form input[type="file"],
+.converter-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.converter-form input[type="file"] {
+    cursor: pointer;
+}
+
+.converter-form input[type="file"]:hover,
+.converter-form select:hover {
+    border-color: var(--primary-color);
+}
+
+.converter-form input[type="file"]:focus,
+.converter-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(91, 76, 196, 0.2);
+}
+
+/* Convert Button */
+.converter-form button {
+    background-color: var(--converter-blue);
+    color: white;
+    padding: 0.875rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.converter-form button:hover {
+    background-color: var(--converter-blue-hover);
+}
+
+.converter-form button:active {
+    transform: translateY(1px);
+}
+
+.converter-form button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+}
+
+/* Status Message */
+#status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    text-align: center;
+    color: var(--medium-text);
+    font-size: 0.95rem;
+    min-height: 22px;
+    line-height: 1.5;
+}
+
+/* Download Link Container */
+#downloadLinkContainer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#downloadLinkContainer a {
+    background-color: var(--converter-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+#downloadLinkContainer a:hover {
+    background-color: var(--converter-green-hover);
+}
+
+#downloadLinkContainer a:active {
+    transform: translateY(1px);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.notification.info {
+    border-left: 4px solid var(--info-color);
+}
+
+.notification-icon {
+    font-size: 1.25rem;
+}
+
+.notification-icon.fa-check-circle {
+    color: var(--success-color);
+}
+
+.notification-icon.fa-times-circle {
+    color: var(--error-color);
+}
+
+.notification-icon.fa-exclamation-triangle {
+    color: var(--warning-color);
+}
+
+.notification-icon.fa-info-circle {
+    color: var(--info-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .converter-container {
+        padding: 1rem;
+    }
+    
+    .converter-form {
+        padding: 1rem;
+    }
+    
+    .info {
+        padding: 0.75rem;
+    }
+    
+    .converter-form button, 
+    #downloadLinkContainer a {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer - Latest Online Tools</title>
+    <meta name="description" content="Boost your productivity with our Pomodoro Timer. Set work sessions and breaks to improve focus and efficiency.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Pomodoro Timer</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Boost Your Productivity</h2>
+                        <p>The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. This technique can help improve focus and productivity.</p>
+                    </div>
+
+                    <div class="pomodoro-app">
+                        <div class="timer-container">
+                            <div class="timer-display">
+                                <div class="timer-circle">
+                                    <svg class="timer-svg" viewBox="0 0 100 100">
+                                        <circle class="timer-background" cx="50" cy="50" r="45"></circle>
+                                        <circle class="timer-progress" cx="50" cy="50" r="45"></circle>
+                                    </svg>
+                                    <div class="timer-time" id="timer-time">25:00</div>
+                                    <div class="timer-label" id="timer-label">FOCUS</div>
+                                </div>
+                            </div>
+                            <div class="timer-controls">
+                                <button type="button" id="start-btn" class="btn btn-primary">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                                <button type="button" id="pause-btn" class="btn btn-secondary" disabled>
+                                    <i class="fas fa-pause"></i> Pause
+                                </button>
+                                <button type="button" id="reset-btn" class="btn btn-secondary">
+                                    <i class="fas fa-sync-alt"></i> Reset
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="timer-settings">
+                            <h3>Timer Settings</h3>
+                            <div class="settings-grid">
+                                <div class="setting-item">
+                                    <label for="focus-time">Focus Time (minutes)</label>
+                                    <input type="number" id="focus-time" min="1" max="60" value="25">
+                                </div>
+                                <div class="setting-item">
+                                    <label for="short-break">Short Break (minutes)</label>
+                                    <input type="number" id="short-break" min="1" max="30" value="5">
+                                </div>
+                                <div class="setting-item">
+                                    <label for="long-break">Long Break (minutes)</label>
+                                    <input type="number" id="long-break" min="1" max="60" value="15">
+                                </div>
+                                <div class="setting-item">
+                                    <label for="pomodoro-count">Pomodoros until Long Break</label>
+                                    <input type="number" id="pomodoro-count" min="1" max="10" value="4">
+                                </div>
+                            </div>
+                            <div class="setting-item setting-toggle">
+                                <label for="auto-start">Auto-start breaks and sessions</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="auto-start" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item setting-toggle">
+                                <label for="notifications">Enable notifications</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="notifications" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <button type="button" id="apply-settings" class="btn btn-primary"><i class="fas fa-check"></i> Apply Settings</button>
+                        </div>
+
+                        <div class="pomodoro-stats">
+                            <h3>Session Stats</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Completed</div>
+                                    <div class="stat-value" id="completed-count">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Current Streak</div>
+                                    <div class="stat-value" id="current-streak">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Focus Time</div>
+                                    <div class="stat-value" id="total-focus-time">0 min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p>&copy; 2023 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="../../index.html" class="floating-home-btn">
+        <span class="material-icons">home</span>
+        <span>Home</span>
+    </a>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

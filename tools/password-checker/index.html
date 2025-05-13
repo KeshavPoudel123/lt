@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check password strength and security with breach detection - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Password Checker - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Password Checker</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Check the strength and security of your passwords. Find out if your password has been exposed in data breaches.</p>
+                        <div class="security-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Your password is never sent to our servers. All checks are performed locally in your browser.</p>
+                        </div>
+                    </div>
+
+                    <div class="password-checker">
+                        <div class="password-input-container">
+                            <div class="form-group">
+                                <label for="password-input">Enter Password</label>
+                                <div class="password-field">
+                                    <input type="password" id="password-input" class="form-control" placeholder="Enter your password">
+                                    <button type="button" id="toggle-password" class="toggle-password" aria-label="Toggle password visibility">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="check-btn" class="btn btn-primary">
+                                    <i class="fas fa-shield-alt"></i> Check Password
+                                </button>
+                                <button type="button" id="generate-btn" class="btn btn-secondary">
+                                    <i class="fas fa-sync-alt"></i> Generate Strong Password
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="password-results">
+                            <div class="strength-meter">
+                                <h3>Password Strength</h3>
+                                <div class="meter-container">
+                                    <div class="meter-bar">
+                                        <div id="strength-bar" class="meter-fill"></div>
+                                    </div>
+                                    <div id="strength-label" class="meter-label">Not Checked</div>
+                                </div>
+                            </div>
+
+                            <div class="password-stats">
+                                <h3>Password Analysis</h3>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-ruler"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h4>Length</h4>
+                                            <p id="length-stat">0 characters</p>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h4>Crack Time</h4>
+                                            <p id="time-stat">Not calculated</p>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-dice"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h4>Entropy</h4>
+                                            <p id="entropy-stat">0 bits</p>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h4>Data Breach</h4>
+                                            <p id="breach-stat">Not checked</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="password-checks">
+                                <h3>Security Checks</h3>
+                                <ul class="checks-list">
+                                    <li id="check-length" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>At least 12 characters long</span>
+                                    </li>
+                                    <li id="check-uppercase" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Contains uppercase letters</span>
+                                    </li>
+                                    <li id="check-lowercase" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Contains lowercase letters</span>
+                                    </li>
+                                    <li id="check-numbers" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Contains numbers</span>
+                                    </li>
+                                    <li id="check-symbols" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Contains special characters</span>
+                                    </li>
+                                    <li id="check-common" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Not a common password</span>
+                                    </li>
+                                    <li id="check-pattern" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>No obvious patterns</span>
+                                    </li>
+                                    <li id="check-personal" class="check-item">
+                                        <i class="fas fa-circle"></i>
+                                        <span>No personal information</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="password-suggestions">
+                                <h3>Suggestions</h3>
+                                <div id="suggestions-container" class="suggestions-container">
+                                    <p class="empty-state">Enter a password to get suggestions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Privacy Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="enable-breach-check" checked>
+                        <label for="enable-breach-check">Check for data breaches</label>
+                    </div>
+                    <p class="setting-description">Uses k-anonymity to check if your password has been exposed in data breaches without sending your actual password.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crypto Library for SHA-1 hashing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/common-passwords.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

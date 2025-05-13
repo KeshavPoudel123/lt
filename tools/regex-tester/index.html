@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test and debug regular expressions with real-time highlighting and detailed explanation.">
+    <meta name="color-scheme" content="dark">
+    <title>Regex Tester - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Regex Tester</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Test and debug regular expressions with real-time highlighting and detailed explanation. Supports JavaScript, Python, PHP, and other regex flavors.</p>
+                    </div>
+
+                    <div class="regex-tester">
+                        <div class="regex-input-section">
+                            <div class="input-header">
+                                <h3>Regular Expression</h3>
+                                <div class="regex-options">
+                                    <div class="option-item">
+                                        <input type="checkbox" id="option-global" checked>
+                                        <label for="option-global">Global (g)</label>
+                                    </div>
+                                    <div class="option-item">
+                                        <input type="checkbox" id="option-case-insensitive">
+                                        <label for="option-case-insensitive">Case Insensitive (i)</label>
+                                    </div>
+                                    <div class="option-item">
+                                        <input type="checkbox" id="option-multiline">
+                                        <label for="option-multiline">Multiline (m)</label>
+                                    </div>
+                                    <div class="option-item">
+                                        <input type="checkbox" id="option-dotall">
+                                        <label for="option-dotall">Dot All (s)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="regex-input-container">
+                                <div class="regex-pattern-wrapper">
+                                    <span class="regex-delimiter">/</span>
+                                    <input type="text" id="regex-pattern" class="regex-pattern" placeholder="Enter your regular expression here...">
+                                    <span class="regex-delimiter">/</span>
+                                    <span id="regex-flags" class="regex-flags">g</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="test-string-section">
+                            <div class="input-header">
+                                <h3>Test String</h3>
+                                <div class="input-actions">
+                                    <button type="button" id="paste-btn" class="btn btn-sm">
+                                        <i class="fas fa-paste"></i> Paste
+                                    </button>
+                                    <button type="button" id="clear-btn" class="btn btn-sm">
+                                        <i class="fas fa-trash"></i> Clear
+                                    </button>
+                                    <button type="button" id="sample-btn" class="btn btn-sm">
+                                        <i class="fas fa-file-alt"></i> Sample
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="test-string-container">
+                                <textarea id="test-string" class="test-string" placeholder="Enter text to test your regular expression against..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="results-section">
+                            <div class="results-header">
+                                <h3>Results</h3>
+                                <div class="match-stats">
+                                    <span id="match-count">0 matches</span>
+                                </div>
+                            </div>
+                            <div class="results-container">
+                                <div id="highlighted-results" class="highlighted-results"></div>
+                            </div>
+                        </div>
+
+                        <div class="matches-section">
+                            <div class="matches-header">
+                                <h3>Matches</h3>
+                                <div class="output-actions">
+                                    <button type="button" id="copy-matches-btn" class="btn btn-sm">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="matches-container">
+                                <div id="matches-list" class="matches-list"></div>
+                            </div>
+                        </div>
+
+                        <div class="explanation-section">
+                            <div class="explanation-header">
+                                <h3>Regex Explanation</h3>
+                            </div>
+                            <div class="explanation-container">
+                                <div id="regex-explanation" class="regex-explanation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

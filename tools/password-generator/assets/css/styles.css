@@ -1,0 +1,374 @@
+/* Password Generator Tool Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2a2a2a;
+    --dark-border: #3a3a3a;
+    --light-text: #f5f5f5;
+    --medium-text: #b0b0b0;
+    --dark-text: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+
+    /* Password Strength Colors */
+    --strength-weak: #F44336;
+    --strength-fair: #FFC107;
+    --strength-good: #4CAF50;
+    --strength-strong: #2196F3;
+}
+
+/* Password Generator App Container */
+.password-generator-app {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--dark-surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Password Display */
+.password-display {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.password-field {
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s ease;
+}
+
+.password-field:focus-within {
+    border-color: var(--primary-color);
+}
+
+.password-output {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.password-output:focus {
+    outline: none;
+}
+
+.password-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.password-strength {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 0.25rem;
+    height: 6px;
+}
+
+.strength-segment {
+    flex: 1;
+    background-color: var(--dark-border);
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.strength-segment[data-active="true"][data-strength="1"] {
+    background-color: var(--strength-weak);
+}
+
+.strength-segment[data-active="true"][data-strength="2"] {
+    background-color: var(--strength-fair);
+}
+
+.strength-segment[data-active="true"][data-strength="3"] {
+    background-color: var(--strength-good);
+}
+
+.strength-segment[data-active="true"][data-strength="4"] {
+    background-color: var(--strength-strong);
+}
+
+#strength-text {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* Password Options */
+.password-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.option-group h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+.slider-container {
+    width: 100%;
+}
+
+.slider {
+    width: 100%;
+    height: 6px;
+    background: var(--dark-border);
+    outline: none;
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkbox-option input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-option label {
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Saved Passwords */
+.saved-passwords {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.saved-passwords h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--light-text);
+}
+
+.saved-passwords-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.saved-password-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-bg);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+}
+
+.saved-password-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.saved-password-value {
+    font-family: 'Courier New', monospace;
+    color: var(--light-text);
+}
+
+.saved-password-date {
+    font-size: 0.8rem;
+    color: var(--medium-text);
+}
+
+.saved-password-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+/* Success notification */
+.notification.success {
+    background-color: var(--success-color);
+}
+
+.notification.success .notification-icon::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Error notification */
+.notification.error {
+    background-color: var(--error-color);
+}
+
+.notification.error .notification-icon::before {
+    content: "✕";
+    font-weight: bold;
+}
+
+/* Info notification */
+.notification.info {
+    background-color: var(--info-color);
+}
+
+.notification.info .notification-icon::before {
+    content: "i";
+    font-weight: bold;
+}
+
+/* Warning notification */
+.notification.warning {
+    background-color: var(--warning-color);
+}
+
+.notification.warning .notification-icon::before {
+    content: "!";
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}
+
+/* Safari and iOS Safari support */
+@supports (-webkit-backdrop-filter: none) {
+    .modal-content {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Hidden elements */
+.hidden, .hidden-settings {
+    display: none;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin: 20px 0;
+    text-align: center;
+}
