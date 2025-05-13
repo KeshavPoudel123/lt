@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize, crop, compress, and convert images with this powerful online tool - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Image Resizer - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Image Resizer</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Image Processing Tool</h2>
+                        <p>Resize, crop, compress, and convert images with this powerful online tool. All processing happens in your browser - no images are uploaded to any server.</p>
+                    </div>
+
+                    <div class="image-resizer-app">
+                        <div class="tool-tabs">
+                            <button type="button" id="resize-tab" class="tool-tab active">Resize</button>
+                            <button type="button" id="crop-tab" class="tool-tab">Crop</button>
+                            <button type="button" id="compress-tab" class="tool-tab">Compress</button>
+                            <button type="button" id="convert-tab" class="tool-tab">Convert</button>
+                        </div>
+
+                        <div class="upload-section">
+                            <div id="upload-container" class="upload-container">
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag & drop image here or click to upload</p>
+                                    <span class="upload-info">Supports JPG, PNG, GIF, WebP, SVG, BMP (max 10MB)</span>
+                                    <input type="file" id="file-input" accept="image/*" class="file-input" title="Upload Image" aria-label="Upload Image">
+                                </div>
+                            </div>
+                            <div id="image-preview-container" class="image-preview-container hidden">
+                                <div class="preview-header">
+                                    <h3>Original Image</h3>
+                                    <div class="preview-actions">
+                                        <button type="button" id="change-image-btn" class="btn btn-sm btn-secondary">Change Image</button>
+                                    </div>
+                                </div>
+                                <div class="image-preview">
+                                    <img id="preview" src="" alt="Original Image">
+                                </div>
+                                <div class="image-info" id="image-info">
+                                    <!-- Image info will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-content-area">
+                            <!-- Resize Options -->
+                            <div id="resize-options" class="tool-options active">
+                                <h3>Resize Options</h3>
+                                <div class="options-grid">
+                                    <div class="option-item">
+                                        <label for="width-input">Width (px):</label>
+                                        <input type="number" id="width-input" class="form-control" placeholder="Enter width" min="1">
+                                    </div>
+                                    <div class="option-item">
+                                        <label for="height-input">Height (px):</label>
+                                        <input type="number" id="height-input" class="form-control" placeholder="Enter height" min="1">
+                                    </div>
+                                    <div class="option-item checkbox">
+                                        <input type="checkbox" id="maintain-ratio" checked>
+                                        <label for="maintain-ratio">Maintain aspect ratio</label>
+                                    </div>
+                                    <div class="option-item">
+                                        <label for="format-select">Output Format:</label>
+                                        <select id="format-select" class="form-control">
+                                            <option value="jpeg">JPEG</option>
+                                            <option value="png">PNG</option>
+                                            <option value="webp">WEBP</option>
+                                        </select>
+                                    </div>
+                                    <div class="option-item" id="quality-group">
+                                        <label for="quality-input">Quality: <span id="quality-value">90</span>%</label>
+                                        <div class="slider-container">
+                                            <input type="range" id="quality-input" class="slider" min="1" max="100" value="90">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="button" id="resize-btn" class="btn btn-primary" disabled>Resize Image</button>
+                                </div>
+                            </div>
+
+                            <!-- Crop Options -->
+                            <div id="crop-options" class="tool-options">
+                                <h3>Crop Options</h3>
+                                <div class="options-grid">
+                                    <div class="option-item">
+                                        <label for="crop-aspect-ratio">Aspect Ratio:</label>
+                                        <select id="crop-aspect-ratio" class="form-control">
+                                            <option value="free">Free Selection</option>
+                                            <option value="1:1">Square (1:1)</option>
+                                            <option value="4:3">Standard (4:3)</option>
+                                            <option value="16:9">Widescreen (16:9)</option>
+                                            <option value="3:2">Photo (3:2)</option>
+                                            <option value="2:3">Portrait (2:3)</option>
+                                        </select>
+                                    </div>
+                                    <div class="option-item">
+                                        <label for="crop-format-select">Output Format:</label>
+                                        <select id="crop-format-select" class="form-control">
+                                            <option value="jpeg">JPEG</option>
+                                            <option value="png">PNG</option>
+                                            <option value="webp">WEBP</option>
+                                        </select>
+                                    </div>
+                                    <div class="option-item" id="crop-quality-group">
+                                        <label for="crop-quality-input">Quality: <span id="crop-quality-value">90</span>%</label>
+                                        <div class="slider-container">
+                                            <input type="range" id="crop-quality-input" class="slider" min="1" max="100" value="90">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="crop-preview-container">
+                                    <div id="crop-preview" class="crop-preview">
+                                        <img id="crop-image" src="" alt="Crop Preview">
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="button" id="crop-btn" class="btn btn-primary" disabled>Crop Image</button>
+                                </div>
+                            </div>
+
+                            <!-- Compress Options -->
+                            <div id="compress-options" class="tool-options">
+                                <h3>Compress Options</h3>
+                                <div class="options-grid">
+                                    <div class="option-item">
+                                        <label for="compress-quality-input">Quality: <span id="compress-quality-value">80</span>%</label>
+                                        <div class="slider-container">
+                                            <input type="range" id="compress-quality-input" class="slider" min="1" max="100" value="80">
+                                        </div>
+                                    </div>
+                                    <div class="option-item checkbox">
+                                        <input type="checkbox" id="resize-before-compress">
+                                        <label for="resize-before-compress">Resize Before Compression</label>
+                                    </div>
+                                    <div class="option-item hidden" id="compress-resize-container">
+                                        <label for="max-width">Max Width (px):</label>
+                                        <input type="number" id="max-width" class="form-control" value="1920" min="1">
+                                    </div>
+                                    <div class="option-item">
+                                        <label for="compress-format-select">Output Format:</label>
+                                        <select id="compress-format-select" class="form-control">
+                                            <option value="jpeg">JPEG</option>
+                                            <option value="png">PNG</option>
+                                            <option value="webp">WEBP</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="button" id="compress-btn" class="btn btn-primary" disabled>Compress Image</button>
+                                </div>
+                            </div>
+
+                            <!-- Convert Options -->
+                            <div id="convert-options" class="tool-options">
+                                <h3>Convert Options</h3>
+                                <div class="options-grid">
+                                    <div class="option-item">
+                                        <label for="convert-format-select">Output Format:</label>
+                                        <select id="convert-format-select" class="form-control">
+                                            <option value="jpeg">JPEG</option>
+                                            <option value="png">PNG</option>
+                                            <option value="webp">WEBP</option>
+                                            <option value="gif">GIF</option>
+                                            <option value="bmp">BMP</option>
+                                        </select>
+                                    </div>
+                                    <div class="option-item" id="convert-quality-group">
+                                        <label for="convert-quality-input">Quality: <span id="convert-quality-value">90</span>%</label>
+                                        <div class="slider-container">
+                                            <input type="range" id="convert-quality-input" class="slider" min="1" max="100" value="90">
+                                        </div>
+                                    </div>
+                                    <div class="option-item checkbox hidden" id="png-options-container">
+                                        <input type="checkbox" id="png-transparency" checked>
+                                        <label for="png-transparency">Preserve Transparency</label>
+                                    </div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="button" id="convert-btn" class="btn btn-primary" disabled>Convert Image</button>
+                                </div>
+                            </div>
+
+                            <!-- Result Container -->
+                            <div id="result-container" class="result-container hidden">
+                                <div class="result-header">
+                                    <h3>Processed Image</h3>
+                                    <div class="result-actions">
+                                        <button type="button" id="download-btn" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="result-preview">
+                                    <img id="result-image" src="" alt="Processed Image">
+                                </div>
+                                <div class="result-info" id="result-info">
+                                    <!-- Result info will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Image Processing Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

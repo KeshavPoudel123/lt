@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate Lorem Ipsum placeholder text - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Lorem Ipsum Generator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Lorem Ipsum Generator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Generate Lorem Ipsum placeholder text for your designs, layouts, and mockups. Choose from different formats and customize the output.</p>
+                        
+                    </div>
+
+                    <div class="lipsum-generator">
+                        <div class="generator-form">
+                            <div class="form-group">
+                                <label for="lipsum-amount">Amount</label>
+                                <div class="amount-input">
+                                    <input type="number" id="lipsum-amount" class="form-control" value="5" min="1" max="100">
+                                    <select id="lipsum-unit" class="form-control" aria-label="Unit type">
+                                        <option value="paragraphs">Paragraphs</option>
+                                        <option value="words">Words</option>
+                                        <option value="bytes">Bytes</option>
+                                        <option value="lists">Lists</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="start-with-lorem" checked>
+                                <label for="start-with-lorem">Start with "Lorem ipsum dolor sit amet..."</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lipsum-format">Format</label>
+                                <select id="lipsum-format" class="form-control">
+                                    <option value="plain">Plain Text</option>
+                                    <option value="html">HTML</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" id="generate-btn" class="btn btn-primary">Generate Lorem Ipsum</button>
+                            </div>
+                        </div>
+
+                        <div class="generator-output">
+                            <div class="output-header">
+                                <h3>Generated Text</h3>
+                                <div class="output-actions">
+                                    <button type="button" id="copy-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                    <button type="button" id="download-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="stats-container" class="stats-container">
+                                <div id="generation-stats" class="generation-stats"></div>
+                            </div>
+
+                            <div class="output-container">
+                                <div id="output-text" class="output-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal removed as per user request -->
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>What is Lorem Ipsum?</h2>
+                <button type="button" class="close-info-btn" title="Close Info" aria-label="Close Info">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                <h3>Why do we use it?</h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+
+                <h3>Where does it come from?</h3>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

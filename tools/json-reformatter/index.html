@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced JSON tool with validation, tree view, and conversion to other formats - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>JSON Reformatter - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">JSON Reformatter</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Advanced JSON Tool</h2>
+                        <p>Format, validate, and convert JSON data with advanced features including tree view, syntax highlighting, and conversion to other formats like XML, YAML, and CSV.</p>
+                    </div>
+
+                    <div class="json-reformatter-app">
+                        <div class="tool-tabs">
+                            <button type="button" id="formatter-tab" class="tool-tab active">Formatter</button>
+                            <button type="button" id="validator-tab" class="tool-tab">Validator</button>
+                            <button type="button" id="tree-view-tab" class="tool-tab">Tree View</button>
+                            <button type="button" id="converter-tab" class="tool-tab">Converter</button>
+                        </div>
+
+                        <div class="tool-content-area">
+                            <div class="input-section">
+                                <div class="input-header">
+                                    <h3>Input JSON</h3>
+                                    <div class="input-actions">
+                                        <button type="button" id="clear-btn" class="btn btn-sm btn-secondary">Clear</button>
+                                        <button type="button" id="sample-btn" class="btn btn-sm btn-secondary">Sample</button>
+                                        <button type="button" id="paste-btn" class="btn btn-sm btn-secondary">Paste</button>
+                                        <button type="button" id="upload-btn" class="btn btn-sm btn-secondary">Upload</button>
+                                        <input type="file" id="file-upload" accept=".json" class="file-input" title="Upload JSON File" aria-label="Upload JSON File">
+                                    </div>
+                                </div>
+                                <div class="code-editor-container">
+                                    <textarea id="input-json" class="code-editor" placeholder="Paste your JSON here..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="options-section">
+                                <div id="formatter-options" class="option-group active">
+                                    <h3>Formatter Options</h3>
+                                    <div class="options-grid">
+                                        <div class="option-item">
+                                            <label for="indent-size">Indent Size:</label>
+                                            <select id="indent-size" class="form-control">
+                                                <option value="2">2 spaces</option>
+                                                <option value="4" selected>4 spaces</option>
+                                                <option value="tab">Tab</option>
+                                            </select>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="sort-keys" checked>
+                                            <label for="sort-keys">Sort Keys Alphabetically</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="escape-unicode">
+                                            <label for="escape-unicode">Escape Unicode Characters</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="validator-options" class="option-group">
+                                    <h3>Validator Options</h3>
+                                    <div class="options-grid">
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="show-line-numbers" checked>
+                                            <label for="show-line-numbers">Show Line Numbers</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="highlight-errors" checked>
+                                            <label for="highlight-errors">Highlight Errors</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="auto-fix" checked>
+                                            <label for="auto-fix">Auto-Fix Common Errors</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tree-view-options" class="option-group">
+                                    <h3>Tree View Options</h3>
+                                    <div class="options-grid">
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="expand-all" checked>
+                                            <label for="expand-all">Expand All Nodes</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="show-data-types" checked>
+                                            <label for="show-data-types">Show Data Types</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="show-array-indices" checked>
+                                            <label for="show-array-indices">Show Array Indices</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="converter-options" class="option-group">
+                                    <h3>Converter Options</h3>
+                                    <div class="options-grid">
+                                        <div class="option-item">
+                                            <label for="output-format">Output Format:</label>
+                                            <select id="output-format" class="form-control">
+                                                <option value="xml">XML</option>
+                                                <option value="yaml">YAML</option>
+                                                <option value="csv">CSV</option>
+                                                <option value="tsv">TSV</option>
+                                            </select>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="include-header" checked>
+                                            <label for="include-header">Include Header (CSV/TSV)</label>
+                                        </div>
+                                        <div class="option-item checkbox">
+                                            <input type="checkbox" id="pretty-output" checked>
+                                            <label for="pretty-output">Pretty Output</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button type="button" id="process-btn" class="btn btn-primary">Process JSON</button>
+                                <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+                            </div>
+
+                            <div class="output-section">
+                                <div class="output-header">
+                                    <h3>Output</h3>
+                                    <div class="output-actions">
+                                        <button type="button" id="copy-btn" class="btn btn-sm btn-secondary">Copy</button>
+                                        <button type="button" id="download-btn" class="btn btn-sm btn-secondary">Download</button>
+                                    </div>
+                                </div>
+                                <div id="output-container" class="output-container">
+                                    <div id="formatter-output" class="output-view active">
+                                        <div class="code-editor-container">
+                                            <label for="formatted-output" class="sr-only">Formatted JSON Output</label>
+                                            <textarea id="formatted-output" class="code-editor" readonly title="Formatted JSON Output" placeholder="Formatted JSON will appear here"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id="validator-output" class="output-view">
+                                        <div class="validation-results">
+                                            <div class="validation-status">
+                                                <span id="validation-icon" class="validation-icon"></span>
+                                                <span id="validation-message" class="validation-message">Enter JSON to validate</span>
+                                            </div>
+                                            <div id="validation-details" class="validation-details"></div>
+                                        </div>
+                                    </div>
+                                    <div id="tree-view-output" class="output-view">
+                                        <div id="json-tree" class="json-tree"></div>
+                                    </div>
+                                    <div id="converter-output" class="output-view">
+                                        <div class="code-editor-container">
+                                            <label for="converted-output" class="sr-only">Converted Output</label>
+                                            <textarea id="converted-output" class="code-editor" readonly title="Converted Output" placeholder="Converted output will appear here"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Editor Options</h3>
+                    <div class="setting-item">
+                        <label for="font-size">Font Size:</label>
+                        <select id="font-size" class="form-control">
+                            <option value="12">12px</option>
+                            <option value="14" selected>14px</option>
+                            <option value="16">16px</option>
+                            <option value="18">18px</option>
+                        </select>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="word-wrap" checked>
+                        <label for="word-wrap">Word Wrap</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- JSON Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/4.0.11/fxparser.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A feature-rich online notepad with markdown support, syntax highlighting, and local storage from Latest Online Tools">
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <title>SwiftNote - Online Notepad</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons for floating home button -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+</head>
+<body>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar for note navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="../assets/images/favicon.svg" alt="">
+                    <h1>SwiftNote</h1>
+                </div>
+                <button type="button" id="new-note-btn" class="btn primary-btn">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+            </div>
+
+            <div class="sidebar-search">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-notes" placeholder="Search notes...">
+                </div>
+            </div>
+
+            <!-- Categories section removed as requested -->
+
+            <div class="sidebar-notes">
+                <div class="notes-header">
+                    <h3>Notes</h3>
+                    <div class="notes-sort">
+                        <select id="sort-notes" title="Sort Notes" aria-label="Sort Notes">
+                            <option value="modified-desc">Last Modified</option>
+                            <option value="created-desc">Date Created</option>
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                <ul id="notes-list">
+                    <!-- Notes will be populated here -->
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <!-- Home button removed to avoid duplication with floating home button -->
+                <!-- Trash button removed as requested -->
+            </div>
+        </aside>
+
+        <!-- Sidebar resizer added as requested -->
+        <div class="sidebar-resizer" id="sidebar-resizer"></div>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Untitled Note">
+                    <div class="editor-tools">
+                        <span id="word-count">0 words</span>
+                        <!-- Text labels instead of icons as requested -->
+                        <button type="button" id="settings-btn" class="btn text-btn" title="Settings">
+                            <i class="fas fa-cog"></i> Settings
+                        </button>
+                        <button type="button" id="theme-toggle" class="btn text-btn" title="Toggle Theme">
+                            <i class="fas fa-moon"></i> Dark Mode
+                        </button>
+                        <div class="dropdown">
+                            <button type="button" id="export-btn" class="btn text-btn" title="Export">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#" data-format="txt"><i class="fas fa-file-alt"></i> Plain Text (.txt)</a>
+                                <a href="#" data-format="md"><i class="fas fa-file-code"></i> Markdown (.md)</a>
+                                <a href="#" data-format="html"><i class="fas fa-file-code"></i> HTML (.html)</a>
+                                <a href="#" data-format="pdf"><i class="fas fa-file-pdf"></i> PDF (.pdf)</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="editor-toolbar">
+                    <button type="button" data-command="bold" title="Bold"><i class="fas fa-bold"></i></button>
+                    <button type="button" data-command="italic" title="Italic"><i class="fas fa-italic"></i></button>
+                    <button type="button" data-command="underline" title="Underline"><i class="fas fa-underline"></i></button>
+                    <button type="button" data-command="strikeThrough" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+                    <span class="separator"></span>
+                    <button type="button" data-command="h1" title="Heading 1">H1</button>
+                    <button type="button" data-command="h2" title="Heading 2">H2</button>
+                    <button type="button" data-command="h3" title="Heading 3">H3</button>
+                    <span class="separator"></span>
+                    <button type="button" data-command="insertUnorderedList" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                    <button type="button" data-command="insertOrderedList" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+                    <button type="button" data-command="createLink" title="Insert Link"><i class="fas fa-link"></i></button>
+                    <button type="button" data-command="code" title="Code Block"><i class="fas fa-code"></i></button>
+                </div>
+
+                <div id="editor" class="editor-content" contenteditable="true"></div>
+
+                <div class="editor-footer">
+                    <div class="editor-status">
+                        <span id="save-status">All changes saved</span>
+                    </div>
+                    <div class="editor-meta">
+                        <span id="char-count">0 characters</span>
+                        <span id="reading-time">0 min read</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Settings modal -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button type="button" class="close-btn" title="Close Settings" aria-label="Close Settings">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="settings-section">
+                        <h3>Editor Preferences</h3>
+                        <div class="setting-item">
+                            <label for="font-family">Font Family</label>
+                            <select id="font-family" title="Select Font Family" aria-label="Select Font Family">
+                                <option value="'Roboto Mono', monospace">Roboto Mono</option>
+                                <option value="'Source Code Pro', monospace">Source Code Pro</option>
+                                <option value="Arial, sans-serif">Arial</option>
+                                <option value="'Times New Roman', serif">Times New Roman</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="font-size">Font Size</label>
+                            <input type="range" id="font-size" min="12" max="24" value="16">
+                            <span id="font-size-value">16px</span>
+                        </div>
+                        <div class="setting-item">
+                            <label for="line-height">Line Height</label>
+                            <input type="range" id="line-height" min="1" max="2" step="0.1" value="1.5">
+                            <span id="line-height-value">1.5</span>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Display Options</h3>
+                        <div class="setting-item checkbox">
+                            <input type="checkbox" id="show-line-numbers">
+                            <label for="show-line-numbers">Show Line Numbers</label>
+                        </div>
+                        <div class="setting-item checkbox">
+                            <input type="checkbox" id="auto-save" checked>
+                            <label for="auto-save">Auto Save</label>
+                        </div>
+                        <div class="setting-item checkbox">
+                            <input type="checkbox" id="spell-check" checked>
+                            <label for="spell-check">Spell Check</label>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Data Management</h3>
+                        <div class="setting-item">
+                            <button type="button" id="export-all-btn" class="btn secondary-btn" title="Export All Notes">Export All Notes</button>
+                            <button type="button" id="import-btn" class="btn secondary-btn" title="Import Notes">Import Notes</button>
+                        </div>
+                        <div class="setting-item">
+                            <button type="button" id="clear-data-btn" class="btn danger-btn" title="Clear All Data">Clear All Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="../../index.html" class="floating-home-btn">
+        <span class="material-icons">home</span>
+        <span>Home</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/markdown.js"></script>
+    <script src="assets/js/noteManager.js"></script>
+    <script src="assets/js/editor.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- URL Display Script -->
+    <script>
+        // Change the URL displayed in the address bar without redirecting
+        if (window.history && window.history.pushState) {
+            // Only change the URL if we're in the notepad app directly (not in an iframe)
+            if (window.self === window.top) {
+                // Get the current path
+                const currentPath = window.location.pathname;
+                // Check if we're in the notepad folder
+                if (currentPath.includes('/onlinenotepad/')) {
+                    // Create a new URL that shows onlinenotepad.app
+                    const basePath = currentPath.substring(0, currentPath.indexOf('/onlinenotepad/'));
+                    const newUrl = window.location.origin + basePath + '/onlinenotepad.app';
+                    // Update the URL in the address bar
+                    window.history.pushState({}, document.title, newUrl);
+                }
+            }
+        }
+    </script>
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>
+
+

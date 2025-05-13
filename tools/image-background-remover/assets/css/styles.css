@@ -1,0 +1,309 @@
+/* AI Background Remover Tool Styles */
+
+:root {
+    --primary-color: #5B4CC4;
+    --secondary-color: #C12E61;
+    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2a2a2a;
+    --dark-border: #3a3a3a;
+    --light-text: #f5f5f5;
+    --medium-text: #b0b0b0;
+    --dark-text: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+    --ai-gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+    --download-gradient: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+/* Background Remover App Container */
+.background-remover-app {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--dark-surface);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Features */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    flex: 1;
+    min-width: 250px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #a777e3;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+.feature p {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 2px dashed #a777e3;
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.upload-area:hover {
+    background-color: rgba(110, 142, 251, 0.05);
+    border-color: #6e8efb;
+}
+
+.upload-area.active {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-color: var(--success-color);
+}
+
+.upload-area i {
+    font-size: 4rem;
+    color: #a777e3;
+    margin-bottom: 1rem;
+}
+
+.upload-area h3 {
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+.upload-area p {
+    color: var(--medium-text);
+}
+
+#file-input {
+    display: none;
+}
+
+/* Status Text */
+.status-text {
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: bold;
+    color: #a777e3;
+}
+
+/* Loader */
+.loader {
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 5px solid #a777e3;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    display: none;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+button {
+    background: var(--ai-gradient);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.download-btn {
+    background: var(--download-gradient);
+}
+
+/* Preview Container */
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.image-preview {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-preview h3 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--light-text);
+}
+
+.image-preview canvas {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: var(--dark-bg);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.success {
+    border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+    border-left: 4px solid var(--error-color);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.notification.info {
+    border-left: 4px solid var(--info-color);
+}
+
+.notification-icon {
+    font-size: 1.25rem;
+}
+
+.notification-icon.fa-check-circle {
+    color: var(--success-color);
+}
+
+.notification-icon.fa-times-circle {
+    color: var(--error-color);
+}
+
+.notification-icon.fa-exclamation-triangle {
+    color: var(--warning-color);
+}
+
+.notification-icon.fa-info-circle {
+    color: var(--info-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .preview-container {
+        flex-direction: column;
+    }
+
+    .image-preview {
+        max-width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        min-width: 100%;
+    }
+}
+
+/* Hidden elements */
+.hidden {
+    display: none;
+}
+
+/* Tool Title */
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}

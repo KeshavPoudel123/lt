@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compress images to reduce file size while preserving quality - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Image Compressor - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Image Compressor</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Image Compression Tool</h2>
+                        <p>Compress your images to reduce file size while preserving quality. All processing happens in your browser - no images are uploaded to any server.</p>
+                    </div>
+
+                    <div class="image-compressor-app">
+                        <div class="upload-container" id="uploadContainer">
+                            <p>Drag & Drop your image here or</p>
+                            <button type="button" class="upload-btn" id="uploadBtn">Choose File</button>
+                            <input type="file" id="fileInput" accept="image/*" class="hidden" aria-label="Upload Image" title="Upload Image">
+                            <p class="file-info">Supports: JPG, PNG, GIF, WEBP, SVG, BMP</p>
+                        </div>
+
+                        <div class="settings hidden" id="settings">
+                            <h3 class="settings-title">Compression Settings</h3>
+                            <div class="settings-grid">
+                                <div class="setting-group">
+                                    <label for="qualitySlider">Quality: <span id="qualityValue">70%</span></label>
+                                    <input type="range" id="qualitySlider" class="quality-slider" min="0" max="1" step="0.1" value="0.7">
+                                </div>
+                                
+                                <div class="setting-group">
+                                    <label for="widthSlider">Max Width: <span id="widthValue">1600px</span></label>
+                                    <input type="range" id="widthSlider" class="quality-slider" min="100" max="4000" step="100" value="1600">
+                                </div>
+
+                                <div class="setting-group">
+                                    <label for="formatSelect">Output Format</label>
+                                    <select id="formatSelect">
+                                        <option value="jpeg">JPEG</option>
+                                        <option value="png">PNG</option>
+                                        <option value="webp">WEBP</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-group">
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="preserveRatio" checked>
+                                        <label for="preserveRatio">Preserve aspect ratio</label>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="autoCompress" checked>
+                                        <label for="autoCompress">Auto compress on upload</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loading hidden" id="loading">
+                            <div class="spinner"></div>
+                            <p>Compressing image...</p>
+                        </div>
+
+                        <div class="compression-stats hidden" id="compressionStats">
+                            <h3 class="stats-title">Compression Results</h3>
+                            <div class="stats-container">
+                                <div class="stat-item">
+                                    <div class="stat-value" id="originalSize">0 KB</div>
+                                    <div class="stat-label">Original Size</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="compressedSize">0 KB</div>
+                                    <div class="stat-label">Compressed Size</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="sizeReduction">0%</div>
+                                    <div class="stat-label">Size Reduction</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value" id="dimensions">0 × 0</div>
+                                    <div class="stat-label">Dimensions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-container hidden" id="previewContainer">
+                            <h3 class="preview-heading">Image Preview</h3>
+                            <div class="preview-images">
+                                <div class="preview-box">
+                                    <div class="preview-header">
+                                        <span class="preview-label">Original</span>
+                                        <span class="preview-size" id="originalFileSize">0 KB</span>
+                                    </div>
+                                    <div class="image-container">
+                                        <img id="originalPreview" src="" alt="Original image preview">
+                                    </div>
+                                </div>
+                                <div class="preview-box">
+                                    <div class="preview-header">
+                                        <span class="preview-label">Compressed</span>
+                                        <span class="preview-size" id="compressedFileSize">0 KB</span>
+                                    </div>
+                                    <div class="image-container">
+                                        <img id="compressedPreview" src="" alt="Compressed image preview">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button type="button" class="compress-btn" id="compressBtn">
+                                    <i class="fas fa-sync-alt"></i> Compress Again
+                                </button>
+                                <button type="button" class="download-btn" id="downloadBtn">
+                                    <i class="fas fa-download"></i> Download Image
+                                </button>
+                                <button type="button" class="reset-btn" id="resetBtn">
+                                    <i class="fas fa-trash"></i> Reset
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="error-message hidden" id="errorMessage"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

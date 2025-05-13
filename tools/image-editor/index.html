@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit your images with this powerful online tool - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Image Editor - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Image Editor</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Browser Image Editor</h2>
+                        <p>Upload an image and apply various filters, effects, and adjustments. All processing happens in your browser - no images are uploaded to any server.</p>
+                    </div>
+
+                    <div class="editor-container">
+                        <div class="image-container" id="imageContainer">
+                            <div class="image-placeholder" id="imagePlaceholder">
+                                <i class="material-icons">image</i>
+                                <p>Drag & drop image here or click to upload</p>
+                            </div>
+                            <img id="imagePreview" class="image-preview" alt="Preview">
+                            <canvas id="canvas" class="hidden-canvas"></canvas>
+                            <div class="loading-spinner" id="loadingSpinner">
+                                <div class="spinner"></div>
+                            </div>
+                        </div>
+
+                        <div class="controls-container" id="controlsContainer">
+                            <div class="filter-group">
+                                <h3><span>Basic Adjustments</span> <i class="material-icons open">chevron_right</i></h3>
+                                <div class="filter-group-content">
+                                    <div class="filter-item">
+                                        <label for="brightness">
+                                            <span>Brightness</span>
+                                            <span id="brightnessValue">0</span>
+                                        </label>
+                                        <input type="range" id="brightness" min="-100" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>-100</span>
+                                            <span>0</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="contrast">
+                                            <span>Contrast</span>
+                                            <span id="contrastValue">0</span>
+                                        </label>
+                                        <input type="range" id="contrast" min="-100" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>-100</span>
+                                            <span>0</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="saturation">
+                                            <span>Saturation</span>
+                                            <span id="saturationValue">0</span>
+                                        </label>
+                                        <input type="range" id="saturation" min="-100" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>-100</span>
+                                            <span>0</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Color & Tone</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="filter-item">
+                                        <label for="hueRotate">
+                                            <span>Hue Rotate</span>
+                                            <span id="hueRotateValue">0</span>
+                                        </label>
+                                        <input type="range" id="hueRotate" min="0" max="360" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0°</span>
+                                            <span>180°</span>
+                                            <span>360°</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="sepia">
+                                            <span>Sepia</span>
+                                            <span id="sepiaValue">0</span>
+                                        </label>
+                                        <input type="range" id="sepia" min="0" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>50</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="grayscale">
+                                            <span>Grayscale</span>
+                                            <span id="grayscaleValue">0</span>
+                                        </label>
+                                        <input type="range" id="grayscale" min="0" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>50</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Effects & Blur</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="filter-item">
+                                        <label for="blur">
+                                            <span>Blur</span>
+                                            <span id="blurValue">0</span>
+                                        </label>
+                                        <input type="range" id="blur" min="0" max="20" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>10</span>
+                                            <span>20</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="invert">
+                                            <span>Invert</span>
+                                            <span id="invertValue">0</span>
+                                        </label>
+                                        <input type="range" id="invert" min="0" max="100" value="0" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>50</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-item">
+                                        <label for="opacity">
+                                            <span>Opacity</span>
+                                            <span id="opacityValue">100</span>
+                                        </label>
+                                        <input type="range" id="opacity" min="0" max="100" value="100" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>50</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Preset Filters</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="effect-grid">
+                                        <div class="effect-item" data-effect="none">
+                                            <span>Original</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="vintage">
+                                            <span>Vintage</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="blackWhite">
+                                            <span>B&W</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="sepia">
+                                            <span>Sepia</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="cold">
+                                            <span>Cold</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="warm">
+                                            <span>Warm</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="dramatic">
+                                            <span>Dramatic</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="fade">
+                                            <span>Fade</span>
+                                        </div>
+                                        <div class="effect-item" data-effect="sharpen">
+                                            <span>Sharpen</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Crop Image</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="crop-options">
+                                        <button type="button" id="cropBtn" class="secondary" disabled>
+                                            <i class="material-icons">crop</i> Start Cropping
+                                        </button>
+                                        <div id="cropControls" class="crop-controls hidden">
+                                            <div class="crop-ratio-options">
+                                                <button type="button" class="crop-ratio-btn secondary active" data-ratio="free">Free</button>
+                                                <button type="button" class="crop-ratio-btn secondary" data-ratio="1:1">1:1</button>
+                                                <button type="button" class="crop-ratio-btn secondary" data-ratio="4:3">4:3</button>
+                                                <button type="button" class="crop-ratio-btn secondary" data-ratio="16:9">16:9</button>
+                                                <button type="button" class="crop-ratio-btn secondary" data-ratio="3:2">3:2</button>
+                                            </div>
+                                            <div class="actions action-margin">
+                                                <button type="button" id="applyCropBtn" class="secondary">
+                                                    <i class="material-icons">check</i> Apply Crop
+                                                </button>
+                                                <button type="button" id="cancelCropBtn" class="secondary">
+                                                    <i class="material-icons">close</i> Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Resize & Rotate</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="resize-options">
+                                        <div class="filter-item">
+                                            <label for="resizeWidth">Width</label>
+                                            <input type="number" id="resizeWidth" placeholder="Width">
+                                        </div>
+                                        <div class="filter-item">
+                                            <label for="resizeHeight">Height</label>
+                                            <input type="number" id="resizeHeight" placeholder="Height">
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="maintainAspectRatio" checked>
+                                            <label for="maintainAspectRatio">Maintain aspect ratio</label>
+                                        </div>
+                                    </div>
+                                    <div class="actions action-margin">
+                                        <button type="button" id="applyResizeBtn" class="secondary" disabled>
+                                            <i class="material-icons">photo_size_select_large</i> Apply Resize
+                                        </button>
+                                        <button type="button" id="rotateLeftBtn" class="secondary" disabled>
+                                            <i class="material-icons">rotate_left</i> Rotate Left
+                                        </button>
+                                        <button type="button" id="rotateRightBtn" class="secondary" disabled>
+                                            <i class="material-icons">rotate_right</i> Rotate Right
+                                        </button>
+                                        <button type="button" id="flipHorizontalBtn" class="secondary" disabled>
+                                            <i class="material-icons">flip</i> Flip H
+                                        </button>
+                                        <button type="button" id="flipVerticalBtn" class="secondary" disabled>
+                                            <i class="material-icons">flip</i> Flip V
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h3><span>Export Options</span> <i class="material-icons">chevron_right</i></h3>
+                                <div class="filter-group-content hidden">
+                                    <div class="dropdown-item">
+                                        <label for="fileFormat">File Format</label>
+                                        <select id="fileFormat">
+                                            <option value="image/jpeg">JPEG</option>
+                                            <option value="image/png">PNG</option>
+                                            <option value="image/webp">WebP</option>
+                                        </select>
+                                    </div>
+                                    <div id="jpegQualityContainer" class="filter-item">
+                                        <label for="quality">
+                                            <span>Quality</span>
+                                            <span id="qualityValue">90</span>
+                                        </label>
+                                        <input type="range" id="quality" min="0" max="100" value="90" class="filter-slider">
+                                        <div class="range-values">
+                                            <span>0</span>
+                                            <span>50</span>
+                                            <span>100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-actions">
+                        <input type="file" id="fileInput" class="file-input" accept="image/*" aria-label="Upload Image" title="Upload Image">
+                        <button type="button" id="uploadBtn">
+                            <i class="material-icons">cloud_upload</i> <span class="btn-text">Upload Image</span>
+                        </button>
+                        <button type="button" id="resetBtn" disabled class="reset">
+                            <i class="material-icons">refresh</i> <span class="btn-text">Reset All</span>
+                        </button>
+                        <button type="button" id="downloadBtn" disabled>
+                            <i class="material-icons">cloud_download</i> <span class="btn-text">Download Image</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

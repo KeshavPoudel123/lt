@@ -1,0 +1,383 @@
+/*
+ * ScribbleSpaceY - Responsive CSS
+ * Media queries for responsive design
+ * Developed by Keshav Poudel
+ */
+
+/* Base styles are mobile-first */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-xs);
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .editor-toolbar {
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding: var(--spacing-xs);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .editor-toolbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .editor-toolbar button {
+        padding: 0.4rem;
+    }
+
+    .editor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-xs);
+    }
+
+    .editor-tools {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: var(--spacing-sm);
+    }
+
+    #note-title {
+        font-size: 1.25rem;
+        width: 100%;
+    }
+
+    .editor-content {
+        padding: var(--spacing-xs);
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-sm);
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .setting-item label {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .note-list-item {
+        padding: var(--spacing-xs);
+    }
+
+    .note-list-item-title {
+        font-size: 0.9rem;
+    }
+
+    .note-list-item-date {
+        font-size: 0.7rem;
+    }
+
+    .editor-footer {
+        padding: var(--spacing-xs);
+        font-size: 0.8rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .editor-toolbar {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .sidebar {
+        width: 260px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 993px) {
+    /* Default styles apply */
+}
+
+/* Sidebar toggle for mobile */
+@media (max-width: 768px) {
+    .sidebar-collapsed {
+        display: none;
+    }
+
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-md);
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .main-content-expanded {
+        margin-left: 0;
+    }
+}
+
+/* Extra small devices (small phones, 400px and down) */
+@media (max-width: 400px) {
+    .sidebar {
+        max-height: 35vh;
+    }
+
+    .sidebar-header {
+        padding: 0.3rem;
+    }
+
+    .logo h1 {
+        font-size: 0.9rem;
+    }
+
+    .editor-toolbar button {
+        padding: 0.3rem;
+        margin: 0 0.1rem;
+    }
+
+    .editor-toolbar button i {
+        font-size: 0.9rem;
+    }
+
+    #note-title {
+        font-size: 1.1rem;
+    }
+
+    .editor-content {
+        font-size: 0.95rem;
+    }
+
+    .sidebar-toggle {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .sidebar-toggle i {
+        font-size: 1.1rem;
+    }
+
+    .modal-title {
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        padding: 0.5rem;
+    }
+
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .sidebar,
+    .editor-toolbar,
+    .editor-header button,
+    .editor-footer,
+    .sidebar-toggle {
+        display: none !important;
+    }
+
+    .app-container {
+        display: block;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .editor-content {
+        padding: 0;
+        overflow: visible;
+        height: auto;
+    }
+
+    .editor-header {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    #note-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+/* Split screen mode */
+.split-screen .main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.split-screen .editor-container {
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+}
+
+.split-screen .preview-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.split-screen .preview-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.split-screen .preview-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+    .split-screen .main-content {
+        flex-direction: column;
+    }
+
+    .split-screen .editor-container {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        height: 50%;
+    }
+
+    .split-screen .preview-container {
+        height: 50%;
+    }
+}
+
+/* Fullscreen mode */
+.fullscreen-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: var(--bg-primary);
+}
+
+.fullscreen-mode .editor-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.fullscreen-mode .editor-header,
+.fullscreen-mode .editor-footer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Focus mode */
+.focus-mode .sidebar {
+    display: none;
+}
+
+.focus-mode .main-content {
+    margin-left: 0;
+}
+
+.focus-mode .editor-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.focus-mode .editor-header,
+.focus-mode .editor-footer {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --primary-hover: #0000cc;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --border-color: #000000;
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #00ffff;
+        --primary-hover: #00cccc;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --bg-primary: #000000;
+        --bg-secondary: #333333;
+        --border-color: #ffffff;
+    }
+}

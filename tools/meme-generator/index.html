@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create custom memes with this powerful online tool - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>Meme Generator - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Meme Generator</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Custom Meme Generator</h2>
+                        <p>Create custom memes with this powerful online tool. All processing happens in your browser - no images are uploaded to any server.</p>
+                    </div>
+
+                    <div class="meme-generator-app">
+                        <div class="controls">
+                            <div>
+                                <div class="control-group">
+                                    <label for="imageInput">Upload Image</label>
+                                    <input type="file" id="imageInput" accept="image/*" aria-label="Upload Image" title="Upload Image">
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="canvasWidth">Canvas Width (px)</label>
+                                    <input type="number" id="canvasWidth" min="100" max="2000" value="600">
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="canvasHeight">Canvas Height (px)</label>
+                                    <input type="number" id="canvasHeight" min="100" max="2000" value="600">
+                                </div>
+
+                                <div class="control-group">
+                                    <button type="button" id="resizeCanvas">Resize Canvas</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="control-group">
+                                    <label for="topText">Top Text</label>
+                                    <input type="text" id="topText" placeholder="Enter top text">
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="bottomText">Bottom Text</label>
+                                    <input type="text" id="bottomText" placeholder="Enter bottom text">
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="fontFamily">Font</label>
+                                    <select id="fontFamily">
+                                        <option value="Impact">Impact (Classic Meme)</option>
+                                        <option value="Arial">Arial</option>
+                                        <option value="Verdana">Verdana</option>
+                                        <option value="Helvetica">Helvetica</option>
+                                        <option value="Times New Roman">Times New Roman</option>
+                                        <option value="Comic Sans MS">Comic Sans MS</option>
+                                        <option value="Courier New">Courier New</option>
+                                    </select>
+                                    <div id="fontPreview" class="font-preview">The quick brown fox jumps over the lazy dog</div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="fontSize">Font Size</label>
+                                    <input type="range" id="fontSize" min="12" max="72" value="36">
+                                    <span id="fontSizeValue">36px</span>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="textColor">Text Color</label>
+                                    <div class="color-inputs">
+                                        <input type="color" id="textColor" value="#ffffff" aria-label="Text Color Picker" title="Text Color Picker">
+                                        <input type="text" id="textColorHex" value="#ffffff" placeholder="Hex code" aria-label="Text Color Hex Code" title="Text Color Hex Code">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="outlineColor">Outline Color</label>
+                                    <div class="color-inputs">
+                                        <input type="color" id="outlineColor" value="#000000" aria-label="Outline Color Picker" title="Outline Color Picker">
+                                        <input type="text" id="outlineColorHex" value="#000000" placeholder="Hex code" aria-label="Outline Color Hex Code" title="Outline Color Hex Code">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="outlineWidth">Outline Width</label>
+                                    <input type="range" id="outlineWidth" min="0" max="10" value="4">
+                                    <span id="outlineWidthValue">4px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Processing image...</p>
+                        </div>
+
+                        <div class="preview-container">
+                            <div class="canvas-container">
+                                <canvas id="memeCanvas"></canvas>
+                            </div>
+                            <button type="button" id="downloadMeme">Download Meme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

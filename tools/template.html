@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[TOOL_NAME] - Free online tool to [TOOL_DESCRIPTION_SHORT]">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>[TOOL_NAME] - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tool-page.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader" id="preloader-lottie"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                    <span class="material-icons">menu</span>
+                </button>
+
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#tools">Tools</a></li>
+                    <li><a href="../index.html#categories">Categories</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools">
+                    <button type="button" class="search-btn" aria-label="Search">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tool Hero Section -->
+    <section class="tool-hero">
+        <div class="container">
+            <div class="tool-hero-content">
+                <div class="tool-icon-container">
+                    <div class="tool-icon-animation"></div>
+                    <div class="tool-icon">
+                        <span class="material-icons">[TOOL_ICON]</span>
+                    </div>
+                </div>
+                <h1>[TOOL_NAME]</h1>
+                <p class="tool-description">[TOOL_DESCRIPTION_LONG]</p>
+                <div class="tool-meta">
+                    <span class="tool-category"><span class="material-icons">folder</span> [TOOL_CATEGORY]</span>
+                    <span class="tool-updated"><span class="material-icons">update</span> Updated: [TOOL_UPDATE_DATE]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Content Section -->
+    <section class="tool-content">
+        <div class="container">
+            <div class="tool-grid">
+                <!-- Tool Interface -->
+                <div class="tool-interface">
+                    <div class="coming-soon-container">
+                        <div class="coming-soon-animation" id="coming-soon-lottie"></div>
+                        <h2>Coming Soon!</h2>
+                        <p>We're working hard to bring this tool to you. It will be available shortly.</p>
+                        <a href="../index.html#tools" class="btn btn-primary">Explore Other Tools</a>
+                    </div>
+                </div>
+
+                <!-- Tool Info Sidebar -->
+                <div class="tool-sidebar">
+                    <div class="tool-info-card">
+                        <h3>About This Tool</h3>
+                        <p>[TOOL_ABOUT]</p>
+                    </div>
+
+                    <div class="tool-info-card">
+                        <h3>Features</h3>
+                        <div class="feature-animation-container">
+                            <div class="feature-animation"></div>
+                        </div>
+                        <ul class="feature-list">
+                            <li><span class="material-icons">check_circle</span> [FEATURE_1]</li>
+                            <li><span class="material-icons">check_circle</span> [FEATURE_2]</li>
+                            <li><span class="material-icons">check_circle</span> [FEATURE_3]</li>
+                            <li><span class="material-icons">check_circle</span> [FEATURE_4]</li>
+                            <li><span class="material-icons">check_circle</span> [FEATURE_5]</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-info-card">
+                        <h3>How to Use</h3>
+                        <ol class="how-to-list">
+                            <li>[HOW_TO_1]</li>
+                            <li>[HOW_TO_2]</li>
+                            <li>[HOW_TO_3]</li>
+                        </ol>
+                    </div>
+
+                    <div class="tool-info-card related-tools">
+                        <h3>Related Tools</h3>
+                        <ul>
+                            <li><a href="[RELATED_TOOL_1_URL]"><span class="material-icons">[RELATED_TOOL_1_ICON]</span> [RELATED_TOOL_1_NAME]</a></li>
+                            <li><a href="[RELATED_TOOL_2_URL]"><span class="material-icons">[RELATED_TOOL_2_ICON]</span> [RELATED_TOOL_2_NAME]</a></li>
+                            <li><a href="[RELATED_TOOL_3_URL]"><span class="material-icons">[RELATED_TOOL_3_ICON]</span> [RELATED_TOOL_3_NAME]</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="../index.html" aria-label="Latest Online Tools Home">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#tools">Tools</a></li>
+                        <li><a href="../index.html#categories">Categories</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="../index.html#tools">Text Tools</a></li>
+                        <li><a href="../index.html#tools">File Tools</a></li>
+                        <li><a href="../index.html#tools">Image Tools</a></li>
+                        <li><a href="../index.html#tools">Developer Tools</a></li>
+                        <li><a href="../index.html#tools">Productivity Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tool-page.js"></script>
+</body>
+</html>

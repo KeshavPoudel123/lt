@@ -1,0 +1,236 @@
+/* ===== LOREM IPSUM GENERATOR SPECIFIC STYLES ===== */
+
+.lipsum-generator {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-lg);
+}
+
+.generator-form {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group.checkbox {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Increase checkbox size */
+.form-group.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.amount-input {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.amount-input input {
+    flex: 1;
+    height: 38px;
+    font-size: 1.05rem;
+}
+
+.amount-input select {
+    flex: 2;
+    height: 38px;
+    font-size: 1.05rem;
+}
+
+/* Increase size of other select elements */
+select.form-control {
+    height: 38px;
+}
+
+.form-actions {
+    margin-top: var(--spacing-md);
+}
+
+/* Increase font size for the generate button */
+#generate-btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+}
+
+/* Increase font size for form elements */
+.form-control,
+.form-group label,
+.form-group.checkbox label {
+    font-size: 1.05rem;
+}
+
+.generator-output {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.output-header h3 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 0;
+}
+
+.output-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.stats-container {
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.generation-stats {
+    font-size: 0.9rem;
+    color: var(--medium-text);
+    padding: 0 var(--spacing-xs);
+}
+
+.output-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    flex: 1;
+    min-height: 300px;
+    overflow-y: auto;
+}
+
+.output-text {
+    color: var(--light);
+    line-height: 1.6;
+    font-family: var(--body-font);
+    white-space: pre-wrap;
+}
+
+.output-text p {
+    margin-bottom: var(--spacing-md);
+}
+
+.output-text ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md);
+}
+
+.output-text li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-tooltip {
+    margin-top: var(--spacing-sm);
+}
+
+/* Info Modal */
+#info-modal .modal-content {
+    max-width: 600px;
+}
+
+#info-modal .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#info-modal h3 {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: var(--spacing-md) 0 var(--spacing-xs) 0;
+}
+
+#info-modal p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .lipsum-generator {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.tool-title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+/* Success notification */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.success .notification-icon::before {
+    content: "✓";
+    font-weight: bold;
+}
+
+/* Error notification */
+.notification.error {
+    background-color: #F44336;
+}
+
+.notification.error .notification-icon::before {
+    content: "✕";
+    font-weight: bold;
+}
+
+/* Info notification */
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.info .notification-icon::before {
+    content: "i";
+    font-weight: bold;
+}

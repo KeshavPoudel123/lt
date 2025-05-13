@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search results for your query on Latest Online Tools">
+    <!-- Browser UI theming -->
+    <!-- Using color-scheme which is better supported across browsers -->
+    <meta name="color-scheme" content="dark">
+    <!-- Safari-specific status bar styling -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5B4CC4">
+    <!-- Microsoft Edge specific -->
+    <meta name="msapplication-navbutton-color" content="#5B4CC4">
+    <title>Search Results | Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <!-- Ensure favicon is properly loaded -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/floating-search-button.css">
+    <link rel="stylesheet" href="../assets/css/search-page.css">
+    <style>
+        /* Search-specific styles */
+        .search-hero {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+        }
+
+        .search-form {
+            max-width: 600px;
+            margin: var(--spacing-md) auto 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg-input);
+            border: 1px solid rgba(91, 76, 196, 0.3);
+            border-radius: var(--radius-full);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-family: var(--body-font);
+            transition: all var(--transition-normal);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(91, 76, 196, 0.2);
+        }
+
+        /* Search icon removed */
+
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 0.5rem 1.5rem;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity var(--transition-fast);
+        }
+
+        .search-btn:hover {
+            opacity: 0.6;
+        }
+
+        .search-results-info {
+            margin-bottom: var(--spacing-md);
+            color: var(--medium);
+            font-size: 1rem;
+        }
+
+        .search-highlight {
+            background-color: rgba(91, 76, 196, 0.2);
+            color: var(--white);
+            padding: 0 0.2rem;
+            border-radius: 2px;
+        }
+
+        .search-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .search-filter {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            color: var(--medium);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .search-filter:hover {
+            color: var(--white);
+            border-color: rgba(91, 76, 196, 0.3);
+        }
+
+        .search-filter.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .no-results-content {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        .no-results-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .no-results-message {
+            color: var(--medium);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-sm);
+            line-height: 1.6;
+        }
+
+        .search-suggestions {
+            margin-top: var(--spacing-sm);
+        }
+
+        .search-suggestions-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .search-suggestions-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-suggestion {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            color: var(--medium);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .search-suggestion:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Responsive styles for search hero section */
+        @media (max-width: 992px) {
+            .search-form {
+                max-width: 500px;
+            }
+
+            .search-input {
+                padding: 0.9rem;
+                font-size: 1rem;
+            }
+
+            .search-btn {
+                padding: 0.45rem 1.3rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-hero {
+                padding: var(--spacing-lg) 0 var(--spacing-md);
+            }
+
+            .search-form {
+                max-width: 450px;
+                margin: var(--spacing-sm) auto 0;
+            }
+
+            .search-input {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+
+            .search-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+                right: 0.4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .search-hero {
+                padding: var(--spacing-md) 0 var(--spacing-sm);
+            }
+
+            .search-form {
+                max-width: 100%;
+                margin: var(--spacing-xs) auto 0;
+            }
+
+            .search-input {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            .search-btn {
+                padding: 0.35rem 1rem;
+                font-size: 0.85rem;
+                right: 0.3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .search-hero {
+                padding: var(--spacing-sm) 0 var(--spacing-xs);
+            }
+
+            .search-form {
+                margin: 0.5rem auto 0;
+            }
+
+            .search-input {
+                padding: 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            .search-btn {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.8rem;
+                right: 0.25rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #5B4CC4, #C12E61);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon .material-icons {
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .tool-category-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(91, 76, 196, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-category-badge .material-icons {
+            font-size: 0.9rem;
+            margin-right: 0.25rem;
+        }
+
+        .tool-description {
+            color: var(--medium);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tool-card .btn {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .tool-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #C12E61, #5B4CC4);
+            color: var(--white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Navigation menu styles to match home page */
+        .nav-menu a {
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            overflow: hidden;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity var(--transition-normal);
+            border-radius: var(--radius-md);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width var(--transition-normal);
+        }
+
+        .nav-menu a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a:hover::before {
+            opacity: 0.1;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 80%;
+        }
+
+        .nav-menu a.active {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Remove arrow from footer logo only */
+        .footer-logo-link::before,
+        .footer-logo-link::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        /* Style for the search icon in the header */
+        .search-icon {
+            color: #666;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .search-icon:hover {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" aria-label="Latest Online Tools Home">
+                    <span>Latest</span>Online<span>Tools</span>
+                </a>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="popular-tools/index.html">Popular Tools</a></li>
+                    <li><a href="all-tools/index.html">All Tools</a></li>
+                </ul>
+
+                <!-- Mobile buttons container -->
+                <div class="mobile-buttons">
+                    <!-- Mobile Search Button -->
+                    <button type="button" class="mobile-search-btn" aria-label="Open search" id="mobile-search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+
+                    <button type="button" class="nav-toggle" aria-label="Toggle navigation menu">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Search Container (hidden by default) -->
+                <div class="mobile-search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search tools..." aria-label="Search tools" id="mobile-search-input">
+                        <button type="button" class="search-btn" aria-label="Search" id="mobile-search-button">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search tools..." aria-label="Search tools" id="header-search-input">
+                    <span class="material-icons search-icon" id="header-search-button">search</span>
+                </div>
+                <div class="search-results" aria-live="polite"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Hero Section -->
+    <section class="hero search-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-on-scroll">Search Results</h1>
+                <p class="hero-subtitle animate-on-scroll">Find the tools you need quickly and easily</p>
+                <form class="search-form animate-on-scroll" id="search-form">
+                    <input type="text" class="search-input" id="search-input" placeholder="Search for tools..." aria-label="Search">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+            <div class="hero-animation" id="search-lottie"></div>
+        </div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section class="tools" id="search-results">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Search Results</h2>
+            <div id="search-results-container">
+                <!-- This will be populated by JavaScript -->
+                <div class="search-results-info animate-on-scroll">
+                    Showing results for "<span class="search-term"></span>" (results)
+                </div>
+
+                <div class="search-filters animate-on-scroll">
+                    <div class="search-filter active">All</div>
+                    <div class="search-filter">Text Tools</div>
+                    <div class="search-filter">Developer Tools</div>
+                    <div class="search-filter">Utility Tools</div>
+                    <div class="search-filter">Math Tools</div>
+                    <div class="search-filter">Image Tools</div>
+                    <div class="search-filter">File Tools</div>
+                    <div class="search-filter">Financial Calculators</div>
+                    <div class="search-filter">Health Calculators</div>
+                </div>
+
+                <div class="tools-grid" id="search-results-grid">
+                    <!-- Tools will be dynamically loaded here -->
+                </div>
+
+
+            </div>
+
+            <!-- No Results Template (hidden by default) -->
+            <div class="no-results hidden animate-on-scroll" id="no-results">
+                <div class="no-results-content">
+                    <span class="material-icons no-results-icon">search_off</span>
+                    <h3 class="no-results-title">No results found</h3>
+                    <p class="no-results-message">We couldn't find any tools matching your search. Please try different keywords or browse our popular tools below.</p>
+                </div>
+
+                <div class="search-suggestions">
+                    <h3 class="search-suggestions-title">Popular tools</h3>
+                    <div class="search-suggestions-list">
+                        <a href="onlinenotepad/index.html" class="search-suggestion">Online Notepad</a>
+                        <a href="qr-generator/index.html" class="search-suggestion">QR Code Generator</a>
+                        <a href="word-counter/index.html" class="search-suggestion">Word Counter</a>
+                        <a href="json-formatter/index.html" class="search-suggestion">JSON Formatter</a>
+                        <a href="unit-converter/index.html" class="search-suggestion">Unit Converter</a>
+                        <a href="password-generator/index.html" class="search-suggestion">Password Generator</a>
+                        <a href="regex-tester/index.html" class="search-suggestion">Regex Tester</a>
+                        <a href="img-resizer/index.html" class="search-suggestion">Image Resizer</a>
+                        <a href="image-editor/index.html" class="search-suggestion">Image Editor</a>
+                        <a href="image-converter/index.html" class="search-suggestion">Image Converter</a>
+                        <a href="meme-generator/index.html" class="search-suggestion">Meme Generator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Cursor Effect -->
+    <div class="custom-cursor"></div>
+
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Search Functionality -->
+    <script>
+        // This script is intentionally left empty as the search functionality is handled in the main script below
+    </script>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/floating-search-button.js"></script>
+    <script>
+        // Global variables to store tools data
+        let allTools = [];
+        let categories = [];
+        let filteredTools = [];
+        let activeCategory = 'all';
+
+        // Footer logo code removed since footer is gone
+
+        // Initialize search animation (handled by main.js)
+        function initLottieAnimation() {
+            // Animation is now handled in main.js
+            console.log("Search animation initialization delegated to main.js");
+        }
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize animations
+            initLottieAnimation();
+
+            // Check if we need to scroll to search results (if URL has #search-results)
+            if (window.location.hash === '#search-results') {
+                // Wait a bit for the page to fully render
+                setTimeout(() => {
+                    const searchResultsSection = document.getElementById('search-results');
+                    if (searchResultsSection) {
+                        // Calculate the position to scroll to (slightly above the section to show the heading)
+                        const position = searchResultsSection.getBoundingClientRect().top + window.pageYOffset - 80;
+
+                        // Scroll to the position
+                        window.scrollTo({
+                            top: position,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 300);
+            }
+
+            const searchForm = document.getElementById('search-form');
+            const searchInput = document.getElementById('search-input');
+            const searchResultsContainer = document.getElementById('search-results-container');
+            const searchResultsGrid = document.getElementById('search-results-grid');
+            const noResults = document.getElementById('no-results');
+            const searchTermElements = document.querySelectorAll('.search-term');
+            const searchResultsInfo = document.querySelector('.search-results-info');
+
+            // Add header search functionality
+            const headerSearchInput = document.getElementById('header-search-input');
+            const headerSearchButton = document.getElementById('header-search-button');
+
+            if (headerSearchInput && headerSearchButton) {
+                // Handle header search icon click
+                headerSearchButton.addEventListener('click', () => {
+                    const searchTerm = headerSearchInput.value.trim();
+                    if (searchTerm !== '') {
+                        window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}#search-results`;
+                    }
+                });
+
+                // Handle Enter key press in header search input
+                headerSearchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const searchTerm = headerSearchInput.value.trim();
+                        if (searchTerm !== '') {
+                            window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}#search-results`;
+                        }
+                    }
+                });
+            }
+
+            // Load tools data
+            loadToolsData().then(() => {
+                // Get search query and tool parameter from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get('q');
+                const toolId = urlParams.get('tool');
+
+                // If we have a specific tool ID, search for that tool
+                if (toolId) {
+                    // Find the tool by ID
+                    const matchingTools = allTools.filter(tool =>
+                        tool.id && tool.id.toLowerCase() === toolId.toLowerCase()
+                    );
+
+                    // If tool is found, display it
+                    if (matchingTools.length > 0) {
+                        // Set a generic search term if no query is provided
+                        const displayQuery = query || matchingTools[0].name;
+
+                        // Set search input value
+                        searchInput.value = displayQuery;
+
+                        // Update search term display
+                        searchTermElements.forEach(el => {
+                            el.textContent = displayQuery;
+                        });
+
+                        // Update results info
+                        if (searchResultsInfo) {
+                            searchResultsInfo.innerHTML = `Showing tool: "<span class="search-term">${matchingTools[0].name}</span>"`;
+                        }
+
+                        // Show search results
+                        searchResultsContainer.classList.remove('hidden');
+                        noResults.classList.add('hidden');
+
+                        // Render the tool
+                        renderTools(matchingTools, searchResultsGrid, displayQuery);
+
+                        // Scroll to search results section
+                        setTimeout(() => {
+                            scrollToSearchResults();
+                        }, 100);
+                    } else {
+                        // Tool not found, show no results message
+                        searchResultsContainer.classList.remove('hidden');
+                        noResults.classList.remove('hidden');
+
+                        // Update the no results message
+                        const noResultsTitle = noResults.querySelector('.no-results-title');
+                        if (noResultsTitle) {
+                            noResultsTitle.textContent = `Tool "${toolId}" not found`;
+                        }
+
+                        // Scroll to no results section
+                        setTimeout(() => {
+                            scrollToSearchResults();
+                        }, 100);
+                    }
+                }
+                // Otherwise, use the query parameter for search
+                else if (query) {
+                    // Set search input value
+                    searchInput.value = query;
+
+                    // Update search term display
+                    searchTermElements.forEach(el => {
+                        el.textContent = query;
+                    });
+
+                    // Filter tools based on search term (name, description, and category)
+                    const matchingTools = allTools.filter(tool =>
+                        tool.name.toLowerCase().includes(query.toLowerCase()) ||
+                        tool.description.toLowerCase().includes(query.toLowerCase()) ||
+                        (tool.category && tool.category.toLowerCase().includes(query.toLowerCase())) ||
+                        (tool.id && tool.id.toLowerCase().includes(query.toLowerCase()))
+                    );
+
+                    // Update results info
+                    if (searchResultsInfo) {
+                        searchResultsInfo.innerHTML = `Showing results for "<span class="search-term">${query}</span>" in names, descriptions, categories, and IDs (${matchingTools.length} results)`;
+                    }
+
+                    if (matchingTools.length > 0) {
+                        // Show search results
+                        searchResultsContainer.classList.remove('hidden');
+                        noResults.classList.add('hidden');
+
+                        // Render tools
+                        renderTools(matchingTools, searchResultsGrid, query);
+
+                        // Scroll to search results section after a short delay to ensure DOM is updated
+                        setTimeout(() => {
+                            scrollToSearchResults();
+                        }, 100);
+                    } else {
+                        // Show no results message
+                        searchResultsContainer.classList.remove('hidden'); // Keep this visible to show the "0 results" message
+                        noResults.classList.remove('hidden');
+
+                        // Update the search term in the no results message
+                        const noResultsTitle = noResults.querySelector('.no-results-title');
+                        if (noResultsTitle) {
+                            noResultsTitle.textContent = `No results found for "${query}" in names, descriptions, categories, or IDs`;
+                        }
+
+                        // Scroll to no results section
+                        setTimeout(() => {
+                            scrollToSearchResults();
+                        }, 100);
+                    }
+                }
+
+                // Function to scroll to search results section
+                function scrollToSearchResults() {
+                    // Try to find the search results section by ID first
+                    const searchResultsSection = document.getElementById('search-results');
+                    if (searchResultsSection) {
+                        // Calculate the position to scroll to (slightly above the section to show the heading)
+                        const position = searchResultsSection.getBoundingClientRect().top + window.pageYOffset - 80;
+
+                        // Scroll to the position
+                        window.scrollTo({
+                            top: position,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+
+            // Handle search form submission
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+
+                if (searchTerm.length > 0) {
+                    // Redirect to search results page with query parameter and hash for direct navigation
+                    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}#search-results`;
+                }
+            });
+
+            // Handle search filter clicks
+            const searchFilters = document.querySelectorAll('.search-filter');
+
+            searchFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Remove active class from all filters
+                    searchFilters.forEach(f => f.classList.remove('active'));
+
+                    // Add active class to clicked filter
+                    filter.classList.add('active');
+
+                    // Get the selected category
+                    const category = filter.textContent.trim();
+
+                    // Get the search query
+                    const query = searchInput.value.trim();
+
+                    // Filter tools based on category and search term
+                    let filteredTools;
+                    if (category === 'All') {
+                        filteredTools = allTools.filter(tool =>
+                            tool.name.toLowerCase().includes(query.toLowerCase()) ||
+                            tool.description.toLowerCase().includes(query.toLowerCase()) ||
+                            (tool.category && tool.category.toLowerCase().includes(query.toLowerCase())) ||
+                            (tool.id && tool.id.toLowerCase().includes(query.toLowerCase()))
+                        );
+                    } else {
+                        filteredTools = allTools.filter(tool =>
+                            (tool.name.toLowerCase().includes(query.toLowerCase()) ||
+                            tool.description.toLowerCase().includes(query.toLowerCase()) ||
+                            (tool.id && tool.id.toLowerCase().includes(query.toLowerCase()))) &&
+                            tool.category === category
+                        );
+                    }
+
+                    // Update results info
+                    if (searchResultsInfo) {
+                        if (category === 'All') {
+                            searchResultsInfo.innerHTML = `Showing results for "<span class="search-term">${query}</span>" in names, descriptions, categories, and IDs (${filteredTools.length} results)`;
+                        } else {
+                            searchResultsInfo.innerHTML = `Showing results for "<span class="search-term">${query}</span>" in ${category} category (${filteredTools.length} results)`;
+                        }
+                    }
+
+                    if (filteredTools.length > 0) {
+                        // Show search results
+                        noResults.classList.add('hidden');
+
+                        // Render filtered tools
+                        renderTools(filteredTools, searchResultsGrid, query);
+                    } else {
+                        // Show no results message
+                        noResults.classList.remove('hidden');
+
+                        // Update the search term in the no results message
+                        const noResultsTitle = noResults.querySelector('.no-results-title');
+                        if (noResultsTitle) {
+                            if (category === 'All') {
+                                noResultsTitle.textContent = `No results found for "${query}" in names, descriptions, categories, or IDs`;
+                            } else {
+                                noResultsTitle.textContent = `No results found for "${query}" in ${category} category`;
+                            }
+                        }
+                    }
+
+                    // Scroll to search results section
+                    setTimeout(() => {
+                        scrollToSearchResults();
+                    }, 100);
+                });
+            });
+
+            // Handle search suggestion clicks
+            const searchSuggestions = document.querySelectorAll('.search-suggestion');
+
+            searchSuggestions.forEach(suggestion => {
+                suggestion.addEventListener('click', () => {
+                    const suggestionText = suggestion.textContent.trim();
+
+                    // Redirect to search results page with suggestion as query
+                    window.location.href = `search.html?q=${encodeURIComponent(suggestionText)}#search-results`;
+                });
+            });
+        });
+
+        /**
+         * Load tools data from embedded data in all-tools.js
+         */
+        async function loadToolsData() {
+            // Embedded tools data to avoid CORS issues with local file access
+            const toolsData = {
+                "categories": [
+                    {
+                        "name": "Text Tools",
+                        "icon": "text_format",
+                        "tools": [
+                            {
+                                "id": "online-notepad",
+                                "name": "Online Notepad",
+                                "description": "A simple, distraction-free online text editor for quick notes and writing.",
+                                "icon": "edit_note",
+                                "isNew": false,
+                                "url": "onlinenotepad/index.html"
+                            },
+                            {
+                                "id": "word-counter",
+                                "name": "Word Counter",
+                                "description": "Count words, characters, and paragraphs in your text with detailed statistics.",
+                                "icon": "format_list_numbered",
+                                "isNew": false,
+                                "url": "word-counter/index.html"
+                            },
+                            {
+                                "id": "markdown-editor",
+                                "name": "Markdown Editor",
+                                "description": "Write and preview Markdown with syntax highlighting and live preview.",
+                                "icon": "code",
+                                "isNew": true,
+                                "url": "markdown-editor/index.html"
+                            },
+                            {
+                                "id": "lipsum-generator",
+                                "name": "Lorem Ipsum Generator",
+                                "description": "Generate Lorem Ipsum placeholder text for your designs, layouts, and mockups.",
+                                "icon": "format_align_left",
+                                "isNew": true,
+                                "url": "lipsum-generator/index.html"
+                            },
+
+                            {
+                                "id": "text-case-converter",
+                                "name": "Case Converter",
+                                "description": "Convert text between different cases: uppercase, lowercase, title case, etc.",
+                                "icon": "text_fields",
+                                "isNew": true,
+                                "url": "text-case-converter/index.html"
+                            },
+                            {
+                                "id": "convert-case",
+                                "name": "Convert Case",
+                                "description": "Transform text between various case formats including camelCase, PascalCase, snake_case, and more.",
+                                "icon": "text_fields",
+                                "isNew": true,
+                                "url": "convert-case/index.html"
+                            },
+
+                            {
+                                "id": "text-diff-highlighter",
+                                "name": "Text Differences Checker",
+                                "description": "Advanced text comparison tool with word-by-word highlighting.",
+                                "icon": "compare",
+                                "isNew": true,
+                                "url": "text-diff-highlighter/index.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Developer Tools",
+                        "icon": "code",
+                        "tools": [
+                            {
+                                "id": "json-formatter",
+                                "name": "JSON Formatter",
+                                "description": "Format, validate, and beautify JSON data.",
+                                "icon": "data_object",
+                                "isNew": false,
+                                "url": "json-formatter/index.html"
+                            },
+                            {
+                                "id": "regex-tester",
+                                "name": "Regex Tester",
+                                "description": "Test and debug regular expressions with real-time highlighting.",
+                                "icon": "find_replace",
+                                "isNew": false,
+                                "url": "regex-tester/index.html"
+                            },
+                            {
+                                "id": "css-grid-generator",
+                                "name": "CSS Grid Generator",
+                                "description": "Create and customize CSS grid layouts with a visual editor.",
+                                "icon": "grid_view",
+                                "isNew": true,
+                                "url": "css-grid-generator/index.html"
+                            },
+                            {
+                                "id": "json-reformatter",
+                                "name": "JSON Reformatter",
+                                "description": "Advanced JSON tool with validation, tree view, and conversion to other formats.",
+                                "icon": "data_object",
+                                "isNew": true,
+                                "url": "json-reformatter/index.html"
+                            },
+                            {
+                                "id": "code-beautifier",
+                                "name": "Code Beautifier",
+                                "description": "Format and beautify code in various programming languages.",
+                                "icon": "format_align_left",
+                                "isNew": true,
+                                "url": "code-beautifier/index.html"
+                            },
+                            {
+                                "id": "html-minifier",
+                                "name": "HTML Minifier",
+                                "description": "Minify HTML code to reduce file size and improve load times.",
+                                "icon": "compress",
+                                "isNew": true,
+                                "url": "html-minifier/index.html"
+                            },
+                            {
+                                "id": "css-minifier",
+                                "name": "CSS Minifier",
+                                "description": "Minify CSS code to reduce file size and improve load times.",
+                                "icon": "compress",
+                                "isNew": true,
+                                "url": "css-minifier/index.html"
+                            },
+                            {
+                                "id": "js-minifier",
+                                "name": "JavaScript Minifier",
+                                "description": "Minify JavaScript code to reduce file size and improve load times.",
+                                "icon": "compress",
+                                "isNew": true,
+                                "url": "js-minifier/index.html"
+                            },
+                            {
+                                "id": "sql-formatter",
+                                "name": "SQL Formatter",
+                                "description": "Format and beautify SQL queries for better readability.",
+                                "icon": "storage",
+                                "isNew": true,
+                                "url": "sql-formatter/index.html"
+                            },
+
+                        ]
+                    },
+                    {
+                        "name": "Utility Tools",
+                        "icon": "build",
+                        "tools": [
+                            {
+                                "id": "qr-generator",
+                                "name": "QR Code Generator",
+                                "description": "Create QR codes for URLs, text, contact info, and more.",
+                                "icon": "qr_code",
+                                "isNew": true,
+                                "url": "qr-generator/index.html"
+                            },
+                            {
+                                "id": "unit-converter",
+                                "name": "Unit Converter",
+                                "description": "Convert between different units of measurement.",
+                                "icon": "swap_vert",
+                                "isNew": true,
+                                "url": "unit-converter/index.html"
+                            },
+
+
+
+                            {
+                                "id": "password-generator",
+                                "name": "Password Generator",
+                                "description": "Generate strong, secure passwords with customizable options.",
+                                "icon": "password",
+                                "isNew": true,
+                                "url": "password-generator/index.html"
+                            },
+
+                            {
+                                "id": "password-checker",
+                                "name": "Password Checker",
+                                "description": "Check password strength and security with breach detection.",
+                                "icon": "security",
+                                "isNew": true,
+                                "url": "password-checker/index.html"
+                            },
+                            {
+                                "id": "ascii-table",
+                                "name": "ASCII Table",
+                                "description": "Reference and search ASCII character codes and symbols.",
+                                "icon": "table_chart",
+                                "isNew": true,
+                                "url": "ascii-table/index.html"
+                            },
+
+                            {
+                                "id": "date-duration-calculator",
+                                "name": "Date Duration Calculator",
+                                "description": "Calculate number of days, weeks, months between dates or add/subtract time from dates.",
+                                "icon": "event",
+                                "isNew": true,
+                                "url": "date-duration-calculator/index.html"
+                            },
+
+                            {
+                                "id": "witeboard",
+                                "name": "Witeboard",
+                                "description": "Collaborative online whiteboard for drawing and brainstorming.",
+                                "icon": "draw",
+                                "isNew": true,
+                                "url": "witeboard/index.html"
+                            },
+                            {
+                                "id": "strawpoll",
+                                "name": "Straw Poll",
+                                "description": "Create polls and surveys with various voting options and real-time results.",
+                                "icon": "poll",
+                                "isNew": true,
+                                "url": "strawpoll/index.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Math Tools",
+                        "icon": "calculate",
+                        "tools": [
+                            {
+                                "id": "grade-calculator",
+                                "name": "Grade Calculator",
+                                "description": "Calculate final grades based on assignments, tests, and other assessable items.",
+                                "icon": "school",
+                                "isNew": true,
+                                "url": "grade-calculator/index.html"
+                            },
+                            {
+                                "id": "gpa-calculator",
+                                "name": "GPA Calculator",
+                                "description": "Calculate your Grade Point Average (GPA) based on course grades and credit hours.",
+                                "icon": "calculate",
+                                "isNew": true,
+                                "url": "gpa-calculator/index.html"
+                            },
+
+
+
+
+
+
+                        ]
+                    },
+                    {
+                        "name": "Image Tools",
+                        "icon": "image",
+                        "tools": [
+                            {
+                                "id": "img-resizer",
+                                "name": "Image Resizer",
+                                "description": "Resize, crop, and optimize images for web or print.",
+                                "icon": "crop",
+                                "isNew": true,
+                                "url": "img-resizer/index.html"
+                            },
+                            {
+                                "id": "image-compressor",
+                                "name": "Image Compressor",
+                                "description": "Compress images to reduce file size while preserving quality.",
+                                "icon": "compress",
+                                "isNew": true,
+                                "url": "image-compressor/index.html"
+                            },
+                            {
+                                "id": "image-converter",
+                                "name": "Image Converter",
+                                "description": "Convert images between formats like JPG, PNG, WebP, and more.",
+                                "icon": "swap_horiz",
+                                "isNew": true,
+                                "url": "image-converter/index.html"
+                            },
+                            {
+                                "id": "image-editor",
+                                "name": "Image Editor",
+                                "description": "Edit images with filters, effects, and adjustments in your browser.",
+                                "icon": "photo_filter",
+                                "isNew": true,
+                                "url": "image-editor/index.html"
+                            },
+                            {
+                                "id": "image-background-remover",
+                                "name": "Background Remover",
+                                "description": "Remove backgrounds from images automatically with AI technology.",
+                                "icon": "auto_fix_high",
+                                "isNew": true,
+                                "url": "image-background-remover/index.html"
+                            },
+                            {
+                                "id": "meme-generator",
+                                "name": "Meme Generator",
+                                "description": "Create custom memes with your own images and text.",
+                                "icon": "sentiment_very_satisfied",
+                                "isNew": true,
+                                "url": "meme-generator/index.html"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Financial Calculators",
+                        "icon": "attach_money",
+                        "tools": [
+                            {
+                                "id": "mortgage-calculator",
+                                "name": "Mortgage Calculator",
+                                "description": "Calculate mortgage payments, amortization schedules, and total costs.",
+                                "icon": "home",
+                                "isNew": true,
+                                "url": "mortgage-calculator/index.html"
+                            },
+                            {
+                                "id": "compound-interest-calculator",
+                                "name": "Compound Interest Calculator",
+                                "description": "Calculate growth of investments with compound interest over time.",
+                                "icon": "trending_up",
+                                "isNew": true,
+                                "url": "compound-interest-calculator/index.html"
+                            },
+
+                        ]
+                    },
+                    {
+                        "name": "Health Calculators",
+                        "icon": "favorite",
+                        "tools": [
+                            {
+                                "id": "bmi-calculator",
+                                "name": "BMI Calculator",
+                                "description": "Calculate Body Mass Index and provide health category information.",
+                                "icon": "monitor_weight",
+                                "isNew": true,
+                                "url": "bmi-calculator/index.html"
+                            },
+
+                        ]
+                    },
+                    {
+                        "name": "File Tools",
+                        "icon": "folder",
+                        "tools": [
+                            {
+                                "id": "pdf-converter",
+                                "name": "PDF Converter",
+                                "description": "Convert documents to and from PDF format with ease.",
+                                "icon": "picture_as_pdf",
+                                "isNew": true,
+                                "url": "pdf-converter/index.html"
+                            },
+                            {
+                                "id": "file-compressor",
+                                "name": "File Compressor",
+                                "description": "Compress files to reduce size while maintaining quality.",
+                                "icon": "compress",
+                                "isNew": false,
+                                "url": "file-compressor/index.html"
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            // Process the embedded data
+            categories = toolsData.categories;
+
+            // Create a flat array of all tools with category information
+            allTools = toolsData.categories.reduce((acc, category) => {
+                return acc.concat(category.tools.map(tool => ({
+                    ...tool,
+                    category: category.name,
+                    categoryId: category.name.toLowerCase().replace(/\s+/g, '-'),
+                    categoryIcon: category.icon
+                })));
+            }, []);
+
+            filteredTools = [...allTools];
+        }
+
+        /**
+         * Render tools in the grid
+         * @param {Array} tools - Array of tools to render
+         * @param {HTMLElement} container - Container element for tools
+         * @param {string} searchTerm - Search term to highlight
+         */
+        function renderTools(tools, container, searchTerm) {
+            // Check if container exists
+            if (!container) {
+                console.error("Container element not found");
+                return;
+            }
+
+            // Clear container
+            container.innerHTML = '';
+
+            if (!tools || tools.length === 0) {
+                // Don't add a message here as we're using the dedicated no-results section
+                return;
+            }
+
+            // Get the tool ID from URL if present
+            const urlParams = new URLSearchParams(window.location.search);
+            const highlightedToolId = urlParams.get('tool');
+
+            // Render tools
+            tools.forEach(tool => {
+                if (!tool) return; // Skip if tool is undefined
+
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+
+                // Add special highlighting class if this is the specific tool being searched for
+                if (highlightedToolId && tool.id && tool.id.toLowerCase() === highlightedToolId.toLowerCase()) {
+                    toolCard.classList.add('highlighted-tool');
+                    // Add inline style for highlighted tool
+                    toolCard.style.border = '2px solid #C12E61';
+                    toolCard.style.boxShadow = '0 0 15px rgba(193, 46, 97, 0.3)';
+                    toolCard.style.transform = 'scale(1.02)';
+                }
+
+                // Ensure tool properties exist with fallbacks
+                const name = tool.name || 'Unnamed Tool';
+                const description = tool.description || 'No description available';
+                const icon = tool.icon || 'build';
+                const categoryIcon = tool.categoryIcon || 'category';
+                const category = tool.category || 'Uncategorized';
+                // Fix URL path for search page
+                let url = tool.url || '#';
+
+                // Ensure URL is properly formatted for the search page
+                if (url && url !== '#') {
+                    // If URL doesn't start with a path separator or protocol, it's a relative URL
+                    if (!url.startsWith('/') && !url.startsWith('http') && !url.startsWith('../')) {
+                        // For search page, URLs should be relative to the tools directory
+                        url = url;
+                    }
+                }
+
+                const isNew = tool.isNew || false;
+
+                // Highlight search term in name, description, and category
+                let highlightedName = name;
+                let highlightedDescription = description;
+                let highlightedCategory = category;
+                let highlightedId = tool.id || '';
+
+                if (searchTerm) {
+                    try {
+                        const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                        highlightedName = name.replace(regex, '<span class="search-highlight">$1</span>');
+                        highlightedDescription = description.replace(regex, '<span class="search-highlight">$1</span>');
+                        highlightedCategory = category.replace(regex, '<span class="search-highlight">$1</span>');
+
+                        // Also highlight the tool ID if it matches
+                        if (highlightedId) {
+                            highlightedId = highlightedId.replace(regex, '<span class="search-highlight">$1</span>');
+                        }
+                    } catch (error) {
+                        console.error("Error highlighting search term:", error);
+                        // Use unhighlighted text as fallback
+                    }
+                }
+
+                toolCard.innerHTML = `
+                    <div class="tool-icon">
+                        <span class="material-icons">${icon}</span>
+                    </div>
+                    <h3 class="tool-name">${highlightedName}</h3>
+                    <span class="tool-category-badge">
+                        <span class="material-icons">${categoryIcon}</span>
+                        ${highlightedCategory}
+                    </span>
+                    <p class="tool-description">${highlightedDescription}</p>
+                    <a href="${url}" class="btn btn-primary">Launch</a>
+                    ${isNew ? '<span class="tool-badge">New</span>' : ''}
+                    ${(highlightedToolId && tool.id && tool.id.toLowerCase() === highlightedToolId.toLowerCase()) ?
+                      '<span class="tool-badge" style="background: linear-gradient(135deg, #5B4CC4, #C12E61); top: 3.5rem;">Selected</span>' : ''}
+                `;
+
+                container.appendChild(toolCard);
+
+                // If this is the highlighted tool, scroll to it
+                if (highlightedToolId && tool.id && tool.id.toLowerCase() === highlightedToolId.toLowerCase()) {
+                    setTimeout(() => {
+                        toolCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="../index.html" aria-label="Latest Online Tools Home" class="footer-logo-link">
+                            <span>Latest</span>Online<span>Tools</span>
+                        </a>
+                    </div>
+                    <p>Empowering your productivity with the latest online tools.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="popular-tools/index.html">Popular Tools</a></li>
+                        <li><a href="all-tools/index.html">All Tools</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="onlinenotepad/index.html">Online Notepad</a></li>
+                        <li><a href="qr-generator/index.html">QR Code Generator</a></li>
+                        <li><a href="word-counter/index.html">Word Counter</a></li>
+                        <li><a href="image-editor/index.html">Image Editor</a></li>
+                        <li><a href="meme-generator/index.html">Meme Generator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><span class="material-icons">facebook</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-icons">twitter</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-icons">instagram</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="material-icons">linkedin</span></a>
+                    </div>
+                    <p>Email: contact@latestonlinetools.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Latest Online Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

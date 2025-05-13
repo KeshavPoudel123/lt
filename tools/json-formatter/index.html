@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Format, validate, and beautify JSON - Latest Online Tools">
+    <!-- Firefox doesn't support theme-color, but Chrome and Safari do -->
+    <meta name="color-scheme" content="dark">
+    <title>JSON Formatter - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">JSON Formatter</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Format, validate, and beautify your JSON data. Easily identify syntax errors and convert between pretty and minified formats.</p>
+                    </div>
+
+                    <div class="json-formatter">
+                        <div class="input-section">
+                            <div class="input-header">
+                                <h3>Input JSON</h3>
+                                <div class="input-actions">
+                                    <button type="button" id="clear-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-trash-alt"></i> Clear
+                                    </button>
+                                    <button type="button" id="sample-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-file-alt"></i> Sample
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="input-container">
+                                <textarea id="json-input" class="json-input" placeholder="Paste your JSON here or enter a URL and click 'Fetch'"></textarea>
+                            </div>
+
+                            <div class="url-input-container">
+                                <input type="url" id="url-input" class="form-control" placeholder="https://example.com/api/data.json">
+                                <button type="button" id="fetch-btn" class="btn btn-secondary">
+                                    <i class="fas fa-download"></i> Fetch
+                                </button>
+                            </div>
+
+                            <div class="format-options">
+                                <button type="button" id="format-btn" class="btn btn-primary">
+                                    <i class="fas fa-check-circle"></i> Validate & Format
+                                </button>
+
+                                <div class="format-settings">
+                                    <div class="setting-item checkbox">
+                                        <input type="checkbox" id="minify-output">
+                                        <label for="minify-output">Minify Output</label>
+                                    </div>
+
+                                    <div class="indent-setting">
+                                        <label for="indent-size">Indent Size:</label>
+                                        <select id="indent-size" class="form-control form-control-sm">
+                                            <option value="2">2 spaces</option>
+                                            <option value="4">4 spaces</option>
+                                            <option value="tab">Tab</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="output-section">
+                            <div class="output-header">
+                                <h3>Formatted JSON</h3>
+                                <div class="output-actions">
+                                    <button type="button" id="copy-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                    <button type="button" id="download-btn" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="output-container">
+                                <pre id="json-output" class="json-output"><code>// Formatted JSON will appear here</code></pre>
+                            </div>
+
+                            <div id="error-container" class="error-container">
+                                <div class="error-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="error-message">
+                                    <h4>Error</h4>
+                                    <p id="error-message">No errors found.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

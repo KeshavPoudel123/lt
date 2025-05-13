@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A powerful Markdown editor with live preview, syntax highlighting, and export options.">
+    <meta name="color-scheme" content="dark">
+    <title>Markdown Editor - Latest Online Tools</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Markdown Editor</h1>
+
+                </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2></h2>
+                        <p>Create and edit Markdown documents with live preview. Format text, add links, images, tables, and more with this powerful editor.</p>
+                    </div>
+
+                    <div class="markdown-editor">
+                        <div class="editor-toolbar">
+                            <div class="toolbar-group">
+                                <button type="button" class="toolbar-btn" data-action="bold" title="Bold" aria-label="Bold">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="italic" title="Italic" aria-label="Italic">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="heading" title="Heading" aria-label="Heading">
+                                    <i class="fas fa-heading"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="strikethrough" title="Strikethrough" aria-label="Strikethrough">
+                                    <i class="fas fa-strikethrough"></i>
+                                </button>
+                            </div>
+
+                            <div class="toolbar-group">
+                                <button type="button" class="toolbar-btn" data-action="link" title="Link" aria-label="Link">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="code" title="Code" aria-label="Code">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="quote" title="Quote" aria-label="Quote">
+                                    <i class="fas fa-quote-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="toolbar-group">
+                                <button type="button" class="toolbar-btn" data-action="ul" title="Unordered List" aria-label="Unordered List">
+                                    <i class="fas fa-list-ul"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="ol" title="Ordered List" aria-label="Ordered List">
+                                    <i class="fas fa-list-ol"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="task" title="Task List" aria-label="Task List">
+                                    <i class="fas fa-tasks"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="table" title="Table" aria-label="Table">
+                                    <i class="fas fa-table"></i>
+                                </button>
+                            </div>
+
+                            <div class="toolbar-group">
+                                <button type="button" class="toolbar-btn" data-action="undo" title="Undo" aria-label="Undo">
+                                    <i class="fas fa-undo"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-action="redo" title="Redo" aria-label="Redo">
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="editor-main">
+                            <div class="editor-pane">
+                                <div class="pane-header">
+                                    <h3>Markdown</h3>
+                                    <div class="pane-actions">
+                                        <button type="button" id="clear-editor" class="btn btn-sm" title="Clear Editor" aria-label="Clear Editor">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button type="button" id="copy-markdown" class="btn btn-sm" title="Copy Markdown" aria-label="Copy Markdown">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea id="markdown-input" class="markdown-textarea" spellcheck="true" placeholder="Type your Markdown here..."></textarea>
+                            </div>
+
+                            <div class="preview-pane">
+                                <div class="pane-header">
+                                    <h3>Preview</h3>
+                                    <div class="pane-actions">
+                                        <button type="button" id="copy-html" class="btn btn-sm" title="Copy HTML" aria-label="Copy HTML">
+                                            <i class="fas fa-code"></i>
+                                        </button>
+                                        <button type="button" id="toggle-preview" class="btn btn-sm" title="Toggle Preview Mode" aria-label="Toggle Preview Mode">
+                                            <i class="fas fa-columns"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="preview-content" class="preview-content"></div>
+                            </div>
+                        </div>
+
+                        <div class="editor-footer">
+                            <div class="editor-stats">
+                                <span id="word-count">0 words</span>
+                                <span id="char-count">0 characters</span>
+                            </div>
+                            <div class="editor-actions">
+                                <!-- Import button temporarily disabled
+                                <button type="button" id="import-btn" class="btn btn-sm">
+                                    <i class="fas fa-file-import"></i> Import
+                                </button>
+                                -->
+                                <button type="button" id="export-btn" class="btn btn-sm">
+                                    <i class="fas fa-file-export"></i> Export
+                                </button>
+                                <div class="dropdown">
+                                    <button type="button" id="export-dropdown" class="btn btn-sm dropdown-toggle">
+                                        <i class="fas fa-download"></i> Export As
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <button type="button" data-format="md" class="dropdown-item">Markdown (.md)</button>
+                                        <button type="button" data-format="html" class="dropdown-item">HTML (.html)</button>
+                                        <button type="button" data-format="pdf" class="dropdown-item">PDF (.pdf)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+
+        <!-- Floating Home Button -->
+        <a href="../../index.html" class="floating-home-btn">
+            <span class="material-icons">home</span>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <!-- Import Modal (temporarily disabled)
+    <div id="import-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import Markdown</h2>
+                <button type="button" class="close-btn" aria-label="Close import modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="import-file">Upload a Markdown file:</label>
+                    <div class="file-upload-container">
+                        <input type="file" id="import-file" class="form-control" accept=".md,.markdown,.txt">
+                        <div class="file-upload-info">
+                            <p>Supported formats: .md, .markdown, .txt</p>
+                            <p>Maximum file size: 5MB</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="import-text">Or paste Markdown text:</label>
+                    <textarea id="import-text" class="form-control" rows="10" placeholder="Paste your Markdown here..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="import-submit" class="btn btn-primary">Import</button>
+                    <button type="button" id="import-cancel" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button type="button" class="close-btn" aria-label="Close settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Display Options</h3>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="dark-mode" checked>
+                        <label for="dark-mode">Dark Mode</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="sync-scroll" checked>
+                        <label for="sync-scroll">Sync Scrolling</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="auto-preview" checked>
+                        <label for="auto-preview">Auto Preview</label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Editor Options</h3>
+                    <div class="setting-item">
+                        <label for="font-size">Font Size</label>
+                        <select id="font-size" class="form-control" aria-label="Font size">
+                            <option value="12">12px</option>
+                            <option value="14" selected>14px</option>
+                            <option value="16">16px</option>
+                            <option value="18">18px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="tab-size">Tab Size</label>
+                        <select id="tab-size" class="form-control" aria-label="Tab size">
+                            <option value="2">2 spaces</option>
+                            <option value="4" selected>4 spaces</option>
+                            <option value="8">8 spaces</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- DOMPurify for sanitizing HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
+
+    <!-- Highlight.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+
+    <!-- Lottie Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+

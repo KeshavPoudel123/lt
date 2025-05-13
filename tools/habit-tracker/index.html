@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - Latest Online Tools</title>
+    <meta name="description" content="Track and build habits with visual progress indicators. Stay motivated and consistent with your daily routines.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon-new.svg">
+    <link rel="alternate icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/floating-home-button.css">
+
+    <!-- Tool-specific CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    </div>
+
+    <!-- App Shell -->
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="tool-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" aria-label="Latest Online Tools Home">
+                        <span>Latest</span>Online<span>Tools</span>
+                    </a>
+                </div>
+
+                <h1 class="tool-title">Habit Tracker</h1>
+
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="tool-content">
+            <div class="container">
+                <div class="tool-container">
+                    <div class="tool-description">
+                        <h2>Build Better Habits</h2>
+                        <p>Track your daily habits and routines with visual progress indicators. Stay motivated and consistent with your goals.</p>
+                    </div>
+
+                    <div class="habits-app">
+                        <div class="habits-sidebar">
+                            <div class="sidebar-header">
+                                <button type="button" id="new-habit-btn" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i> New Habit
+                                </button>
+                                <div class="view-options">
+                                    <button type="button" id="daily-view-btn" class="view-btn active">Daily</button>
+                                    <button type="button" id="weekly-view-btn" class="view-btn">Weekly</button>
+                                    <button type="button" id="monthly-view-btn" class="view-btn">Monthly</button>
+                                </div>
+                            </div>
+                            <div class="sidebar-content">
+                                <div class="sidebar-section">
+                                    <div class="section-header">
+                                        <h3>Categories</h3>
+                                        <button type="button" id="add-category-btn" class="btn btn-sm" title="Add Category">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <ul id="categories-list" class="categories-list">
+                                        <li class="category-item active" data-category="all">
+                                            <span class="category-color category-color-primary"></span>
+                                            <span class="category-name">All Habits</span>
+                                            <span class="category-count">0</span>
+                                        </li>
+                                        <li class="category-item" data-category="health">
+                                            <span class="category-color category-color-success"></span>
+                                            <span class="category-name">Health</span>
+                                            <span class="category-count">0</span>
+                                        </li>
+                                        <li class="category-item" data-category="productivity">
+                                            <span class="category-color category-color-warning"></span>
+                                            <span class="category-name">Productivity</span>
+                                            <span class="category-count">0</span>
+                                        </li>
+                                        <li class="category-item" data-category="learning">
+                                            <span class="category-color category-color-secondary"></span>
+                                            <span class="category-name">Learning</span>
+                                            <span class="category-count">0</span>
+                                        </li>
+                                        <li class="category-item" data-category="mindfulness">
+                                            <span class="category-color category-color-danger"></span>
+                                            <span class="category-name">Mindfulness</span>
+                                            <span class="category-count">0</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sidebar-section">
+                                    <h3>Statistics</h3>
+                                    <div class="stats-container">
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="total-habits">0</div>
+                                            <div class="stat-label">Total Habits</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="completed-today">0</div>
+                                            <div class="stat-label">Completed Today</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value" id="current-streak">0</div>
+                                            <div class="stat-label">Current Streak</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-footer">
+                                <button type="button" id="export-habits-btn" class="btn btn-secondary">
+                                    <i class="fas fa-download"></i> Export Habits
+                                </button>
+                                <button type="button" id="import-habits-btn" class="btn btn-secondary">
+                                    <i class="fas fa-upload"></i> Import Habits
+                                </button>
+                                <input type="file" id="import-file" class="hidden" accept=".json" title="Import Habits File">
+                            </div>
+                        </div>
+                        <div class="habits-content">
+                            <div class="content-header">
+                                <div class="date-navigation">
+                                    <button type="button" id="prev-date-btn" class="nav-btn" title="Previous Day">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <h3 id="current-date">Today</h3>
+                                    <button type="button" id="next-date-btn" class="nav-btn" title="Next Day">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <button type="button" id="today-btn" class="btn btn-primary">
+                                    <i class="fas fa-calendar-day"></i> Today
+                                </button>
+                            </div>
+                            <div id="habits-list" class="habits-list">
+                                <!-- Habits will be added here dynamically -->
+                                <div id="empty-state" class="empty-state">
+                                    <i class="fas fa-check-circle empty-icon"></i>
+                                    <h3>No Habits Yet</h3>
+                                    <p>Create your first habit to start tracking your progress.</p>
+                                    <button type="button" id="empty-new-habit-btn" class="btn btn-primary">
+                                        <i class="fas fa-plus"></i> Create New Habit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="tool-footer">
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Habit Modal -->
+    <div id="habit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="habit-modal-title">Add New Habit</h3>
+                <button type="button" id="close-habit-modal-btn" class="close-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="habit-name">Habit Name</label>
+                    <input type="text" id="habit-name" class="form-control" placeholder="Enter habit name">
+                </div>
+                <div class="form-group">
+                    <label for="habit-category">Category</label>
+                    <select id="habit-category" class="form-control">
+                        <option value="health">Health</option>
+                        <option value="productivity">Productivity</option>
+                        <option value="learning">Learning</option>
+                        <option value="mindfulness">Mindfulness</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="habit-goal">Daily Goal</label>
+                    <div class="goal-input">
+                        <input type="number" id="habit-goal" class="form-control" min="1" value="1">
+                        <select id="habit-goal-type" class="form-control" title="Goal Unit">
+                            <option value="times">times</option>
+                            <option value="minutes">minutes</option>
+                            <option value="hours">hours</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Repeat on</label>
+                    <div class="weekday-selector">
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-0" class="weekday-checkbox" checked>
+                            <label for="weekday-0">Sun</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-1" class="weekday-checkbox" checked>
+                            <label for="weekday-1">Mon</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-2" class="weekday-checkbox" checked>
+                            <label for="weekday-2">Tue</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-3" class="weekday-checkbox" checked>
+                            <label for="weekday-3">Wed</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-4" class="weekday-checkbox" checked>
+                            <label for="weekday-4">Thu</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-5" class="weekday-checkbox" checked>
+                            <label for="weekday-5">Fri</label>
+                        </div>
+                        <div class="weekday-item">
+                            <input type="checkbox" id="weekday-6" class="weekday-checkbox" checked>
+                            <label for="weekday-6">Sat</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="habit-reminder">Reminder (Optional)</label>
+                    <input type="time" id="habit-reminder" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="habit-notes">Notes (Optional)</label>
+                    <textarea id="habit-notes" class="form-control" rows="3" placeholder="Add notes about this habit"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save-habit-btn" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Habit
+                </button>
+                <button type="button" id="delete-habit-btn" class="btn btn-danger hidden">
+                    <i class="fas fa-trash-alt"></i> Delete Habit
+                </button>
+                <button type="button" id="cancel-habit-btn" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Category</h3>
+                <button type="button" id="close-category-modal-btn" class="close-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="category-name">Category Name</label>
+                    <input type="text" id="category-name" class="form-control" placeholder="Enter category name">
+                </div>
+                <div class="form-group">
+                    <label for="category-color">Category Color</label>
+                    <input type="color" id="category-color" class="form-control color-picker" value="#007AFF">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save-category-btn" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Category
+                </button>
+                <button type="button" id="cancel-category-btn" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Home Button -->
+    <a href="../../index.html" class="floating-home-btn">
+        <span class="material-icons">home</span>
+        <span>Home</span>
+    </a>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Common JavaScript -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Floating Home Button JavaScript -->
+    <script src="../../assets/js/floating-home-button.js"></script>
+
+    <!-- Tool-specific JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
